@@ -20,28 +20,17 @@ export class PatientService {
       }));
   }
 
-  public createNewPatient(numberOfRespirations, oxygenSaturation, systolicPressure, heartRate,
-                          stateOfConsciousness, bodyTemperature, coughDegree, score, patientId) {
-    return this.http.post<{
-      years: number,
-      numberOfRespirations: number,
-      oxygenSaturation: number,
-      anyAdditionalO2: boolean,
-      systolicPressure: number,
-      heartRate: number,
-      stateOfConsciousness: string,
-      bodyTemperature: number,
-      coughDegree: number,
-      score: number,
-    }>(`${environment.apiUrl}/warning-score/patient/${patientId}`, {
-      numberOfRespirations,
-      oxygenSaturation,
-      systolicPressure,
-      heartRate,
-      stateOfConsciousness,
-      bodyTemperature,
-      coughDegree,
-      score,
+  public createNewScoreForPatient(scoreForm, patientId) {
+    return this.http.post<WarningScore>(`${environment.apiUrl}/warning-score/patient/${patientId}`, {
+      years: scoreForm.years,
+      numberOfRespirations: scoreForm.numberOfRespirations,
+      oxygenSaturation: scoreForm.oxygenSaturation,
+      anyAdditionalO2: scoreForm.anyAdditionalO2,
+      systolicPressure: scoreForm.systolicPressure,
+      heartRate: scoreForm.heartRate,
+      stateOfConsciousness: scoreForm.stateOfConsciousness,
+      bodyTemperature: scoreForm.bodyTemperature,
+      coughDegree: scoreForm.coughDegree,
     })
       .pipe(map((response) => {
         return response;
