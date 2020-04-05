@@ -5,6 +5,7 @@
   "EMAIL_ADDRESS": "Email address",
   "EMAIL_REQUIRED" : "Email is required",
   "PASSWORD": "Password",
+  "PASSWORD_REPEAT": "Password repeat",
   "PASSWORD_REQUIRED": "Password is required",
   "SIGN_UP": "Sign up",
   "FIRST_NAME": "First name",
@@ -18,5 +19,9 @@
   "COUNTRY": "Country",
   "COUNTRY_REQUIRED": "Country required",
   "FORGOT_PASSWORD": "Forgot password",
-  "FORGOT_PASSWORD_SUBTITLE": "You will receive reset password link in your inbox"
+  "FORGOT_PASSWORD_SUBTITLE": "You will receive reset password link in your inbox",
+  "RESET_PASSWORD": "Reset password",
+  "CURRENT_PASSWORD": "Current password",
+  "NEW_PASSWORD": "New password",
+  "NEW_PASSWORD_REPEAT": "New password repeat"
 }

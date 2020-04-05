@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-
 import {Doctor} from '../../models/doctor.model';
 import {environment} from '../../../environments/environment';
 import {Router} from '@angular/router';
@@ -54,6 +53,13 @@ export class AuthService {
 
   public forgotPassword(email: string) {
     return this.http.post<any>(`${environment.apiUrl}/auth/forgot-password`, {email})
+      .pipe(map((response) => {
+        return response;
+      }));
+  }
+
+  public resetPassword(newPassword: string) {
+    return this.http.post<any>(`${environment.apiUrl}/auth/reset-password`, {newPassword})
       .pipe(map((response) => {
         return response;
       }));
