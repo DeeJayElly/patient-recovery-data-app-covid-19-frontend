@@ -4,6 +4,12 @@
   align-items: center;
 }
 
+.title-buttons-container {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+}
+
 nb-list {
   display: flex;
   flex-direction: column;

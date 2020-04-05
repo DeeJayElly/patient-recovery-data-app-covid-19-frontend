@@ -3,6 +3,7 @@ import {LocalDataSource} from 'ng2-smart-table';
 import {first} from 'rxjs/operators';
 import {PatientService} from '../../../services/patient/patient.service';
 import {Router} from '@angular/router';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'ngx-patients-list',
@@ -38,7 +39,9 @@ export class PatientsListComponent implements OnInit {
       },
       dateOfBirth: {
         title: 'Date of birth',
-        type: 'date',
+        valuePrepareFunction: (dateOfBirth: any) => {
+          return new DatePipe('en-US').transform(dateOfBirth, 'M/d/yyyy');
+        },
       },
       sex: {
         title: 'Gender',
