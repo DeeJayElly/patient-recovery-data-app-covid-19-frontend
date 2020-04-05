@@ -3,10 +3,12 @@
  * Copyright Akveo. All Rights Reserved.
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
-import { Component, OnInit } from '@angular/core';
-import { AnalyticsService } from './@core/utils/analytics.service';
-import { SeoService } from './@core/utils/seo.service';
+import {Component, OnInit} from '@angular/core';
+import {AnalyticsService} from './@core/utils/analytics.service';
+import {SeoService} from './@core/utils/seo.service';
 import {TranslateService} from '@ngx-translate/core';
+import {Doctor} from './models/doctor.model';
+import {AuthService} from './services/auth/auth.service';
 
 @Component({
   selector: 'ngx-app',
@@ -14,7 +16,14 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private analytics: AnalyticsService, private seoService: SeoService, public translate: TranslateService) {
+  public currentUser: Doctor;
+
+  constructor(private analytics: AnalyticsService,
+              private seoService: SeoService,
+              public translate: TranslateService,
+              private authService: AuthService) {
+
+    this.authService.currentUser.subscribe(x => this.currentUser = x);
 
     // Fallback language
     translate.setDefaultLang('en'); // Fallback
