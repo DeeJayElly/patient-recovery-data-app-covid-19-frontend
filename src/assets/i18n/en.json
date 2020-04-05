@@ -1,7 +1,7 @@
 {
   "APP_TITLE": "Patient recovery data",
   "SIGN_IN": "Sign in",
-  "SIGN_IN_SUBTITLE": "Hello! Log in with your email.",
+  "SIGN_IN_SUBTITLE": "Log in with your email and password",
   "EMAIL_ADDRESS": "Email address",
   "EMAIL_REQUIRED" : "Email is required",
   "PASSWORD": "Password",
@@ -16,5 +16,7 @@
   "HOSPITAL_NAME": "Hospital name",
   "HOSPITAL_NAME_REQUIRED": "Hospital name required",
   "COUNTRY": "Country",
-  "COUNTRY_REQUIRED": "Country required"
+  "COUNTRY_REQUIRED": "Country required",
+  "FORGOT_PASSWORD": "Forgot password",
+  "FORGOT_PASSWORD_SUBTITLE": "You will receive reset password link in your inbox"
 }

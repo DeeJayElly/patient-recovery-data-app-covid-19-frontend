@@ -52,6 +52,13 @@ export class AuthService {
       }));
   }
 
+  public forgotPassword(email: string) {
+    return this.http.post<any>(`${environment.apiUrl}/auth/forgot-password`, {email})
+      .pipe(map((response) => {
+        return response;
+      }));
+  }
+
   public logout() {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);

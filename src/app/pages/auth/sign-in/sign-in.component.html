@@ -6,7 +6,8 @@
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="email">{{'EMAIL_ADDRESS' | translate}}</label>
-          <input type="text" placeholder="{{'EMAIL_ADDRESS' | translate}}" formControlName="email" name="email" id="email" class="form-control"
+          <input type="text" placeholder="{{'EMAIL_ADDRESS' | translate}}" formControlName="email" name="email"
+                 id="email" class="form-control"
                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
           <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
             <div *ngIf="f.email.errors.required">{{'EMAIL_REQUIRED' | translate}}</div>
@@ -14,13 +15,15 @@
         </div>
         <div class="form-group">
           <label for="password">{{'PASSWORD' | translate}}</label>
-          <input type="password" placeholder="{{'PASSWORD' | translate}}" formControlName="password" name="password" id="password" class="form-control"
+          <input type="password" placeholder="{{'PASSWORD' | translate}}" formControlName="password" name="password"
+                 id="password" class="form-control"
                  [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
           <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
             <div *ngIf="f.password.errors.required">{{'PASSWORD_REQUIRED' | translate}}</div>
           </div>
         </div>
-        <button [ngClass]="{'btn-active' : loginForm.dirty}" [disabled]="!loginForm.dirty" class="btn btn-primary sign-in-btn">
+        <button [ngClass]="{'btn-active' : loginForm.dirty}" [disabled]="!loginForm.dirty"
+                class="btn btn-primary sign-in-btn">
           <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
           {{'SIGN_IN' | translate}}
         </button>
@@ -28,6 +31,7 @@
       </form>
       <div class="register-info">
         <p>Don't have an account? <a routerLink="/auth/sign-up">Sign up</a> to get one!</p>
+        <p><a routerLink="/auth/forgot-password">Forgot your password?</a></p>
       </div>
     </div>
   </div>

@@ -40,7 +40,7 @@ export class SignInComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
-  onSubmit() {
+  public onSubmit() {
     this.submitted = true;
     if (this.loginForm.invalid) {
       return;
