@@ -25,5 +25,9 @@
   "NEW_PASSWORD": "New password",
   "NEW_PASSWORD_REPEAT": "New password repeat",
   "DOCTORS_LIST": "Doctors list",
-  "PATIENTS_LIST": "Patients list"
+  "PATIENTS_LIST": "Patients list",
+  "DOCTOR_DETAILS": "Doctor Details",
+  "PATIENT_DETAILS": "Patient Details",
+  "CREATE_WARNING_SCORE": "Create patients warning score",
+  "GO_BACK": "Go back"
 }

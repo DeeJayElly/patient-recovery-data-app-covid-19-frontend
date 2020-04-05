@@ -20,14 +20,13 @@ export class DoctorsListComponent implements OnInit {
   }
 
   settings = {
-    hideSubHeader: true,
     actions: {
       add: false,
       edit: false,
       delete: false,
       custom: [
-        { name: 'viewrecord', title: '<i class="nb-person"></i>'},
-        { name: 'editrecord', title: '<i class="nb-edit"></i>'},
+        {name: 'viewrecord', title: '<i class="nb-person"></i>'},
+        {name: 'editrecord', title: '<i class="nb-edit"></i>'},
       ],
     },
     columns: {
@@ -78,7 +77,7 @@ export class DoctorsListComponent implements OnInit {
   }
 
   public onCustomAction(event) {
-    switch ( event.action) {
+    switch (event.action) {
       case 'viewrecord':
         this.openDoctorViewPage(event.data);
         break;

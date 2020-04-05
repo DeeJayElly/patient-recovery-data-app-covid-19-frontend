@@ -18,4 +18,11 @@ export class PatientService {
         return response;
       }));
   }
+
+  public getPatient(patientId: string) {
+    return this.http.get<Patient>(`${environment.apiUrl}/patient/${patientId}`)
+      .pipe(map((response) => {
+        return response;
+      }));
+  }
 }

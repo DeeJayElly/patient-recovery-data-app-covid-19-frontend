@@ -56,7 +56,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     this.userService.getUsers()
       .pipe(takeUntil(this.destroy$))
-      .subscribe((users: any) => this.user = users.nick);
+      .subscribe((users: any) => {
+        this.user = users.nick;
+        if (this.authService.currentUserValue) {
+          this.user.name = this.authService.currentUserValue.user.firstName + ' '
+            + this.authService.currentUserValue.user.lastName;
+        }
+      });
 
     const {xl} = this.breakpointService.getBreakpointsMap();
     this.themeService.onMediaQueryChange()
