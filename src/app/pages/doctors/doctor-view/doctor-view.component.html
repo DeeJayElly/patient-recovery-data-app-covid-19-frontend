@@ -1,1 +1,33 @@
-<p>doctor-view works!</p>
+<nb-card>
+  <nb-card-header>
+    <div class="title-container">
+      {{ 'DOCTOR_DETAILS' | translate }}
+      <button nbButton routerLink="/pages/doctors">Go back</button>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div *ngIf="doctor">
+      <nb-list>
+        <nb-list-item>
+          <span>First name:</span> {{ doctor.firstName }}
+        </nb-list-item>
+        <nb-list-item>
+          <span>Last name:</span> {{ doctor.lastName }}
+        </nb-list-item>
+        <nb-list-item>
+          <span>Email:</span>  {{ doctor.email }}
+        </nb-list-item>
+        <nb-list-item>
+          <span>Country:</span>  {{ doctor.country }}
+        </nb-list-item>
+        <nb-list-item>
+          <span>City/Region:</span> {{ doctor.cityOrRegion }}
+        </nb-list-item>
+        <nb-list-item>
+          <span>Hospital name:</span> {{ doctor.hospitalName }}
+        </nb-list-item>
+      </nb-list>
+    </div>
+    <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+  </nb-card-body>
+</nb-card>

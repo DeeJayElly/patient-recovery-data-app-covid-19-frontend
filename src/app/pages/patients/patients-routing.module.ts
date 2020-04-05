@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {PatientsListComponent} from './patients-list/patients-list.component';
 import {PatientEditComponent} from './patient-edit/patient-edit.component';
 import {PatientViewComponent} from './patient-view/patient-view.component';
+import {PatientWarningScoreComponent} from './patient-warning-score/patient-warning-score.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,11 @@ const routes: Routes = [
       {
         path: 'edit',
         component: PatientEditComponent,
+        // canDeactivate: [DoctorEditDiscardChangesGuard]
+      },
+      {
+        path: 'warning-score',
+        component: PatientWarningScoreComponent,
         // canDeactivate: [DoctorEditDiscardChangesGuard]
       },
       {

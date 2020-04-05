@@ -15,4 +15,11 @@ export class DoctorService {
         return response;
       }));
   }
+
+  public getDoctor(doctorId: string) {
+    return this.http.get<Doctor>(`${environment.apiUrl}/doctor/${doctorId}`)
+      .pipe(map((response) => {
+        return response;
+      }));
+  }
 }
