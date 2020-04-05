@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
               private menuService: NbMenuService) {
     this.authService.currentUser.subscribe(x => this.currentUser = x);
     translate.setDefaultLang('en');
+    translate.use('en');
   }
 
   ngOnInit(): void {
