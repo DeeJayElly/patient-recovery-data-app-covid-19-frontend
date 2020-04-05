@@ -16,6 +16,7 @@ import {ThemeModule} from '../../@theme/theme.module';
 import {TablesRoutingModule} from '../tables/tables-routing.module';
 import {Ng2SmartTableModule} from 'ng2-smart-table';
 import {TranslateModule} from '@ngx-translate/core';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [DoctorsListComponent, DoctorViewComponent, DoctorEditComponent],
@@ -32,6 +33,7 @@ import {TranslateModule} from '@ngx-translate/core';
     TranslateModule,
     NbListModule,
     NbButtonModule,
+    ReactiveFormsModule,
   ],
 })
 export class DoctorsModule {

@@ -22,4 +22,18 @@ export class DoctorService {
         return response;
       }));
   }
+
+  public updateDoctor(doctorEditForm, doctorId: string) {
+    return this.http.put<Doctor>(`${environment.apiUrl}/doctor/${doctorId}`, {
+      email: doctorEditForm.email,
+      firstName: doctorEditForm.firstName,
+      lastName: doctorEditForm.lastName,
+      cityOrRegion: doctorEditForm.cityOrRegion,
+      hospitalName: doctorEditForm.hospitalName,
+      country: doctorEditForm.country,
+    })
+      .pipe(map((response) => {
+        return response;
+      }));
+  }
 }
