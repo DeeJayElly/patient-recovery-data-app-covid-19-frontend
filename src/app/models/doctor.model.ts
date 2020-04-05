@@ -7,5 +7,6 @@ export class Doctor {
   cityOrRegion: string;
   hospitalName: string;
   country: string;
-  authData: any;
+  authData?: string;
+  token?: string;
 }

@@ -21,7 +21,7 @@ export class AuthService {
   }
 
   public login(email: string, password: string) {
-    return this.http.post<any>(`${environment.apiUrl}/auth/login`, {email, password})
+    return this.http.post<{email: string, password: string}>(`${environment.apiUrl}/auth/login`, {email, password})
       .pipe(map((user: Doctor) => {
         user.authData = window.btoa(email + ':' + password);
         localStorage.setItem('currentUser', JSON.stringify(user));
@@ -37,7 +37,7 @@ export class AuthService {
                 cityOrRegion: string,
                 hospitalName: string,
                 country: string) {
-    return this.http.post<any>(`${environment.apiUrl}/doctor`, {
+    return this.http.post<Doctor>(`${environment.apiUrl}/doctor`, {
       email,
       password,
       firstName,
@@ -52,14 +52,14 @@ export class AuthService {
   }
 
   public forgotPassword(email: string) {
-    return this.http.post<any>(`${environment.apiUrl}/auth/forgot-password`, {email})
+    return this.http.post<{email: string}>(`${environment.apiUrl}/auth/forgot-password`, {email})
       .pipe(map((response) => {
         return response;
       }));
   }
 
   public resetPassword(newPassword: string) {
-    return this.http.post<any>(`${environment.apiUrl}/auth/reset-password`, {newPassword})
+    return this.http.post<{newPassword: string}>(`${environment.apiUrl}/auth/reset-password`, {newPassword})
       .pipe(map((response) => {
         return response;
       }));

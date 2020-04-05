@@ -20,7 +20,6 @@ export class DoctorsListComponent implements OnInit {
       .subscribe(
         data => {
           this.doctors = data;
-          debugger;
         },
         error => {
           this.error = error;
