@@ -4,7 +4,7 @@ import {HomeRoutingModule} from './home-routing.module';
 import {HomeComponent} from './home/home.component';
 import {NbCardModule} from '@nebular/theme';
 import {ChartsModule} from '../charts/charts.module';
-import {BarChartModule} from "@swimlane/ngx-charts";
+import {BarChartModule, NgxChartsModule} from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -14,6 +14,7 @@ import {BarChartModule} from "@swimlane/ngx-charts";
     NbCardModule,
     ChartsModule,
     BarChartModule,
+    NgxChartsModule,
   ],
 })
 export class HomeModule {
