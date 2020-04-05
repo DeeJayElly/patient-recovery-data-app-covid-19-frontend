@@ -10,7 +10,7 @@ export class DoctorService {
   }
 
   public getAll() {
-    return this.http.get<Doctor[]>(`${environment.apiUrl}/doctors`)
+    return this.http.get<Doctor[]>(`${environment.apiUrl}/doctor`)
       .pipe(map((response) => {
         return response;
       }));
