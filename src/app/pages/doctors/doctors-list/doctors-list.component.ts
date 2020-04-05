@@ -95,7 +95,7 @@ export class DoctorsListComponent implements OnInit {
     this.router.navigate(['/pages/doctors/' + item._id + '/edit']);
   }
 
-  onDeleteConfirm(event): void {
+  public onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
       event.confirm.resolve();
     } else {

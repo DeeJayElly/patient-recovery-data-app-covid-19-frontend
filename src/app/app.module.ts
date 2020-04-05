@@ -23,7 +23,7 @@ import {AuthInterceptor} from './interceptors/auth/auth.interceptor';
 import {ErrorInterceptor} from './interceptors/error/error.interceptor';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
