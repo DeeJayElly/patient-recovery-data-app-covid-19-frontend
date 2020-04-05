@@ -36,15 +36,13 @@
     "member-access": false,
     "no-arg": true,
     "no-console": [
-      true,
-      "debug",
+      false,
       "log",
       "time",
       "timeEnd",
       "trace"
     ],
     "no-construct": true,
-    "no-debugger": true,
     "no-duplicate-super": true,
     "no-empty": false,
     "no-empty-interface": true,

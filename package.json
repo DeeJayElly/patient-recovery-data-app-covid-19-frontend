@@ -1,13 +1,13 @@
 {
-  "name": "ngx-admin",
-  "version": "5.0.0",
+  "name": "patients-recovery-data-app",
+  "version": "1.0.0",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/akveo/ngx-admin.git"
+    "url": "https://github.com/DeeJayElly/patient-recovery-data-app-covid-19-frontend"
   },
   "bugs": {
-    "url": "https://github.com/akveo/ngx-admin/issues"
+    "url": "https://github.com/DeeJayElly/patient-recovery-data-app-covid-19-frontend/issues"
   },
   "scripts": {
     "ng": "ng",
@@ -15,6 +15,8 @@
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "npm run build -- --prod --aot",
+    "build:git:prod": "ng build --prod --base-href https://DeeJayElly.github.io/patient-recovery-data-app-covid-19-frontend/ --deploy-url=https://DeeJayElly.github.io/patient-recovery-data-app-covid-19-frontend/",
+    "deploy:git": "ngh --dir=dist",
     "test": "ng test",
     "test:coverage": "rimraf coverage && npm run test -- --code-coverage",
     "lint": "ng lint",
