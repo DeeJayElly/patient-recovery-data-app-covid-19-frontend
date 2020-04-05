@@ -6,5 +6,15 @@
   "EMAIL_REQUIRED" : "Email is required",
   "PASSWORD": "Password",
   "PASSWORD_REQUIRED": "Password is required",
-  "SIGN_UP": "Sign up"
+  "SIGN_UP": "Sign up",
+  "FIRST_NAME": "First name",
+  "FIRST_NAME_REQUIRED": "First name required",
+  "LAST_NAME": "Last name",
+  "LAST_NAME_REQUIRED": "Last name required",
+  "CITY_REGION": "City / Region",
+  "CITY_REGION_REQUIRED": "City / Region required",
+  "HOSPITAL_NAME": "Hospital name",
+  "HOSPITAL_NAME_REQUIRED": "Hospital name required",
+  "COUNTRY": "Country",
+  "COUNTRY_REQUIRED": "Country required"
 }
