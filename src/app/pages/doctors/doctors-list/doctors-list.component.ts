@@ -14,20 +14,11 @@ export class DoctorsListComponent implements OnInit {
   public error: any;
 
   constructor(public http: HttpClient, public doctorService: DoctorService) {
-
   }
 
   settings = {
     hideSubHeader: true,
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
-    },
+    actions: false,
     columns: {
       /* _id: {
         title: 'ID',
@@ -63,7 +54,7 @@ export class DoctorsListComponent implements OnInit {
   source: LocalDataSource = new LocalDataSource();
 
   ngOnInit(): void {
-    this.doctorService.getAll()
+    this.doctorService.getAllDoctors()
       .pipe(first())
       .subscribe(
         data => {

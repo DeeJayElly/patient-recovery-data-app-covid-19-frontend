@@ -3,7 +3,7 @@
   "SIGN_IN": "Sign in",
   "SIGN_IN_SUBTITLE": "Log in with your email and password",
   "EMAIL_ADDRESS": "Email address",
-  "EMAIL_REQUIRED" : "Email is required",
+  "EMAIL_REQUIRED": "Email is required",
   "PASSWORD": "Password",
   "PASSWORD_REPEAT": "Password repeat",
   "PASSWORD_REQUIRED": "Password is required",
@@ -24,5 +24,6 @@
   "CURRENT_PASSWORD": "Current password",
   "NEW_PASSWORD": "New password",
   "NEW_PASSWORD_REPEAT": "New password repeat",
-  "DOCTORS_LIST": "Doctors list"
+  "DOCTORS_LIST": "Doctors list",
+  "PATIENTS_LIST": "Patients list"
 }
