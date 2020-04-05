@@ -52,7 +52,8 @@ export class SignUpComponent implements OnInit {
       return;
     }
     this.loading = true;
-    this.authService.signUp(this.f.email.value,
+    this.authService.signUp(
+      this.f.email.value,
       this.f.password.value,
       this.f.firstName.value,
       this.f.lastName.value,
