@@ -14,7 +14,6 @@ export class DoctorsListComponent implements OnInit {
   public error: any;
 
   constructor(public http: HttpClient, public doctorService: DoctorService) {
-
   }
 
   settings = {
@@ -75,7 +74,7 @@ export class DoctorsListComponent implements OnInit {
         });
   }
 
-  onDeleteConfirm(event): void {
+  public onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
       event.confirm.resolve();
     } else {
