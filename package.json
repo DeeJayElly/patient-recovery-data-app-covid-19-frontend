@@ -4,10 +4,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/akveo/ngx-admin.git"
+    "url": "https://github.com/DeeJayElly/patient-recovery-data-app-covid-19-frontend"
   },
   "bugs": {
-    "url": "https://github.com/akveo/ngx-admin/issues"
+    "url": "https://github.com/DeeJayElly/patient-recovery-data-app-covid-19-frontend/issues"
   },
   "scripts": {
     "ng": "ng",
