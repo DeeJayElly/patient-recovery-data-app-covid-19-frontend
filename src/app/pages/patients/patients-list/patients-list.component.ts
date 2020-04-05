@@ -18,7 +18,7 @@ export class PatientsListComponent implements OnInit {
   }
 
   settings = {
-    hideSubHeader: true,
+    hideSubHeader: false,
     actions: {
       add: false,
       edit: false,

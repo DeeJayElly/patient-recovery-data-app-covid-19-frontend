@@ -20,7 +20,7 @@ export class DoctorsListComponent implements OnInit {
   }
 
   settings = {
-    hideSubHeader: true,
+    hideSubHeader: false,
     actions: {
       add: false,
       edit: false,
