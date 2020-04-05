@@ -5,7 +5,7 @@
       <form [formGroup]="scoreForm" (ngSubmit)="onSubmit()">
         <div class="form-group row">
           <label for="years" class="label col-sm-3 col-form-label">{{'PATIENT_YEARS' | translate}}</label>
-          <input type="number" nbInput fullWidth id="years" formControlName="years"
+          <input type="number" disabled nbInput  fullWidth id="years" formControlName="years"
                  placeholder="{{'PATIENT_YEARS' | translate}}">
           <div *ngIf="submitted && f.years.errors" class="invalid-feedback">
             <div *ngIf="f.years.errors.required">{{'PATIENT_YEARS_REQUIRED' | translate}}</div>
@@ -31,11 +31,16 @@
         </div>
         <div class="form-group row">
           <label for="anyAdditionalO2" class="label col-sm-3 col-form-label">{{'ADDITIONAL_O2' | translate}}</label>
-          <input type="checkbox" nbInput fullWidth id="anyAdditionalO2" formControlName="anyAdditionalO2"
-                 placeholder="{{'ADDITIONAL_O2' | translate}}">
-          <div *ngIf="submitted && f.anyAdditionalO2.errors" class="invalid-feedback">
-            <div *ngIf="f.anyAdditionalO2.errors.required">{{'ADDITIONAL_O2_REQUIRED' | translate}}</div>
-          </div>
+          <nb-radio-group formControlName="anyAdditionalO2" name="anyAdditionalO2" id="anyAdditionalO2" [(value)]="radioGroupValue">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
         </div>
         <div class="form-group row">
           <label for="systolicPressure"
@@ -73,18 +78,10 @@
         </div>
         <div class="form-group row">
           <label for="coughDegree" class="label col-sm-3 col-form-label">{{'COUGH_DEGREE' | translate}}</label>
-          <input type="number" nbInput fullWidth id="coughDegree" formControlName="bodyTemperature"
+          <input type="number" nbInput fullWidth id="coughDegree" formControlName="coughDegree"
                  placeholder="{{'COUGH_DEGREE' | translate}}">
           <div *ngIf="submitted && f.coughDegree.errors" class="invalid-feedback">
             <div *ngIf="f.coughDegree.errors.required">{{'COUGH_DEGREE_REQUIRED' | translate}}</div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="score" class="label col-sm-3 col-form-label">{{'SCORE' | translate}}</label>
-          <input type="number" nbInput fullWidth id="score" formControlName="score"
-                 placeholder="{{'SCORE' | translate}}">
-          <div *ngIf="submitted && f.score.errors" class="invalid-feedback">
-            <div *ngIf="f.score.errors.required">{{'SCORE_REQUIRED' | translate}}</div>
           </div>
         </div>
         <div class="form-group row">

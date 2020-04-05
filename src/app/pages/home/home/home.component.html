@@ -1,1 +1,15 @@
-<p>home works!</p>
+<div class="col-lg-6">
+  <nb-card>
+    <nb-card-header>Bar</nb-card-header>
+    <nb-card-body>
+      <ngx-charts-bar-vertical
+        [results]="results"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel">
+      </ngx-charts-bar-vertical>
+    </nb-card-body>
+  </nb-card>
+</div>
