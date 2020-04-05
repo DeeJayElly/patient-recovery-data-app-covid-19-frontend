@@ -23,5 +23,6 @@
   "RESET_PASSWORD": "Reset password",
   "CURRENT_PASSWORD": "Current password",
   "NEW_PASSWORD": "New password",
-  "NEW_PASSWORD_REPEAT": "New password repeat"
+  "NEW_PASSWORD_REPEAT": "New password repeat",
+  "DOCTORS_LIST": "Doctors list"
 }
