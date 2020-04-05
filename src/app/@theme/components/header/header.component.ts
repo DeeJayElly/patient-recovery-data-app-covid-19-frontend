@@ -72,10 +72,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$),
       )
       .subscribe(themeName => this.currentTheme = themeName);
-
-    this.menuService.onItemClick().subscribe(( event ) => {
-      this.onItemSelection(event.item.title);
-    });
   }
 
   ngOnDestroy() {
@@ -97,12 +93,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
   navigateHome() {
     this.menuService.navigateHome();
     return false;
-  }
-
-  onItemSelection(title) {
-    if (title === 'Log out') {
-      this.authService.logout();
-    } else if (title === 'Profile') {
-    }
   }
 }
