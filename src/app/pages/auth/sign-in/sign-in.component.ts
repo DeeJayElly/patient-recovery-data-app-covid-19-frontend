@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {NbSpinnerService} from '@nebular/theme';
 
 @Component({
   selector: 'ngx-sign-in',
@@ -6,11 +7,10 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent implements OnInit {
-
-  constructor() {
+  constructor(public spinnerService: NbSpinnerService) {
   }
 
   ngOnInit(): void {
+    this.spinnerService.load();
   }
-
 }
