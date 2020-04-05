@@ -1,30 +1,34 @@
-<div class="col-md-6 offset-md-3 mt-5">
+<div class="col-md-5 mt-5 center-col">
   <div class="card">
-    <h4 class="card-header">Sign in</h4>
+    <h1 class="card-header-title">{{'SIGN_IN' | translate}}</h1>
+    <p class="subtitle"> {{'SIGN_IN_SUBTITLE' | translate}} </p>
     <div class="card-body">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="text" formControlName="email" name="email" id="email" class="form-control"
+          <label for="email">{{'EMAIL_ADDRESS' | translate}}</label>
+          <input type="text" placeholder="{{'EMAIL_ADDRESS' | translate}}" formControlName="email" name="email" id="email" class="form-control"
                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
           <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.required">{{'EMAIL_REQUIRED' | translate}}</div>
           </div>
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" formControlName="password" name="password" id="password" class="form-control"
+          <label for="password">{{'PASSWORD' | translate}}</label>
+          <input type="password" placeholder="{{'PASSWORD' | translate}}" formControlName="password" name="password" id="password" class="form-control"
                  [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
           <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.required">{{'PASSWORD_REQUIRED' | translate}}</div>
           </div>
         </div>
-        <button [disabled]="loading" class="btn btn-primary">
+        <button [ngClass]="{'btn-active' : loginForm.dirty}" [disabled]="!loginForm.dirty" class="btn btn-primary sign-in-btn">
           <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-          Sign in
+          {{'SIGN_IN' | translate}}
         </button>
         <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{ error }}</div>
       </form>
+      <div class="register-info">
+        <p>Don't have an account? <a routerLink="/auth/sign-up">Sign up</a> to get one!</p>
+      </div>
     </div>
   </div>
 </div>

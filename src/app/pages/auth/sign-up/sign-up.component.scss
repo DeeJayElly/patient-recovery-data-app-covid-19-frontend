@@ -1,0 +1,66 @@
+.center-col {
+  margin: 0 auto;
+}
+.card-header-title {
+  font-family: Open Sans, sans-serif;
+  font-weight: 700;
+  line-height: 3rem;
+  color: #222b45;
+  text-align: center;
+}
+
+.form-group {
+  label {
+    font-family: Open Sans, sans-serif;
+    font-size: .75rem;
+    line-height: 1rem;
+    color: #8f9bb3;
+    font-weight: 700;
+  }
+
+  input {
+    background-color: #f7f9fc;
+    border-color: #e4e9f2;
+    color: #222b45;
+    font-size: .9375rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    padding: .6875rem 1rem;
+    height: initial;
+    opacity: 0.7;
+  }
+
+  input:focus {
+    outline: none;
+  }
+}
+
+button {
+  background-color: rgba(143, 155, 179, .24);
+  border-color: rgba(143, 155, 179, .24);
+  color: rgba(143, 155, 179, .48);
+  width: 100%;
+  padding: .8125rem 1.125rem;
+  border-style: solid;
+  border-width: .0625rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-family: Open Sans, sans-serif;
+  font-weight: 700;
+}
+
+.btn-active {
+  background-color: #36f;
+  border-color: #36f;
+  color: #fff;
+  width: 100%;
+  padding: .8125rem 1.125rem;
+  border-style: solid;
+  border-width: .0625rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-family: Open Sans, sans-serif;
+  font-weight: 700;
+}

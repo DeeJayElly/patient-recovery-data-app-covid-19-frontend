@@ -8,16 +8,18 @@ import {ResetPasswordComponent} from './reset-password/reset-password.component'
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   declarations: [SignInComponent, SignUpComponent, ForgotPasswordComponent, ResetPasswordComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
     FormsModule,
+    ReactiveFormsModule,
+    TranslateModule,
   ],
 })
 export class AuthModule {

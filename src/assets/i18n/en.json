@@ -1,3 +1,10 @@
 {
-  "APP_TITLE": "Patient recovery data"
+  "APP_TITLE": "Patient recovery data",
+  "SIGN_IN": "Sign in",
+  "SIGN_IN_SUBTITLE": "Hello! Log in with your email.",
+  "EMAIL_ADDRESS": "Email address",
+  "EMAIL_REQUIRED" : "Email is required",
+  "PASSWORD": "Password",
+  "PASSWORD_REQUIRED": "Password is required",
+  "SIGN_UP": "Sign up"
 }
