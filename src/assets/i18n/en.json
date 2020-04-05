@@ -51,5 +51,7 @@
   "COUGH_DEGREE_REQUIRED": "Cough Degree required",
   "SCORE": "Score",
   "SCORE_REQUIRED": "Score required",
-  "CREATE_NEW_SCORE_RATING": "Create daily score rating for patient"
+  "CREATE_NEW_SCORE_RATING": "Create daily score rating for patient",
+  "SAVE_DOCTOR_INFO": "Update doctor information",
+  "DELETE_PATIENT": "Delete patient"
 }

@@ -1,15 +1,50 @@
-<div class="col-lg-6">
-  <nb-card>
-    <nb-card-header>Bar</nb-card-header>
-    <nb-card-body>
-      <ngx-charts-bar-vertical
-        [results]="results"
-        [xAxis]="showXAxis"
-        [yAxis]="showYAxis"
-        [legend]="showLegend"
-        [xAxisLabel]="xAxisLabel"
-        [yAxisLabel]="yAxisLabel">
-      </ngx-charts-bar-vertical>
-    </nb-card-body>
-  </nb-card>
+<div class="row">
+  <div class="col-12">
+    <nb-card>
+      <nb-card-header>Patients temperatures level</nb-card-header>
+      <nb-card-body>
+        <ngx-charts-bar-vertical
+          [results]="temperatureResults"
+          [xAxis]="showXAxis"
+          [yAxis]="showYAxis"
+          [legend]="showLegend"
+          [xAxisLabel]="xAxisLabel"
+          [yAxisLabel]="yAxisLabel">
+        </ngx-charts-bar-vertical>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    <nb-card>
+      <nb-card-header>Patients cough level</nb-card-header>
+      <nb-card-body>
+        <ngx-charts-pie-chart
+          [scheme]="colorScheme"
+          [results]="coughResults"
+          [legend]="showLegend"
+          [labels]="showLabels">
+        </ngx-charts-pie-chart>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-lg-6">
+    <nb-card>
+      <nb-card-header>Patients years</nb-card-header>
+      <nb-card-body>
+        <ngx-charts-line-chart
+          [scheme]="colorScheme"
+          [results]="yearsResults"
+          [xAxis]="showXAxis"
+          [yAxis]="showYAxis"
+          [legend]="showLegend"
+          [showXAxisLabel]="showXAxisLabel"
+          [showYAxisLabel]="showYAxisLabel"
+          [xAxisLabel]="xAxisLabel"
+          [yAxisLabel]="yAxisLabelYears">
+        </ngx-charts-line-chart>
+      </nb-card-body>
+    </nb-card>
+  </div>
 </div>

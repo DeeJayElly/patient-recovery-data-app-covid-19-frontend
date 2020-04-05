@@ -43,4 +43,11 @@ export class PatientService {
         return response;
       }));
   }
+
+  public deletePatient(patientId: string) {
+    return this.http.delete<Patient>(`${environment.apiUrl}/patient/${patientId}`)
+      .pipe(map((response) => {
+        return response;
+      }));
+  }
 }

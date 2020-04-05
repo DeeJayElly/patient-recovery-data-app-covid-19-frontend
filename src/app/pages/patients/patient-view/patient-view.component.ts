@@ -4,6 +4,8 @@ import {first} from 'rxjs/operators';
 import {Patient} from '../../../models/patient.model';
 import {PatientService} from '../../../services/patient/patient.service';
 import {WarningScore} from '../../../models/warning-score.model';
+import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
+import {NbDialogService} from '@nebular/theme';
 
 @Component({
   selector: 'ngx-patient-view',
@@ -17,7 +19,8 @@ export class PatientViewComponent implements OnInit {
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private patientService: PatientService) {
+              private patientService: PatientService,
+              private dialogService: NbDialogService) {
   }
 
   ngOnInit(): void {
@@ -42,5 +45,25 @@ export class PatientViewComponent implements OnInit {
         error => {
           this.error = error;
         });
+  }
+
+  public deletePatient() {
+    this.patientService.deletePatient(this.patient._id.toString())
+      .pipe(first())
+      .subscribe(
+        (data: any) => {
+          this.openDialog();
+        },
+        error => {
+          this.error = error;
+        });
+  }
+
+  public openDialog() {
+    this.dialogService.open(ShowcaseDialogComponent, {
+      context: {
+        title: 'Patient data has been successfully deleted',
+      },
+    });
   }
 }

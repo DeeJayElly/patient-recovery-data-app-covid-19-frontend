@@ -1,4 +1,4 @@
 export const environment = {
-  apiUrl: 'https://f39497b2.ngrok.io/api',
+  apiUrl: 'https://stark-reef-59342.herokuapp.com/api',
   production: false,
 };

@@ -5,6 +5,8 @@ import {ActivatedRoute} from '@angular/router';
 import {first} from 'rxjs/operators';
 import {Patient} from '../../../models/patient.model';
 import {WarningScore} from '../../../models/warning-score.model';
+import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
+import {NbDialogService} from '@nebular/theme';
 
 @Component({
   selector: 'ngx-patient-warning-score',
@@ -24,7 +26,8 @@ export class PatientWarningScoreComponent implements OnInit {
 
   constructor(public patientService: PatientService,
               private formBuilder: FormBuilder,
-              public route: ActivatedRoute) {
+              public route: ActivatedRoute,
+              public dialogService: NbDialogService) {
     this.scoreForm = this.formBuilder.group({
       years: ['', Validators.required],
       numberOfRespirations: ['', Validators.required],
@@ -60,12 +63,22 @@ export class PatientWarningScoreComponent implements OnInit {
     this.scoreForm.patchValue({years: this.patient.warningScores[0].years});
   }
 
+  public openDialog() {
+    this.dialogService.open(ShowcaseDialogComponent, {
+      context: {
+        title: 'Patient daily risk score successfully updated',
+      },
+    });
+  }
+
   public onSubmit() {
     this.patientService.createNewScoreForPatient(this.scoreForm.value, this.patientId)
       .pipe(first())
       .subscribe(
         (data: WarningScore) => {
-          // TODO dialog with success message
+          if (data) {
+            this.openDialog();
+          }
         },
         error => {
           // this.error = error;

@@ -4,6 +4,6 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  apiUrl: 'https://stark-reef-59342.herokuapp.com/api',
+  apiUrl: 'http://stark-reef-59342.herokuapp.com/api',
   production: false,
 };

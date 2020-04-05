@@ -1,1 +1,62 @@
-<p>doctor-edit works!</p>
+<div class="col-md-6">
+  <nb-card>
+    <nb-card-header>{{'PATIENT_WARNING_SCORE' | translate}}</nb-card-header>
+    <nb-card-body>
+      <form [formGroup]="doctorEditForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+          <label for="email" class="label col-sm-3 col-form-label">{{'EMAIL_ADDRESS' | translate}}</label>
+          <input type="email" nbInput fullWidth id="email" formControlName="email"
+                 placeholder="{{'EMAIL_ADDRESS' | translate}}">
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">{{'EMAIL_ADDRESS_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="firstName" class="label col-sm-3 col-form-label">{{'FIRST_NAME' | translate}}</label>
+          <input type="text" nbInput fullWidth id="firstName" formControlName="firstName"
+                 placeholder="{{'FIRST_NAME' | translate}}">
+          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="f.firstName.errors.required">{{'FIRST_NAME_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="lastName" class="label col-sm-3 col-form-label">{{'LAST_NAME' | translate}}</label>
+          <input type="text" nbInput fullWidth id="lastName" formControlName="lastName"
+                 placeholder="{{'LAST_NAME' | translate}}">
+          <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">{{'LAST_NAME_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="cityOrRegion" class="label col-sm-3 col-form-label">{{'CITY_REGION' | translate}}</label>
+          <input type="text" nbInput fullWidth id="cityOrRegion" formControlName="cityOrRegion"
+                 placeholder="{{'CITY_REGION' | translate}}">
+          <div *ngIf="submitted && f.cityOrRegion.errors" class="invalid-feedback">
+            <div *ngIf="f.cityOrRegion.errors.required">{{'CITY_REGION_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="hospitalName" class="label col-sm-3 col-form-label">{{'HOSPITAL_NAME' | translate}}</label>
+          <input type="text" nbInput fullWidth id="hospitalName" formControlName="hospitalName"
+                 placeholder="{{'HOSPITAL_NAME' | translate}}">
+          <div *ngIf="submitted && f.hospitalName.errors" class="invalid-feedback">
+            <div *ngIf="f.hospitalName.errors.required">{{'HOSPITAL_NAME_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="country" class="label col-sm-3 col-form-label">{{'COUNTRY' | translate}}</label>
+          <input type="text" nbInput fullWidth id="country" formControlName="country"
+                 placeholder="{{'COUNTRY' | translate}}">
+          <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+            <div *ngIf="f.country.errors.required">{{'COUNTRY_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="offset-sm-3 col-sm-9">
+            <button type="submit" nbButton status="primary">{{'SAVE_DOCTOR_INFO' | translate}}</button>
+          </div>
+        </div>
+      </form>
+    </nb-card-body>
+  </nb-card>
+</div>
