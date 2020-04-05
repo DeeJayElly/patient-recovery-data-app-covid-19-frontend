@@ -5,32 +5,19 @@ import {SignInComponent} from './sign-in/sign-in.component';
 import {SignUpComponent} from './sign-up/sign-up.component';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
-import {
-  NbAlertModule,
-  NbButtonModule,
-  NbCardModule,
-  NbCheckboxModule,
-  NbIconModule,
-  NbInputModule,
-  NbLayoutModule,
-} from '@nebular/theme';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [SignInComponent, SignUpComponent, ForgotPasswordComponent, ResetPasswordComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    NbLayoutModule,
-    NbCardModule,
-    NbCheckboxModule,
-    NbAlertModule,
-    NbInputModule,
-    NbButtonModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     RouterModule,
     FormsModule,
-    NbIconModule,
   ],
 })
 export class AuthModule {

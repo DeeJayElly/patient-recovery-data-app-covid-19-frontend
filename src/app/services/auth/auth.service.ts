@@ -23,7 +23,6 @@ export class AuthService {
   public login(email: string, password: string) {
     return this.http.post<any>(`${environment.apiUrl}/auth/login`, { email, password })
       .pipe(map((user: Doctor) => {
-        // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
         user.authData = window.btoa(email + ':' + password);
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
@@ -32,7 +31,6 @@ export class AuthService {
   }
 
   public logout() {
-    // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }
