@@ -25,7 +25,7 @@ export class PatientViewComponent implements OnInit {
     if (patientId) {
       this.getPatientDetails(patientId);
     } else {
-      this.error = 'No details for this doctor';
+      this.error = 'No details for this patient';
     }
   }
 
