@@ -6,7 +6,7 @@ export class WarningScore {
   anyAdditionalO2: boolean;
   systolicPressure: number;
   heartRate: number;
-  stateOfConsciousness: number;
+  stateOfConsciousness: string;
   bodyTemperature: number;
   coughDegree?: number;
   score: number;
