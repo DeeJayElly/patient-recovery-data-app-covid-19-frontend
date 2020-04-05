@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'ngx-reports-list',
   templateUrl: './reports-list.component.html',
-  styleUrls: ['./reports-list.component.scss']
+  styleUrls: ['./reports-list.component.scss'],
 })
 export class ReportsListComponent implements OnInit {
-
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
-
 }
