@@ -8,8 +8,13 @@
   "PASSWORD_REQUIRED": "Password is required",
   "SIGN_UP": "Sign up",
   "FIRST_NAME": "First name",
+  "FIRST_NAME_REQUIRED": "First name required",
   "LAST_NAME": "Last name",
-  "CITY_REGION": "City & Region",
-  "HOSPITAL_NAME": "Hospital Name",
-  "COUNTRY": "Country"
+  "LAST_NAME_REQUIRED": "Last name required",
+  "CITY_REGION": "City / Region",
+  "CITY_REGION_REQUIRED": "City / Region required",
+  "HOSPITAL_NAME": "Hospital name",
+  "HOSPITAL_NAME_REQUIRED": "Hospital name required",
+  "COUNTRY": "Country",
+  "COUNTRY_REQUIRED": "Country required"
 }
