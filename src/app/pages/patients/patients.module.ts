@@ -17,7 +17,7 @@ import {ThemeModule} from '../../@theme/theme.module';
 import {TablesRoutingModule} from '../tables/tables-routing.module';
 import {Ng2SmartTableModule} from 'ng2-smart-table';
 import {TranslateModule} from '@ngx-translate/core';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [PatientsListComponent, PatientViewComponent, PatientEditComponent, PatientWarningScoreComponent],
@@ -33,6 +33,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     Ng2SmartTableModule,
     TranslateModule,
     ReactiveFormsModule,
+    FormsModule,
     NbButtonModule,
     NbListModule,
     NbRadioModule,
