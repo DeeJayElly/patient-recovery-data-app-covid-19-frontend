@@ -9,7 +9,7 @@ export class DoctorService {
   constructor(private http: HttpClient) {
   }
 
-  public getAll() {
+  public getAllDoctors() {
     return this.http.get<Doctor[]>(`${environment.apiUrl}/doctor`)
       .pipe(map((response) => {
         return response;

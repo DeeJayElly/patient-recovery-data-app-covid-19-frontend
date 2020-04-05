@@ -8,7 +8,7 @@ import {NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule} from '@nebu
 import {ThemeModule} from '../../@theme/theme.module';
 import {TablesRoutingModule} from '../tables/tables-routing.module';
 import {Ng2SmartTableModule} from 'ng2-smart-table';
-import {TranslateModule} from "@ngx-translate/core";
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   declarations: [DoctorsListComponent, DoctorViewComponent, DoctorEditComponent],
