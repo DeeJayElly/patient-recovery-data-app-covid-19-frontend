@@ -69,7 +69,7 @@
         <button [ngClass]="{'btn-active' : signUpForm.dirty}" [disabled]="!signUpForm.dirty"
                 class="btn btn-primary sign-in-btn">
           <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-          {{'SIGN_IN' | translate}}
+          {{'SIGN_UP' | translate}}
         </button>
         <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{ error }}</div>
       </form>

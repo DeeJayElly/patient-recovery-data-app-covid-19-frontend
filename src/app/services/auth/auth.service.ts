@@ -31,9 +31,12 @@ export class AuthService {
   }
 
   public signUp(email: string,
-                password: string, firstName: string,
-                lastName: string, cityOrRegion: string,
-                hospitalName: string, country: string) {
+                password: string,
+                firstName: string,
+                lastName: string,
+                cityOrRegion: string,
+                hospitalName: string,
+                country: string) {
     return this.http.post<any>(`${environment.apiUrl}/doctor`, {
       email,
       password,
@@ -44,9 +47,6 @@ export class AuthService {
       country,
     })
       .pipe(map((user: Doctor) => {
-        user.authData = window.btoa(email + ':' + password);
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        this.currentUserSubject.next(user);
         return user;
       }));
   }
