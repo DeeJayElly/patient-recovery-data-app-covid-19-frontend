@@ -59,6 +59,13 @@ export class AuthService {
       }));
   }
 
+  public resetPassword(currentPassword: string, newPassword: string) {
+    return this.http.post<any>(`${environment.apiUrl}/auth/reset-password`, {currentPassword, newPassword})
+      .pipe(map((response) => {
+        return response;
+      }));
+  }
+
   public logout() {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);

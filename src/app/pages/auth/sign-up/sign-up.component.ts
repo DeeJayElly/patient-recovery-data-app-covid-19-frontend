@@ -36,6 +36,7 @@ export class SignUpComponent implements OnInit {
     this.signUpForm = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
+      passwordRepeat: ['', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       cityOrRegion: ['', Validators.required],
@@ -51,8 +52,12 @@ export class SignUpComponent implements OnInit {
       return;
     }
     this.loading = true;
-    this.authService.signUp(this.f.email.value, this.f.password.value, this.f.firstName.value,
-      this.f.lastName.value, this.f.cityOrRegion.value, this.f.hospitalName.value,
+    this.authService.signUp(this.f.email.value,
+      this.f.password.value,
+      this.f.firstName.value,
+      this.f.lastName.value,
+      this.f.cityOrRegion.value,
+      this.f.hospitalName.value,
       this.f.country.value)
       .pipe(first())
       .subscribe(

@@ -5,12 +5,11 @@ import {AuthService} from '../../services/auth/auth.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private authenticationService: AuthService) {
+  constructor(private authService: AuthService) {
   }
 
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // add authorization header with basic auth credentials if available
-    const currentUser = this.authenticationService.currentUserValue;
+  public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const currentUser = this.authService.currentUserValue;
     if (currentUser && currentUser.authData) {
       request = request.clone({
         setHeaders: {
@@ -18,7 +17,6 @@ export class AuthInterceptor implements HttpInterceptor {
         },
       });
     }
-
     return next.handle(request);
   }
 }
