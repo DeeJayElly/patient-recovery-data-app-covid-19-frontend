@@ -47,7 +47,7 @@ export class ResetPasswordComponent implements OnInit {
       return;
     }
     this.loading = true;
-    this.authService.resetPassword(this.f.currentPassword.value, this.f.newPassword.value)
+    this.authService.resetPassword(this.f.newPassword.value)
       .pipe(first())
       .subscribe(
         data => {

@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-
 import {Doctor} from '../../models/doctor.model';
 import {environment} from '../../../environments/environment';
 import {Router} from '@angular/router';
@@ -59,8 +58,8 @@ export class AuthService {
       }));
   }
 
-  public resetPassword(currentPassword: string, newPassword: string) {
-    return this.http.post<any>(`${environment.apiUrl}/auth/reset-password`, {currentPassword, newPassword})
+  public resetPassword(newPassword: string) {
+    return this.http.post<any>(`${environment.apiUrl}/auth/reset-password`, {newPassword})
       .pipe(map((response) => {
         return response;
       }));
