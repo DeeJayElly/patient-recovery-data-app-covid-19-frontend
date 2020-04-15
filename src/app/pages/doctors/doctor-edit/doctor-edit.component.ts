@@ -17,6 +17,7 @@ export class DoctorEditComponent implements OnInit {
   public submitted = false;
   public doctorId: any;
   public doctor: any;
+  public error: any;
 
   get f() {
     return this.doctorEditForm.controls;
@@ -41,6 +42,11 @@ export class DoctorEditComponent implements OnInit {
     this.getDoctorDetails(this.doctorId);
   }
 
+  /**
+   * Get doctor details function
+   *
+   * @param doctorId
+   */
   public getDoctorDetails(doctorId) {
     this.doctorService.getDoctor(doctorId)
       .pipe(first())
@@ -50,10 +56,13 @@ export class DoctorEditComponent implements OnInit {
           this.editDoctorForm();
         },
         error => {
-          // this.error = error;
+          this.error = error;
         });
   }
 
+  /**
+   * Edit doctor form function
+   */
   public editDoctorForm() {
     this.doctorEditForm.patchValue({
       email: this.doctor.email,
@@ -65,6 +74,9 @@ export class DoctorEditComponent implements OnInit {
     });
   }
 
+  /**
+   * Open dialog function
+   */
   public openDialog() {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
@@ -73,6 +85,9 @@ export class DoctorEditComponent implements OnInit {
     });
   }
 
+  /**
+   * On submit function
+   */
   public onSubmit() {
     this.doctorService.updateDoctor(this.doctorEditForm.value, this.doctorId)
       .pipe(first())
@@ -83,7 +98,7 @@ export class DoctorEditComponent implements OnInit {
           }
         },
         error => {
-          // this.error = error;
+          this.error = error;
         });
   }
 

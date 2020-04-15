@@ -102,6 +102,11 @@ export class PatientEditComponent implements OnInit {
     }
   }
 
+  /**
+   * Get patient details function
+   *
+   * @param patientId
+   */
   public getPatientDetails(patientId) {
     this.patientService.getPatient(patientId)
       .pipe(first())
@@ -118,6 +123,9 @@ export class PatientEditComponent implements OnInit {
         });
   }
 
+  /**
+   * Edit patient form function
+   */
   public editPatientForm() {
     /*this.patientEditForm.patchValue({
       email: this.patient.email,
@@ -129,6 +137,9 @@ export class PatientEditComponent implements OnInit {
     });*/
   }
 
+  /**
+   * Submit function
+   */
   public onSubmit() {
 
   }

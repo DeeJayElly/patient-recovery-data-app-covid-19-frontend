@@ -5,7 +5,7 @@
       <form [formGroup]="scoreForm" (ngSubmit)="onSubmit()">
         <div class="form-group row">
           <label for="years" class="label col-sm-3 col-form-label">{{'PATIENT_YEARS' | translate}}</label>
-          <input type="number" disabled nbInput  fullWidth id="years" formControlName="years"
+          <input type="number" disabled nbInput fullWidth id="years" formControlName="years"
                  placeholder="{{'PATIENT_YEARS' | translate}}">
           <div *ngIf="submitted && f.years.errors" class="invalid-feedback">
             <div *ngIf="f.years.errors.required">{{'PATIENT_YEARS_REQUIRED' | translate}}</div>
@@ -31,7 +31,8 @@
         </div>
         <div class="form-group row">
           <label for="anyAdditionalO2" class="label col-sm-3 col-form-label">{{'ADDITIONAL_O2' | translate}}</label>
-          <nb-radio-group formControlName="anyAdditionalO2" name="anyAdditionalO2" id="anyAdditionalO2" [(value)]="radioGroupValue">
+          <nb-radio-group formControlName="anyAdditionalO2" name="anyAdditionalO2" id="anyAdditionalO2"
+                          [(value)]="radioGroupValue">
             <nb-radio
               [value]="true">
               YES

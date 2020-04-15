@@ -8,6 +8,12 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) {
   }
 
+  /**
+   * HttpRequest interceptor function
+   *
+   * @param request
+   * @param next
+   */
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const currentUser = this.authService.currentUserValue;
     if (currentUser && currentUser.authData) {

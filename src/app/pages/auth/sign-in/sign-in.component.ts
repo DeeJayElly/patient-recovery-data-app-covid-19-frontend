@@ -11,11 +11,11 @@ import {first} from 'rxjs/operators';
   styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent implements OnInit {
-  loginForm: FormGroup;
-  loading = false;
-  submitted = false;
-  returnUrl: string;
-  error = '';
+  public loginForm: FormGroup;
+  public loading = false;
+  public submitted = false;
+  public returnUrl: string;
+  public error = '';
 
   get f() {
     return this.loginForm.controls;
@@ -40,6 +40,9 @@ export class SignInComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
+  /**
+   * Submit function
+   */
   public onSubmit() {
     this.submitted = true;
     if (this.loginForm.invalid) {

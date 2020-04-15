@@ -68,7 +68,8 @@
         </div>
         <div class="form-group">
           <label for="passwordRepeat">{{'PASSWORD_REPEAT' | translate}}</label>
-          <input type="password" placeholder="{{'PASSWORD_REPEAT' | translate}}" formControlName="passwordRepeat" name="passwordRepeat"
+          <input type="password" placeholder="{{'PASSWORD_REPEAT' | translate}}" formControlName="passwordRepeat"
+                 name="passwordRepeat"
                  id="passwordRepeat" class="form-control"
                  [ngClass]="{ 'is-invalid': submitted && f.passwordRepeat.errors }"/>
           <div *ngIf="submitted && f.passwordRepeat.errors" class="invalid-feedback">

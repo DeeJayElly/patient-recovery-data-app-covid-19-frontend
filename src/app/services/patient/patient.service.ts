@@ -13,6 +13,9 @@ export class PatientService {
   constructor(public http: HttpClient) {
   }
 
+  /**
+   * Get all patients function
+   */
   public getAllPatients() {
     return this.http.get<Patient[]>(`${environment.apiUrl}/patient`)
       .pipe(map((response) => {
@@ -20,6 +23,12 @@ export class PatientService {
       }));
   }
 
+  /**
+   * Create new score for patient function
+   *
+   * @param scoreForm
+   * @param patientId
+   */
   public createNewScoreForPatient(scoreForm, patientId) {
     return this.http.post<WarningScore>(`${environment.apiUrl}/warning-score/patient/${patientId}`, {
       years: scoreForm.years,
@@ -37,6 +46,11 @@ export class PatientService {
       }));
   }
 
+  /**
+   * Get single patient function
+   *
+   * @param patientId
+   */
   public getPatient(patientId: string) {
     return this.http.get<Patient>(`${environment.apiUrl}/patient/${patientId}`)
       .pipe(map((response) => {
@@ -44,6 +58,11 @@ export class PatientService {
       }));
   }
 
+  /**
+   * Delete patient function
+   *
+   * @param patientId
+   */
   public deletePatient(patientId: string) {
     return this.http.delete<Patient>(`${environment.apiUrl}/patient/${patientId}`)
       .pipe(map((response) => {

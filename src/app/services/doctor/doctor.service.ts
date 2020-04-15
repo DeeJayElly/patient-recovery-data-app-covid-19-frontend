@@ -9,6 +9,9 @@ export class DoctorService {
   constructor(private http: HttpClient) {
   }
 
+  /**
+   * Get all doctors function
+   */
   public getAllDoctors() {
     return this.http.get<Doctor[]>(`${environment.apiUrl}/doctor`)
       .pipe(map((response) => {
@@ -16,6 +19,11 @@ export class DoctorService {
       }));
   }
 
+  /**
+   * Get single doctor function
+   *
+   * @param doctorId
+   */
   public getDoctor(doctorId: string) {
     return this.http.get<Doctor>(`${environment.apiUrl}/doctor/${doctorId}`)
       .pipe(map((response) => {
@@ -23,6 +31,12 @@ export class DoctorService {
       }));
   }
 
+  /**
+   * Update doctor function
+   *
+   * @param doctorEditForm
+   * @param doctorId
+   */
   public updateDoctor(doctorEditForm, doctorId: string) {
     return this.http.put<Doctor>(`${environment.apiUrl}/doctor/${doctorId}`, {
       email: doctorEditForm.email,

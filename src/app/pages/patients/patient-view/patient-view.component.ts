@@ -32,6 +32,11 @@ export class PatientViewComponent implements OnInit {
     }
   }
 
+  /**
+   * Get patient details function
+   *
+   * @param patientId
+   */
   public getPatientDetails(patientId) {
     this.patientService.getPatient(patientId)
       .pipe(first())
@@ -47,6 +52,9 @@ export class PatientViewComponent implements OnInit {
         });
   }
 
+  /**
+   * Delete patient function
+   */
   public deletePatient() {
     this.patientService.deletePatient(this.patient._id.toString())
       .pipe(first())
@@ -59,6 +67,9 @@ export class PatientViewComponent implements OnInit {
         });
   }
 
+  /**
+   * Open dialog function
+   */
   public openDialog() {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {

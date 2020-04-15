@@ -27,6 +27,11 @@ export class DoctorViewComponent implements OnInit {
     }
   }
 
+  /**
+   * Get doctor details function
+   *
+   * @param doctorId
+   */
   public getDoctorDetails(doctorId) {
     this.doctorService.getDoctor(doctorId)
       .pipe(first())
