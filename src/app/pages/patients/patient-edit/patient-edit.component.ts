@@ -29,19 +29,19 @@ const DATA_STEP_1 = {
     type: 'text',
     validations: {},
     errors: {},
-    placeholder: 'Travel To Risk Countries In The Last 14 Days:'
+    placeholder: 'Travel To Risk Countries In The Last 14 Days:',
   },
   contactInTheLast14DaysWithAPersonWhoHasSymptoms: {
     type: 'text',
     validations: {},
     errors: {},
-    placeholder: 'Contact In The Last 14 Days With A Person Who Has Symptoms'
+    placeholder: 'Contact In The Last 14 Days With A Person Who Has Symptoms',
   },
   haveYouBeenInContactWithPeopleWhoHaveTheCoronaVirusInTheLast14Days: {
     type: 'text',
     validations: {},
     errors: {},
-    placeholder: 'Been in contact with person who has Corona Virus:'
+    placeholder: 'Been in contact with person who has Corona Virus:',
   },
   haveYouEverBeenToAHealthCareFacilityWhereTheDiseaseHasBeenDiagnosedWithANewCoronavirus: {
     type: 'text',
@@ -273,10 +273,11 @@ export class PatientEditComponent implements OnInit {
       travelToRiskCountriesInTheLast14Days: this.formData.value.travelToRiskCountriesInTheLast14Days,
       contactInTheLast14DaysWithAPersonWhoHasSymptoms: this.formData.value.contactInTheLast14DaysWithAPersonWhoHasSymptoms,
       haveYouBeenInContactWithPeopleWhoHaveTheCoronaVirusInTheLast14Days: this.formData.value.haveYouBeenInContactWithPeopleWhoHaveTheCoronaVirusInTheLast14Days,
-      haveYouEverBeenToAHealthCareFacilityWhereTheDiseaseHasBeenDiagnosedWithANewCoronavirus: this.formData.value.haveYouEverBeenToAHealthCareFacilityWhereTheDiseaseHasBeenDiagnosedWithANewCoronavirus,
+      haveYouEverBeenToAHealthCareFacilityWhereTheDiseaseHasBeenDiagnosedWithANewCoronavirus:
+      this.formData.value.haveYouEverBeenToAHealthCareFacilityWhereTheDiseaseHasBeenDiagnosedWithANewCoronavirus,
       didYouGoForAExaminationSomewhere: this.formData.value.didYouGoForAExaminationSomewhere,
     }; */
-    this.patientService.setPatient(data);
+    // this.patientService.setPatient(data);
   }
 
   trackByFn(index: number): number {
