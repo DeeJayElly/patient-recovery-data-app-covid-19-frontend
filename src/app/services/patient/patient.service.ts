@@ -59,6 +59,18 @@ export class PatientService {
   }
 
   /**
+   * Set patient function
+   *
+   * @param data
+   */
+  public setPatient(data: Patient) {
+    return this.http.post<Patient>(`${environment.apiUrl}/patient`, data)
+      .pipe(map((response) => {
+        return response;
+      }));
+  }
+
+  /**
    * Delete patient function
    *
    * @param patientId
