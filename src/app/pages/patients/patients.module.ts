@@ -10,7 +10,7 @@ import {
   NbCardModule,
   NbIconModule,
   NbInputModule,
-  NbListModule, NbRadioModule,
+  NbListModule, NbRadioModule, NbStepperModule,
   NbTreeGridModule,
 } from '@nebular/theme';
 import {ThemeModule} from '../../@theme/theme.module';
@@ -37,6 +37,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     NbButtonModule,
     NbListModule,
     NbRadioModule,
+    NbStepperModule,
   ],
 })
 export class PatientsModule {

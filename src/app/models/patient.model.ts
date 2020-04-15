@@ -65,4 +65,5 @@ export class Patient {
   medications?: string[];
   operations?: string[];
   warningScores: WarningScore[];
+  assignedDoctor: string;
 }

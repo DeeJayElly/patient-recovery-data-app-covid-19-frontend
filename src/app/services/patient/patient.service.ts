@@ -44,6 +44,13 @@ export class PatientService {
       }));
   }
 
+  public setPatient(data: Patient) {
+    return this.http.post<Patient>(`${environment.apiUrl}/patient`, data)
+      .pipe(map((response) => {
+        return response;
+      }));
+  }
+
   public deletePatient(patientId: string) {
     return this.http.delete<Patient>(`${environment.apiUrl}/patient/${patientId}`)
       .pipe(map((response) => {
