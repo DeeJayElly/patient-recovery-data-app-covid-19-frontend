@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {first} from 'rxjs/operators';
 import {Patient} from '../../../models/patient.model';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {PatientService} from '../../../services/patient/patient.service';
 import {WarningScore} from '../../../models/warning-score.model';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -23,8 +23,7 @@ export class PatientEditComponent implements OnInit {
     return this.patientEditForm.controls;
   }
 
-  constructor(private router: Router,
-              private route: ActivatedRoute,
+  constructor(private route: ActivatedRoute,
               private patientService: PatientService,
               private formBuilder: FormBuilder) {
     this.patientEditForm = this.formBuilder.group({

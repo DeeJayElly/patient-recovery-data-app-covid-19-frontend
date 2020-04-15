@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {first} from 'rxjs/operators';
 import {Patient} from '../../../models/patient.model';
 import {PatientService} from '../../../services/patient/patient.service';
@@ -17,10 +17,10 @@ export class PatientViewComponent implements OnInit {
   public error: any;
   public warningScores: WarningScore[];
 
-  constructor(private router: Router,
-              private route: ActivatedRoute,
-              private patientService: PatientService,
-              private dialogService: NbDialogService) {
+  constructor(
+    private route: ActivatedRoute,
+    private patientService: PatientService,
+    private dialogService: NbDialogService) {
   }
 
   ngOnInit(): void {
