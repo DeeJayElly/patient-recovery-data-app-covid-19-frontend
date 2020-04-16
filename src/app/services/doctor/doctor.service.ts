@@ -32,6 +32,30 @@ export class DoctorService {
   }
 
   /**
+   * Set doctor function
+   *
+   * @param data
+   */
+  public setDoctor(data: Doctor) {
+    return this.http.post<Doctor[]>(`${environment.apiUrl}/doctor`, data)
+      .pipe(map((response) => {
+        return response;
+      }));
+  }
+
+  /**
+   * Delete doctor function
+   *
+   * @param doctorId
+   */
+  public deleteDoctor(doctorId: string) {
+    return this.http.delete<Doctor[]>(`${environment.apiUrl}/doctor/${doctorId}`)
+      .pipe(map((response) => {
+        return response;
+      }));
+  }
+
+  /**
    * Update doctor function
    *
    * @param doctorEditForm
