@@ -63,7 +63,7 @@ export class SignUpComponent implements OnInit {
       this.f.lastName.value,
       this.f.cityOrRegion.value,
       this.f.country.value,
-      this.authService.currentUserValue.token,
+      this.authService.currentUserValue.token.refreshToken,
       this.f.hospital.value,
       this.f.role.value)
       .pipe(first())
