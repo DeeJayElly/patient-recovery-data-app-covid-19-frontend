@@ -28,6 +28,7 @@
   "NEW_PASSWORD_REPEAT": "New password repeat",
   "DOCTORS_LIST": "Doctors list",
   "DOCTOR_DETAILS": "Doctor Details",
+  "DOCTOR_EDIT": "Edit Doctor",
   "PATIENT_DETAILS": "Patient Details",
   "CREATE_WARNING_SCORE": "Add patients warning score",
   "GO_BACK": "Go back",
