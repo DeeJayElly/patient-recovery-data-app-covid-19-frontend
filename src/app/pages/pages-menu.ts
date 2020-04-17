@@ -20,7 +20,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Hospitals',
     icon: 'activity-outline',
-    link: '/pages/hospital',
+    link: '/pages/hospitals',
   },
   {
     title: 'Reports',
