@@ -1,6 +1,5 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { HospitalViewComponent } from './hospital-view.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {HospitalViewComponent} from './hospital-view.component';
 
 describe('HospitalViewComponent', () => {
   let component: HospitalViewComponent;
@@ -8,9 +7,9 @@ describe('HospitalViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HospitalViewComponent ]
+      declarations: [HospitalViewComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
