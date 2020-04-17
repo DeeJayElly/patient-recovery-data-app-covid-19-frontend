@@ -7,7 +7,7 @@ describe('HospitalViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HospitalViewComponent]
+      declarations: [HospitalViewComponent],
     })
       .compileComponents();
   }));

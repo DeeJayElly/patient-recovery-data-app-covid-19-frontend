@@ -7,7 +7,7 @@ describe('HospitalEditComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HospitalEditComponent]
+      declarations: [HospitalEditComponent],
     })
       .compileComponents();
   }));
