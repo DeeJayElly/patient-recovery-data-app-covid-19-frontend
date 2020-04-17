@@ -63,7 +63,7 @@ export class HospitalService {
    * @param hospitalEditForm
    * @param hospitalId
    */
-  public updateDoctor(hospitalEditForm, hospitalId: string) {
+  public updateHospital(hospitalEditForm, hospitalId: string) {
     return this.http.put<Hospital>(`${environment.apiUrl}/hospital/${hospitalId}`, {
       name: hospitalEditForm.name,
       address: hospitalEditForm.address,
