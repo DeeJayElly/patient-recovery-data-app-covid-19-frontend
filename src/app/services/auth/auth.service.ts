@@ -102,7 +102,7 @@ export class AuthService {
   /**
    * Refresh token function
    *
-   * @param newPassword
+   * @param refreshToken
    */
   public refreshToken(refreshToken: string) {
     return this.http.post<{ newPassword: string }>(`${environment.apiUrl}/auth/refresh-token`, {refreshToken})
