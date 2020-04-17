@@ -40,8 +40,9 @@ export class SignUpComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       cityOrRegion: ['', Validators.required],
-      hospitalName: ['', Validators.required],
       country: ['', Validators.required],
+      hospital: ['', Validators.required],
+      role: ['', Validators.required],
     });
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
@@ -61,11 +62,14 @@ export class SignUpComponent implements OnInit {
       this.f.firstName.value,
       this.f.lastName.value,
       this.f.cityOrRegion.value,
-      this.f.hospitalName.value,
-      this.f.country.value)
+      this.f.country.value,
+      this.authService.currentUserValue.token,
+      this.f.hospital.value,
+      this.f.role.value)
       .pipe(first())
       .subscribe(
         data => {
+          this.loading = false;
           this.router.navigate([this.returnUrl]);
         },
         error => {

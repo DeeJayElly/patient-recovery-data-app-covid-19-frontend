@@ -13,7 +13,6 @@ import {Router} from '@angular/router';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-
   private destroy$: Subject<void> = new Subject<void>();
   userPictureOnly: boolean = false;
   user: any;
@@ -57,7 +56,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.userService.getUsers()
       .pipe(takeUntil(this.destroy$))
       .subscribe((users: any) => {
-        this.user = users.nick;
+        this.user = {
+          name: '',
+        };
         if (this.authService.currentUserValue) {
           this.user.name = this.authService.currentUserValue.user.firstName + ' '
             + this.authService.currentUserValue.user.lastName;
@@ -92,7 +93,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   toggleSidebar(): boolean {
     this.sidebarService.toggle(true, 'menu-sidebar');
     this.layoutService.changeLayoutSize();
-
     return false;
   }
 

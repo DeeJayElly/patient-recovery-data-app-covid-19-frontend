@@ -54,6 +54,7 @@ export class ResetPasswordComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
+          this.loading = false;
           this.router.navigate(['/auth/sign-in']);
         },
         error => {

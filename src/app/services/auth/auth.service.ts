@@ -44,24 +44,31 @@ export class AuthService {
    * @param firstName
    * @param lastName
    * @param cityOrRegion
-   * @param hospitalName
    * @param country
+   * @param refreshToken
+   * @param hospital
+   * @param role
    */
   public signUp(email: string,
                 password: string,
                 firstName: string,
                 lastName: string,
                 cityOrRegion: string,
-                hospitalName: string,
-                country: string) {
+                country: string,
+                refreshToken: string,
+                hospital: string,
+                role: string,
+                ) {
     return this.http.post<Doctor>(`${environment.apiUrl}/doctor`, {
       email,
       password,
       firstName,
       lastName,
       cityOrRegion,
-      hospitalName,
       country,
+      refreshToken,
+      hospital,
+      role,
     })
       .pipe(map((user: Doctor) => {
         return user;
