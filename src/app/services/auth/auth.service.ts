@@ -100,6 +100,18 @@ export class AuthService {
   }
 
   /**
+   * Refresh token function
+   *
+   * @param newPassword
+   */
+  public refreshToken(refreshToken: string) {
+    return this.http.post<{ newPassword: string }>(`${environment.apiUrl}/auth/refresh-token`, {refreshToken})
+      .pipe(map((response) => {
+        return response;
+      }));
+  }
+
+  /**
    * Logout function
    */
   public logout() {
