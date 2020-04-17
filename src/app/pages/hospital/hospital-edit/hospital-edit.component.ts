@@ -59,7 +59,7 @@ export class HospitalEditComponent implements OnInit {
   }
 
   /**
-   * Edit doctor form function
+   * Edit hospital form function
    */
   public editHospitalForm() {
     this.hospitalEditForm.patchValue({
@@ -70,7 +70,7 @@ export class HospitalEditComponent implements OnInit {
   }
 
   /**
-   * Open dialog function
+   * Open hospital function
    */
   public openDialog() {
     this.dialogService.open(ShowcaseDialogComponent, {
@@ -96,5 +96,4 @@ export class HospitalEditComponent implements OnInit {
           this.error = error;
         });
   }
-
 }

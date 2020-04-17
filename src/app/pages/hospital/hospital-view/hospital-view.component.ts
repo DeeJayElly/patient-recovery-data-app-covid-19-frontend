@@ -22,12 +22,12 @@ export class HospitalViewComponent implements OnInit {
     if (hospitalId) {
       this.getHospitalDetails(hospitalId);
     } else {
-      this.error = 'No details for this doctor';
+      this.error = 'No details for this hospital';
     }
   }
 
   /**
-   * Get doctor details function
+   * Get hospital details function
    *
    * @param hospitalId
    */

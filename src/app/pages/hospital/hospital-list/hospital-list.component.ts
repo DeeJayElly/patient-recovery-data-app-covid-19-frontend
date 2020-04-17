@@ -72,28 +72,28 @@ export class HospitalListComponent implements OnInit {
   public onCustomAction(event) {
     switch (event.action) {
       case 'viewrecord':
-        this.openDoctorViewPage(event.data);
+        this.openHospitalViewPage(event.data);
         break;
       case 'editrecord':
-        this.openDoctorEditPage(event.data);
+        this.openHospitalEditPage(event.data);
     }
   }
 
   /**
-   * Open doctor view page function
+   * Open hospital view page function
    *
    * @param item
    */
-  public openDoctorViewPage(item) {
+  public openHospitalViewPage(item) {
     this.router.navigate(['/pages/hospitals/' + item._id]);
   }
 
   /**
-   * Open doctor edit page function
+   * Open hospital edit page function
    *
    * @param item
    */
-  public openDoctorEditPage(item) {
+  public openHospitalEditPage(item) {
     this.router.navigate(['/pages/hospitals/' + item._id + '/edit']);
   }
 

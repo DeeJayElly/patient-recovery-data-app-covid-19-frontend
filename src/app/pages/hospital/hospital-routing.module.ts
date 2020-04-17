@@ -15,7 +15,7 @@ const routes: Routes = [
       {
         path: 'edit',
         component: HospitalEditComponent,
-        // canDeactivate: [DoctorEditDiscardChangesGuard]
+        // canDeactivate: [HospitalEditDiscardChangesGuard]
       },
       {
         path: '',
