@@ -18,6 +18,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/doctors',
   },
   {
+    title: 'Hospitals',
+    icon: 'activity-outline',
+    link: '/pages/hospital',
+  },
+  {
     title: 'Reports',
     icon: 'clipboard-outline',
     link: '/pages/reports',
