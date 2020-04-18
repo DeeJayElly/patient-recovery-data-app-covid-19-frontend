@@ -2,17 +2,17 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {Doctor} from '../../models/doctor.model';
+import {User} from '../../models/user.model';
 import {environment} from '../../../environments/environment';
 import {Router} from '@angular/router';
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
-  private currentUserSubject: BehaviorSubject<Doctor>;
-  public currentUser: Observable<Doctor>;
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
 
   constructor(private http: HttpClient, public router: Router) {
-    this.currentUserSubject = new BehaviorSubject<Doctor>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
@@ -28,7 +28,7 @@ export class AuthService {
    */
   public login(email: string, password: string) {
     return this.http.post<{ email: string, password: string }>(`${environment.apiUrl}/auth/login`, {email, password})
-      .pipe(map((user: Doctor) => {
+      .pipe(map((user: User) => {
         user.authData = window.btoa(email + ':' + password);
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
@@ -59,7 +59,7 @@ export class AuthService {
                 hospital: string,
                 role: string,
                 ) {
-    return this.http.post<Doctor>(`${environment.apiUrl}/doctor`, {
+    return this.http.post<User>(`${environment.apiUrl}/doctor`, {
       email,
       password,
       firstName,
@@ -70,7 +70,7 @@ export class AuthService {
       hospital,
       role,
     })
-      .pipe(map((user: Doctor) => {
+      .pipe(map((user: User) => {
         return user;
       }));
   }

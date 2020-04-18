@@ -4,6 +4,7 @@ import {first} from 'rxjs/operators';
 import {LocalDataSource} from 'ng2-smart-table';
 import {Router} from '@angular/router';
 import {HospitalService} from '../../../services/hospital/hospital.service';
+import {AuthService} from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'ngx-hospital-list',
@@ -13,8 +14,10 @@ import {HospitalService} from '../../../services/hospital/hospital.service';
 export class HospitalListComponent implements OnInit {
   public hospitals: any;
   public error: any;
+  public isAdmin = this.auth.currentUserValue.role === 'superAdmin';
 
   constructor(public http: HttpClient,
+              private auth: AuthService,
               public hospitalService: HospitalService,
               public router: Router) {
   }
@@ -24,9 +27,11 @@ export class HospitalListComponent implements OnInit {
       add: false,
       edit: false,
       delete: false,
-      custom: [
+      custom: this.isAdmin ? [
         {name: 'viewrecord', title: '<i class="nb-person"></i>'},
         {name: 'editrecord', title: '<i class="nb-edit"></i>'},
+      ] : [
+        {name: 'viewrecord', title: '<i class="nb-person"></i>'},
       ],
     },
     columns: {

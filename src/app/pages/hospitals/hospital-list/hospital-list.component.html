@@ -2,7 +2,6 @@
   <nb-card-header>
     {{'HOSPITAL_LIST' | translate}}
   </nb-card-header>
-
   <nb-card-body>
     <ng2-smart-table [settings]="settings" [source]="source" (custom)="onCustomAction($event)"
                      (deleteConfirm)="onDeleteConfirm($event)">

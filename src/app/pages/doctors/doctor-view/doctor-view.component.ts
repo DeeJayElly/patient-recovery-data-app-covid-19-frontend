@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {DoctorService} from '../../../services/doctor/doctor.service';
 import {first} from 'rxjs/operators';
-import {Doctor} from '../../../models/doctor.model';
+import {User} from '../../../models/user.model';
 
 @Component({
   selector: 'ngx-doctor-view',
@@ -10,7 +10,7 @@ import {Doctor} from '../../../models/doctor.model';
   styleUrls: ['./doctor-view.component.scss'],
 })
 export class DoctorViewComponent implements OnInit {
-  public doctor: Doctor | undefined;
+  public doctor: User | undefined;
   public error: any;
 
   constructor(private route: ActivatedRoute,
@@ -35,7 +35,7 @@ export class DoctorViewComponent implements OnInit {
     this.doctorService.getDoctor(doctorId)
       .pipe(first())
       .subscribe(
-        (data: Doctor) => {
+        (data: User) => {
           this.doctor = data;
         },
         error => {

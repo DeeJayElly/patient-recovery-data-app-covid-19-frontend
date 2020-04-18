@@ -4,6 +4,7 @@ import {first} from 'rxjs/operators';
 import {PatientService} from '../../../services/patient/patient.service';
 import {Router} from '@angular/router';
 import {DatePipe} from '@angular/common';
+import {AuthService} from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'ngx-patients-list',
@@ -13,8 +14,10 @@ import {DatePipe} from '@angular/common';
 export class PatientsListComponent implements OnInit {
   public patients: any;
   public error: any;
+  public isAdmin = this.auth.currentUserValue.role === 'superAdmin';
 
   constructor(public patientService: PatientService,
+              private auth: AuthService,
               public router: Router) {
   }
 
@@ -23,9 +26,11 @@ export class PatientsListComponent implements OnInit {
       add: false,
       edit: false,
       delete: false,
-      custom: [
+      custom: this.isAdmin ? [
         {name: 'viewrecord', title: '<i class="nb-person"></i>'},
         {name: 'editrecord', title: '<i class="nb-edit"></i>'},
+      ] : [
+        {name: 'viewrecord', title: '<i class="nb-person"></i>'},
       ],
     },
     columns: {

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Doctor} from '../../models/doctor.model';
+import {User} from '../../models/user.model';
 import {environment} from '../../../environments/environment';
 import {map} from 'rxjs/operators';
 import {AuthService} from '../auth/auth.service';
@@ -14,7 +14,7 @@ export class DoctorService {
    * Get all doctors function
    */
   public getAllDoctors() {
-    return this.http.get<Doctor[]>(`${environment.apiUrl}/doctor`)
+    return this.http.get<User[]>(`${environment.apiUrl}/doctor`)
       .pipe(map((response) => {
         return response;
       }));
@@ -26,7 +26,7 @@ export class DoctorService {
    * @param doctorId
    */
   public getDoctor(doctorId: string) {
-    return this.http.get<Doctor>(`${environment.apiUrl}/doctor/${doctorId}`)
+    return this.http.get<User>(`${environment.apiUrl}/doctor/${doctorId}`)
       .pipe(map((response) => {
         return response;
       }));
@@ -37,8 +37,8 @@ export class DoctorService {
    *
    * @param data
    */
-  public setDoctor(data: Doctor) {
-    return this.http.post<Doctor[]>(`${environment.apiUrl}/doctor`, data)
+  public setDoctor(data: User) {
+    return this.http.post<User[]>(`${environment.apiUrl}/doctor`, data)
       .pipe(map((response) => {
         return response;
       }));
@@ -50,7 +50,7 @@ export class DoctorService {
    * @param doctorId
    */
   public deleteDoctor(doctorId: string) {
-    return this.http.delete<Doctor[]>(`${environment.apiUrl}/doctor/${doctorId}`)
+    return this.http.delete<User[]>(`${environment.apiUrl}/doctor/${doctorId}`)
       .pipe(map((response) => {
         return response;
       }));
@@ -63,7 +63,7 @@ export class DoctorService {
    * @param doctorId
    */
   public updateDoctor(doctorEditForm, doctorId: string) {
-    return this.http.put<Doctor>(`${environment.apiUrl}/doctor/${doctorId}`, {
+    return this.http.put<User>(`${environment.apiUrl}/doctor/${doctorId}`, {
       email: doctorEditForm.email,
       firstName: doctorEditForm.firstName,
       lastName: doctorEditForm.lastName,

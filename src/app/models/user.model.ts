@@ -1,4 +1,4 @@
-export class Doctor {
+export class User {
   _id: number;
   email: string;
   password: string;

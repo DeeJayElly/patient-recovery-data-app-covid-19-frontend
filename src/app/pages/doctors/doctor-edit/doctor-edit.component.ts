@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {DoctorService} from '../../../services/doctor/doctor.service';
-import {Doctor} from '../../../models/doctor.model';
+import {User} from '../../../models/user.model';
 import {ActivatedRoute} from '@angular/router';
 import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
 import {NbDialogService} from '@nebular/theme';
@@ -53,7 +53,7 @@ export class DoctorEditComponent implements OnInit {
     this.doctorService.getDoctor(doctorId)
       .pipe(first())
       .subscribe(
-        (data: Doctor) => {
+        (data: User) => {
           this.doctor = data;
           this.editDoctorForm();
         },
@@ -94,7 +94,7 @@ export class DoctorEditComponent implements OnInit {
     this.doctorService.updateDoctor(this.doctorEditForm.value, this.doctorId)
       .pipe(first())
       .subscribe(
-        (data: Doctor) => {
+        (data: User) => {
           if (data) {
             this.openDialog();
           }

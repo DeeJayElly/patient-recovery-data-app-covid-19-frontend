@@ -4,6 +4,7 @@ import {DoctorService} from '../../../services/doctor/doctor.service';
 import {first} from 'rxjs/operators';
 import {LocalDataSource} from 'ng2-smart-table';
 import {Router} from '@angular/router';
+import {AuthService} from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'ngx-doctors-list',
@@ -13,8 +14,10 @@ import {Router} from '@angular/router';
 export class DoctorsListComponent implements OnInit {
   public doctors: any;
   public error: any;
+  public isAdmin = this.auth.currentUserValue.role === 'superAdmin';
 
   constructor(public http: HttpClient,
+              private auth: AuthService,
               public doctorService: DoctorService,
               public router: Router) {
   }
@@ -24,16 +27,14 @@ export class DoctorsListComponent implements OnInit {
       add: false,
       edit: false,
       delete: false,
-      custom: [
+      custom: this.isAdmin ? [
         {name: 'viewrecord', title: '<i class="nb-person"></i>'},
         {name: 'editrecord', title: '<i class="nb-edit"></i>'},
+      ] : [
+        {name: 'viewrecord', title: '<i class="nb-person"></i>'},
       ],
     },
     columns: {
-      /* _id: {
-        title: 'ID',
-        type: 'number',
-      }, */
       firstName: {
         title: 'First Name',
         type: 'string',
@@ -69,6 +70,7 @@ export class DoctorsListComponent implements OnInit {
       .subscribe(
         data => {
           this.doctors = data;
+          this.doctors = this.doctors.filter(doctor => doctor.role === 'doctor');
           this.source.load(this.doctors);
         },
         error => {
