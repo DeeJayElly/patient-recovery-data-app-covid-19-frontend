@@ -23,7 +23,15 @@ import {PatientWarningScoreEditComponent} from './patient-warning-score-edit/pat
 import {PatientWarningScoreViewComponent} from './patient-warning-score-view/patient-warning-score-view.component';
 
 @NgModule({
-  declarations: [PatientsListComponent, PatientViewComponent, PatientEditComponent, PatientWarningScoreCreateComponent, PatientCreateComponent, PatientWarningScoreEditComponent, PatientWarningScoreViewComponent],
+  declarations: [
+    PatientsListComponent,
+    PatientViewComponent,
+    PatientEditComponent,
+    PatientWarningScoreCreateComponent,
+    PatientCreateComponent,
+    PatientWarningScoreEditComponent,
+    PatientWarningScoreViewComponent,
+  ],
   imports: [
     CommonModule,
     PatientsRoutingModule,
