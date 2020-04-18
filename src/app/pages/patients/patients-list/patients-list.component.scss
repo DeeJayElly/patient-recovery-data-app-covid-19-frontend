@@ -3,3 +3,9 @@
   align-items: center !important;
   margin-bottom: -44px !important;
 }
+
+nb-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
