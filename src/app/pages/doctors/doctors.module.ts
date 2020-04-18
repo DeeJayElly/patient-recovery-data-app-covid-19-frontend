@@ -9,7 +9,7 @@ import {
   NbCardModule,
   NbIconModule,
   NbInputModule,
-  NbListModule,
+  NbListModule, NbSelectModule,
   NbTreeGridModule,
 } from '@nebular/theme';
 import {ThemeModule} from '../../@theme/theme.module';
@@ -36,6 +36,7 @@ import { DoctorCreateComponent } from './doctor-create/doctor-create.component';
     NbButtonModule,
     ReactiveFormsModule,
     FormsModule,
+    NbSelectModule,
   ],
 })
 export class DoctorsModule {

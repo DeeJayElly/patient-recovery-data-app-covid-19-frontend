@@ -45,6 +45,7 @@ export class DoctorService {
       cityOrRegion: doctorCreateForm.cityOrRegion,
       hospital: doctorCreateForm.hospital,
       country: doctorCreateForm.country,
+      password: doctorCreateForm.password,
       refreshToken: this.authService.currentUserValue.token.refreshToken,
       role: 'doctor',
     })

@@ -56,7 +56,7 @@ export class DoctorsListComponent implements OnInit {
         title: 'Country',
         type: 'string',
       },
-      hospitalName: {
+      hospital: {
         title: 'Hospital Name',
         type: 'string',
       },
@@ -72,6 +72,11 @@ export class DoctorsListComponent implements OnInit {
         data => {
           this.doctors = data;
           this.doctors = this.doctors.filter(doctor => doctor.role === 'doctor');
+          this.doctors.map(doctor => {
+            if (doctor.hospital) {
+              doctor.hospital = doctor.hospital.name;
+            }
+          });
           this.source.load(this.doctors);
         },
         error => {

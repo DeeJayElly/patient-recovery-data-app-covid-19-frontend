@@ -5,6 +5,8 @@ import {User} from '../../../models/user.model';
 import {DoctorService} from '../../../services/doctor/doctor.service';
 import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
 import {NbDialogService} from '@nebular/theme';
+import {HospitalService} from '../../../services/hospital/hospital.service';
+import {Hospital} from '../../../models/hospital.model';
 
 @Component({
   selector: 'ngx-doctor-create',
@@ -16,6 +18,8 @@ export class DoctorCreateComponent implements OnInit {
   public submitted = false;
   public doctor: any;
   public error: any;
+  public hospitals: Hospital[];
+  public selectedHospital: any;
 
   get f() {
     return this.doctorCreateForm.controls;
@@ -23,18 +27,37 @@ export class DoctorCreateComponent implements OnInit {
 
   constructor(public formBuilder: FormBuilder,
               public doctorService: DoctorService,
-              public dialogService: NbDialogService) {
+              public dialogService: NbDialogService,
+              public hospitalService: HospitalService) {
     this.doctorCreateForm = this.formBuilder.group({
       email: ['', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       cityOrRegion: ['', Validators.required],
-      hospital: ['', Validators.required],
+      hospital: [null, Validators.required],
       country: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
 
   ngOnInit(): void {
+    this.getAllHospitals();
+  }
+
+  public getAllHospitals() {
+    this.hospitalService.getAllHospitals()
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.hospitals = data;
+          this.selectedHospital = this.hospitals[0];
+          this.doctorCreateForm.patchValue({
+            hospital: this.selectedHospital,
+          });
+        },
+        error => {
+          this.error = error;
+        });
   }
 
   /**
@@ -52,6 +75,7 @@ export class DoctorCreateComponent implements OnInit {
    * On submit function
    */
   public onSubmit() {
+    debugger;
     this.doctorService.setDoctor(this.doctorCreateForm.value)
       .pipe(first())
       .subscribe(
