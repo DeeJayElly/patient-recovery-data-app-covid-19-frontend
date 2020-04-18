@@ -6,7 +6,7 @@
       </div>
       <div class="buttons">
         <button nbButton routerLink="/pages/hospitals">{{'GO_BACK' | translate}}</button>
-        <button nbButton routerLink="/pages/hospitals/add">{{'ADD_HOSPITAL' | translate}}</button>
+        <button nbButton status="danger" (click)="deleteHospital()">{{ 'DELETE_HOSPITAL' | translate }}</button>
       </div>
     </div>
   </nb-card-header>

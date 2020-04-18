@@ -3,8 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {User} from '../../../models/user.model';
 import {DoctorService} from '../../../services/doctor/doctor.service';
-import {ShowcaseDialogComponent} from "../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component";
-import {NbDialogService} from "@nebular/theme";
+import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
+import {NbDialogService} from '@nebular/theme';
 
 @Component({
   selector: 'ngx-doctor-create',
@@ -26,11 +26,10 @@ export class DoctorCreateComponent implements OnInit {
               public dialogService: NbDialogService) {
     this.doctorCreateForm = this.formBuilder.group({
       email: ['', Validators.required],
-      password: ['', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       cityOrRegion: ['', Validators.required],
-      hospitalName: ['', Validators.required],
+      hospital: ['', Validators.required],
       country: ['', Validators.required],
     });
   }

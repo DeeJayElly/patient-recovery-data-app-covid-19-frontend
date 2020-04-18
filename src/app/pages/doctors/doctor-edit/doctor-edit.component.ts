@@ -77,12 +77,13 @@ export class DoctorEditComponent implements OnInit {
    * Edit doctor form function
    */
   public editDoctorForm() {
+    debugger;
     this.doctorEditForm.patchValue({
       email: this.doctor.email,
       firstName: this.doctor.firstName,
       lastName: this.doctor.lastName,
       cityOrRegion: this.doctor.cityOrRegion,
-      hospital: this.doctor.hospital,
+      hospital: this.doctor.hospitalName,
       country: this.doctor.country,
     });
   }
