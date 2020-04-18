@@ -3,10 +3,11 @@ import {HttpClient} from '@angular/common/http';
 import {Doctor} from '../../models/doctor.model';
 import {environment} from '../../../environments/environment';
 import {map} from 'rxjs/operators';
+import {AuthService} from '../auth/auth.service';
 
 @Injectable({providedIn: 'root'})
 export class DoctorService {
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private authService: AuthService) {
   }
 
   /**
@@ -67,8 +68,11 @@ export class DoctorService {
       firstName: doctorEditForm.firstName,
       lastName: doctorEditForm.lastName,
       cityOrRegion: doctorEditForm.cityOrRegion,
-      hospitalName: doctorEditForm.hospitalName,
+      hospital: doctorEditForm.hospital,
       country: doctorEditForm.country,
+      password: doctorEditForm.password,
+      refreshToken: this.authService.currentUserValue.token.refreshToken,
+      role: 'doctor',
     })
       .pipe(map((response) => {
         return response;

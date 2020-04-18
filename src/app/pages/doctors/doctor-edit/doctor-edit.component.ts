@@ -32,8 +32,10 @@ export class DoctorEditComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       cityOrRegion: ['', Validators.required],
-      hospitalName: ['', Validators.required],
+      hospital: ['', Validators.required],
       country: ['', Validators.required],
+      password: ['', Validators.required],
+      passwordRepeat: ['', Validators.required],
     });
   }
 
@@ -69,7 +71,7 @@ export class DoctorEditComponent implements OnInit {
       firstName: this.doctor.firstName,
       lastName: this.doctor.lastName,
       cityOrRegion: this.doctor.cityOrRegion,
-      hospitalName: this.doctor.hospitalName,
+      hospital: this.doctor.hospitalName,
       country: this.doctor.country,
     });
   }
@@ -101,5 +103,4 @@ export class DoctorEditComponent implements OnInit {
           this.error = error;
         });
   }
-
 }

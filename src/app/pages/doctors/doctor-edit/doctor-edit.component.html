@@ -36,11 +36,11 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="hospitalName" class="label col-sm-3 col-form-label">{{'HOSPITAL_NAME' | translate}}</label>
-          <input type="text" nbInput fullWidth id="hospitalName" formControlName="hospitalName"
+          <label for="hospital" class="label col-sm-3 col-form-label">{{'HOSPITAL_NAME' | translate}}</label>
+          <input type="text" nbInput fullWidth id="hospital" formControlName="hospital"
                  placeholder="{{'HOSPITAL_NAME' | translate}}">
-          <div *ngIf="submitted && f.hospitalName.errors" class="invalid-feedback">
-            <div *ngIf="f.hospitalName.errors.required">{{'HOSPITAL_NAME_REQUIRED' | translate}}</div>
+          <div *ngIf="submitted && f.hospital.errors" class="invalid-feedback">
+            <div *ngIf="f.hospital.errors.required">{{'HOSPITAL_NAME_REQUIRED' | translate}}</div>
           </div>
         </div>
         <div class="form-group row">
@@ -49,6 +49,22 @@
                  placeholder="{{'COUNTRY' | translate}}">
           <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
             <div *ngIf="f.country.errors.required">{{'COUNTRY_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="password" class="label col-sm-3 col-form-label">{{'PASSWORD' | translate}}</label>
+          <input type="password" nbInput fullWidth id="password" formControlName="password"
+                 placeholder="{{'PASSWORD' | translate}}">
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">{{'PASSWORD_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="passwordRepeat" class="label col-sm-3 col-form-label">{{'PASSWORD' | translate}}</label>
+          <input type="password" nbInput fullWidth id="passwordRepeat" formControlName="passwordRepeat"
+                 placeholder="{{'PASSWORD' | translate}}">
+          <div *ngIf="submitted && f.passwordRepeat.errors" class="invalid-feedback">
+            <div *ngIf="f.passwordRepeat.errors.required">{{'PASSWORD_REQUIRED' | translate}}</div>
           </div>
         </div>
         <div class="form-group row">
