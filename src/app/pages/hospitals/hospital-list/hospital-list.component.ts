@@ -14,7 +14,7 @@ import {AuthService} from '../../../services/auth/auth.service';
 export class HospitalListComponent implements OnInit {
   public hospitals: any;
   public error: any;
-  public isAdmin = this.auth.currentUserValue.role === 'superAdmin';
+  public isAdmin = this.auth.currentUserValue.user.role === 'superAdmin';
 
   constructor(public http: HttpClient,
               private auth: AuthService,
