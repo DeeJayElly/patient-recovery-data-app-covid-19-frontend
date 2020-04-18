@@ -1,6 +1,7 @@
 <nb-card>
   <nb-card-header>
     {{'HOSPITAL_LIST' | translate}}
+    <button nbButton routerLink="/pages/hospitals/add">{{'ADD_HOSPITAL' | translate}}</button>
   </nb-card-header>
   <nb-card-body>
     <ng2-smart-table [settings]="settings" [source]="source" (custom)="onCustomAction($event)"

@@ -64,5 +64,6 @@
   "REPORT_DESCRIPTION": "In order to download csv of all patients with all the relevant data, please click on",
   "REPORT_LINK": "this link",
   "ADD_PATIENT": "Add patient",
-  "ADD_DOCTOR": "Add doctor"
+  "ADD_DOCTOR": "Add doctor",
+  "EDIT_HOSPITAL_DATA": "Edit hospital data"
 }
