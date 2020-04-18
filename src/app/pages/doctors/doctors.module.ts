@@ -17,9 +17,10 @@ import {TablesRoutingModule} from '../tables/tables-routing.module';
 import {Ng2SmartTableModule} from 'ng2-smart-table';
 import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { DoctorCreateComponent } from './doctor-create/doctor-create.component';
 
 @NgModule({
-  declarations: [DoctorsListComponent, DoctorViewComponent, DoctorEditComponent],
+  declarations: [DoctorsListComponent, DoctorViewComponent, DoctorEditComponent, DoctorCreateComponent],
   imports: [
     CommonModule,
     DoctorsRoutingModule,

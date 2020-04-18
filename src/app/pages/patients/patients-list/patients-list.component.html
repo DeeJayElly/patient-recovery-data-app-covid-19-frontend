@@ -1,8 +1,8 @@
 <nb-card>
   <nb-card-header>
-    {{'PATIENTS_LIST' | translate}}
+    <div>{{'PATIENTS_LIST' | translate}}</div>
+    <button nbButton routerLink="/pages/patients/add">{{'ADD_PATIENT' | translate}}</button>
   </nb-card-header>
-
   <nb-card-body>
     <ng2-smart-table [settings]="settings" [source]="source" (custom)="onCustomAction($event)"
                      (deleteConfirm)="onDeleteConfirm($event)">

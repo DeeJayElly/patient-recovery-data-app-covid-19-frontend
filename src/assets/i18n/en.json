@@ -17,6 +17,8 @@
   "HOSPITAL_NAME": "Hospital name",
   "HOSPITAL_NAME_REQUIRED": "Hospital name required",
   "HOSPITAL_LIST": "Hospitals list",
+  "HOSPITAL_DETAILS": "Hospital details",
+  "ADD_HOSPITAL": "Add hospital",
   "ROLE": "Role",
   "ROLE_REQUIRED": "Role required",
   "COUNTRY": "Country",
@@ -57,5 +59,10 @@
   "SCORE_REQUIRED": "Score required",
   "CREATE_NEW_SCORE_RATING": "Create daily score rating for patient",
   "SAVE_DOCTOR_INFO": "Update doctor information",
-  "DELETE_PATIENT": "Delete patient"
+  "DELETE_PATIENT": "Delete patient",
+  "REPORT_TITLE": "Download latest Patient CSV Report",
+  "REPORT_DESCRIPTION": "In order to download csv of all patients with all the relevant data, please click on",
+  "REPORT_LINK": "this link",
+  "ADD_PATIENT": "Add patient",
+  "ADD_DOCTOR": "Add doctor"
 }

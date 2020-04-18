@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {HospitalListComponent} from './hospital-list/hospital-list.component';
 import {HospitalEditComponent} from './hospital-edit/hospital-edit.component';
 import {HospitalViewComponent} from './hospital-view/hospital-view.component';
+import {HospitalCreateComponent} from './hospital-create/hospital-create.component';
 
 const routes: Routes = [
   {
@@ -10,12 +11,15 @@ const routes: Routes = [
     component: HospitalListComponent,
   },
   {
+    path: 'add',
+    component: HospitalCreateComponent,
+  },
+  {
     path: ':id',
     children: [
       {
         path: 'edit',
         component: HospitalEditComponent,
-        // canDeactivate: [HospitalEditDiscardChangesGuard]
       },
       {
         path: '',
@@ -30,5 +34,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class HospitalRoutingModule {
+export class HospitalsRoutingModule {
 }

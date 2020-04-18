@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {DoctorsListComponent} from './doctors-list/doctors-list.component';
 import {DoctorEditComponent} from './doctor-edit/doctor-edit.component';
 import {DoctorViewComponent} from './doctor-view/doctor-view.component';
+import {DoctorCreateComponent} from './doctor-create/doctor-create.component';
 
 const routes: Routes = [
   {
@@ -10,12 +11,15 @@ const routes: Routes = [
     component: DoctorsListComponent,
   },
   {
+    path: 'add',
+    component: DoctorCreateComponent,
+  },
+  {
     path: ':id',
     children: [
       {
         path: 'edit',
         component: DoctorEditComponent,
-        // canDeactivate: [DoctorEditDiscardChangesGuard]
       },
       {
         path: '',
