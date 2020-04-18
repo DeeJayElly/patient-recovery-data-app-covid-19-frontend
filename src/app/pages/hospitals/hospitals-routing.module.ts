@@ -15,7 +15,6 @@ const routes: Routes = [
       {
         path: 'edit',
         component: HospitalEditComponent,
-        // canDeactivate: [HospitalEditDiscardChangesGuard]
       },
       {
         path: '',
@@ -30,5 +29,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class HospitalRoutingModule {
+export class HospitalsRoutingModule {
 }

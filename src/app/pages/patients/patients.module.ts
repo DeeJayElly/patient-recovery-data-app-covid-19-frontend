@@ -4,7 +4,7 @@ import {PatientsRoutingModule} from './patients-routing.module';
 import {PatientsListComponent} from './patients-list/patients-list.component';
 import {PatientViewComponent} from './patient-view/patient-view.component';
 import {PatientEditComponent} from './patient-edit/patient-edit.component';
-import {PatientWarningScoreComponent} from './patient-warning-score/patient-warning-score.component';
+import {PatientWarningScoreCreateComponent} from './patient-warning-score-create/patient-warning-score-create.component';
 import {
   NbButtonModule,
   NbCardModule,
@@ -18,9 +18,10 @@ import {TablesRoutingModule} from '../tables/tables-routing.module';
 import {Ng2SmartTableModule} from 'ng2-smart-table';
 import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {PatientCreateComponent} from './patient-create/patient-create.component';
 
 @NgModule({
-  declarations: [PatientsListComponent, PatientViewComponent, PatientEditComponent, PatientWarningScoreComponent],
+  declarations: [PatientsListComponent, PatientViewComponent, PatientEditComponent, PatientWarningScoreCreateComponent, PatientCreateComponent],
   imports: [
     CommonModule,
     PatientsRoutingModule,

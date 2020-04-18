@@ -9,11 +9,11 @@ import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dial
 import {NbDialogService} from '@nebular/theme';
 
 @Component({
-  selector: 'ngx-patient-warning-score',
-  templateUrl: './patient-warning-score.component.html',
-  styleUrls: ['./patient-warning-score.component.scss'],
+  selector: 'ngx-patient-warning-score-create',
+  templateUrl: './patient-warning-score-create.component.html',
+  styleUrls: ['./patient-warning-score-create.component.scss'],
 })
-export class PatientWarningScoreComponent implements OnInit {
+export class PatientWarningScoreCreateComponent implements OnInit {
   public scoreForm: FormGroup;
   public submitted = false;
   public patientId: any;
