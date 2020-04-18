@@ -71,7 +71,7 @@ export class DoctorEditComponent implements OnInit {
       firstName: this.doctor.firstName,
       lastName: this.doctor.lastName,
       cityOrRegion: this.doctor.cityOrRegion,
-      hospital: this.doctor.hospitalName,
+      hospital: this.doctor.hospital,
       country: this.doctor.country,
     });
   }

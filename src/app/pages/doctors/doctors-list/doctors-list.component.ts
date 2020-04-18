@@ -54,7 +54,7 @@ export class DoctorsListComponent implements OnInit {
         title: 'Country',
         type: 'string',
       },
-      hospitalName: {
+      hospital: {
         title: 'Hospital Name',
         type: 'string',
       },

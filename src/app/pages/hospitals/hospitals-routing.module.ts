@@ -3,11 +3,16 @@ import {Routes, RouterModule} from '@angular/router';
 import {HospitalListComponent} from './hospital-list/hospital-list.component';
 import {HospitalEditComponent} from './hospital-edit/hospital-edit.component';
 import {HospitalViewComponent} from './hospital-view/hospital-view.component';
+import {HospitalCreateComponent} from './hospital-create/hospital-create.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HospitalListComponent,
+  },
+  {
+    path: 'add',
+    component: HospitalCreateComponent,
   },
   {
     path: ':id',

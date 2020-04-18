@@ -69,5 +69,8 @@
     "no-missing-end-of-source-newline": true,
 
     "max-line-length": 200
-  }
+  },
+  "ignoreFiles": [
+    "**/*.js"
+  ]
 }

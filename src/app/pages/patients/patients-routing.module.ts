@@ -4,11 +4,16 @@ import {PatientsListComponent} from './patients-list/patients-list.component';
 import {PatientEditComponent} from './patient-edit/patient-edit.component';
 import {PatientViewComponent} from './patient-view/patient-view.component';
 import {PatientWarningScoreCreateComponent} from './patient-warning-score-create/patient-warning-score-create.component';
+import {PatientCreateComponent} from './patient-create/patient-create.component';
 
 const routes: Routes = [
   {
     path: '',
     component: PatientsListComponent,
+  },
+  {
+    path: 'add',
+    component: PatientCreateComponent,
   },
   {
     path: ':id',
@@ -18,14 +23,28 @@ const routes: Routes = [
         component: PatientEditComponent,
       },
       {
-        path: 'warning-score',
-        component: PatientWarningScoreCreateComponent,
-      },
-      {
         path: '',
         pathMatch: 'full',
         component: PatientViewComponent,
       },
+    ],
+  },
+  {
+    path: 'warning-scores',
+    children: [
+      {
+        path: 'add',
+        component: PatientWarningScoreCreateComponent,
+      },
+      /*{
+        path: 'edit',
+        component: PatientWarningScoreEditComponent,
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        component: PatientWarningScoreViewComponent,
+      },*/
     ],
   },
 ];

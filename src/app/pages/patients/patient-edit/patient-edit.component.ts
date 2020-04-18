@@ -328,7 +328,7 @@ export class PatientEditComponent implements OnInit {
       firstName: this.patient.firstName,
       lastName: this.patient.lastName,
       cityOrRegion: this.patient.cityOrRegion,
-      hospitalName: this.patient.hospitalName,
+      hospital: this.patient.hospital,
       country: this.patient.country,
     });*/
   }

@@ -1,5 +1,5 @@
-<h2>Work in progress</h2>
-<p>Here you are able to download csv of all patients with all the relevant data, by clicking on <a
-  href='{{env.apiUrl}}/patient/export/csv' (click)='downloadCSVReport()'>this link</a>
+<h2>{{'REPORT_TITLE' | translate}}</h2>
+<p>{{'REPORT_DESCRIPTION' | translate}} <a
+  href='{{env.apiUrl}}/patient/export/csv' (click)='downloadCSVReport()'>{{'REPORT_LINK' | translate}}</a>
 </p>
 <span>Status:</span>
