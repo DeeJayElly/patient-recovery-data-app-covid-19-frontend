@@ -107,7 +107,10 @@ export class AuthService {
   public refreshToken(refreshToken: string) {
     return this.http.post<{ newPassword: string }>(`${environment.apiUrl}/auth/refresh-token`, {refreshToken})
       .pipe(map((response) => {
-        return response;
+        this.currentUserValue.authData = window.btoa(this.currentUserValue.email + ':' + this.currentUserValue.password);
+        localStorage.setItem('currentUser', JSON.stringify(this.currentUserValue));
+        this.currentUserSubject.next(this.currentUserValue);
+        return this.currentUserValue;
       }));
   }
 
