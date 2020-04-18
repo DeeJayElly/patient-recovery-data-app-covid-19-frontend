@@ -316,7 +316,7 @@ export class PatientEditComponent implements OnInit {
       .subscribe(
         (data: User) => {
           if ((data.hospital === this.auth.currentUserValue.user.hospital && this.auth.currentUserValue.user.role === 'hospitalAdmin')
-            || data._id === parseInt(this.patient.assignedDoctor, 10)
+            || data._id === this.patient.assignedDoctor
             || user.user.role === 'superAdmin') {
             if (this.patient.warningScores.length) {
               this.warningScores = this.patient.warningScores;
