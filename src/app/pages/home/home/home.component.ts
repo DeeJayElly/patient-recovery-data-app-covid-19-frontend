@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public showYAxisLabel = true;
   public themeSubscription: any;
   public colorScheme: any;
+  public error: any;
 
   constructor(public patientService: PatientService, private theme: NbThemeService) {
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
@@ -73,7 +74,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           });
         },
         error => {
-          // this.error = error;
+          this.error = error;
         });
   }
 

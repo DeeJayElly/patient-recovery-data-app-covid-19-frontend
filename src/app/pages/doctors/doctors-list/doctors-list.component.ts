@@ -76,6 +76,11 @@ export class DoctorsListComponent implements OnInit {
         });
   }
 
+  /**
+   * On custom action click function
+   *
+   * @param event
+   */
   public onCustomAction(event) {
     switch (event.action) {
       case 'viewrecord':
@@ -86,14 +91,29 @@ export class DoctorsListComponent implements OnInit {
     }
   }
 
+  /**
+   * Open doctor view page function
+   *
+   * @param item
+   */
   public openDoctorViewPage(item) {
     this.router.navigate(['/pages/doctors/' + item._id]);
   }
 
+  /**
+   * Open doctor edit page function
+   *
+   * @param item
+   */
   public openDoctorEditPage(item) {
     this.router.navigate(['/pages/doctors/' + item._id + '/edit']);
   }
 
+  /**
+   * On delete confirm function
+   *
+   * @param event
+   */
   public onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
       event.confirm.resolve();

@@ -11,11 +11,11 @@ import {first} from 'rxjs/operators';
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
-  signUpForm: FormGroup;
-  loading = false;
-  submitted = false;
-  returnUrl: string;
-  error = '';
+  public signUpForm: FormGroup;
+  public loading = false;
+  public submitted = false;
+  public returnUrl: string;
+  public error = '';
 
   get f() {
     return this.signUpForm.controls;
@@ -40,12 +40,16 @@ export class SignUpComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       cityOrRegion: ['', Validators.required],
-      hospitalName: ['', Validators.required],
       country: ['', Validators.required],
+      hospital: ['', Validators.required],
+      role: ['', Validators.required],
     });
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
+  /**
+   * Submit function
+   */
   public onSubmit() {
     this.submitted = true;
     if (this.signUpForm.invalid) {
@@ -58,11 +62,14 @@ export class SignUpComponent implements OnInit {
       this.f.firstName.value,
       this.f.lastName.value,
       this.f.cityOrRegion.value,
-      this.f.hospitalName.value,
-      this.f.country.value)
+      this.f.country.value,
+      this.authService.currentUserValue.token.refreshToken,
+      this.f.hospital.value,
+      this.f.role.value)
       .pipe(first())
       .subscribe(
         data => {
+          this.loading = false;
           this.router.navigate([this.returnUrl]);
         },
         error => {

@@ -73,6 +73,11 @@ export class PatientsListComponent implements OnInit {
         });
   }
 
+  /**
+   * On custom action function
+   *
+   * @param event
+   */
   public onCustomAction(event) {
     switch (event.action) {
       case 'viewrecord':
@@ -83,15 +88,30 @@ export class PatientsListComponent implements OnInit {
     }
   }
 
+  /**
+   * Open patient view page function
+   *
+   * @param item
+   */
   public openPatientViewPage(item) {
     this.router.navigate(['/pages/patients/' + item._id]);
   }
 
+  /**
+   * Open patient edit page function
+   *
+   * @param item
+   */
   public openPatientEditPage(item) {
     this.router.navigate(['/pages/patients/' + item._id + '/edit']);
   }
 
-  onDeleteConfirm(event): void {
+  /**
+   * On delete confirm click function
+   *
+   * @param event
+   */
+  public onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
       event.confirm.resolve();
     } else {

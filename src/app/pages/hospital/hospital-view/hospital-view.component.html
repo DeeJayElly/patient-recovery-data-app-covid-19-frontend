@@ -1,0 +1,23 @@
+<nb-card>
+  <nb-card-header>
+    <div class="title-container">
+      Hospital details
+      <button nbButton routerLink="/pages/hospitals">Go back</button>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div *ngIf="hospital">
+      <nb-list>
+        <nb-list-item>
+          <span>Name:</span> {{ hospital.name }}
+        </nb-list-item>
+        <nb-list-item>
+          <span>Address:</span> {{ hospital.address }}
+        </nb-list-item>
+        <nb-list-item>
+          <span>Number of beds:</span>  {{ hospital.numberOfBeds }}
+        </nb-list-item>
+      </nb-list>
+    </div>
+  </nb-card-body>
+</nb-card>

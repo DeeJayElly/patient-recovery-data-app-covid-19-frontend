@@ -23,7 +23,7 @@
         </div>
         <div class="form-group">
           <label for="email">{{'EMAIL_ADDRESS' | translate}}</label>
-          <input type="text" placeholder="{{'EMAIL_ADDRESS' | translate}}" formControlName="email" name="email"
+          <input type="email" placeholder="{{'EMAIL_ADDRESS' | translate}}" formControlName="email" name="email"
                  id="email" class="form-control"
                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
           <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
@@ -40,21 +40,30 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="hospitalName">{{'HOSPITAL_NAME' | translate}}</label>
-          <input type="text" placeholder="{{'HOSPITAL_NAME' | translate}}" formControlName="hospitalName"
-                 name="hospitalName" id="hospitalName" class="form-control"
-                 [ngClass]="{ 'is-invalid': submitted && f.hospitalName.errors }"/>
-          <div *ngIf="submitted && f.hospitalName.errors" class="invalid-feedback">
-            <div *ngIf="f.hospitalName.errors.required">{{'HOSPITAL_NAME_REQUIRED' | translate}}</div>
+          <label for="hospital">{{'HOSPITAL_NAME' | translate}}</label>
+          <input type="text" placeholder="{{'HOSPITAL_NAME' | translate}}" formControlName="hospital"
+                 name="hospital" id="hospital" class="form-control"
+                 [ngClass]="{ 'is-invalid': submitted && f.hospital.errors }"/>
+          <div *ngIf="submitted && f.hospital.errors" class="invalid-feedback">
+            <div *ngIf="f.hospital.errors.required">{{'HOSPITAL_NAME_REQUIRED' | translate}}</div>
           </div>
         </div>
         <div class="form-group">
-          <label for="hospitalName">{{'COUNTRY' | translate}}</label>
+          <label for="country">{{'COUNTRY' | translate}}</label>
           <input type="text" placeholder="{{'COUNTRY' | translate}}" formControlName="country" name="country"
                  id="country" class="form-control"
                  [ngClass]="{ 'is-invalid': submitted && f.country.errors }"/>
           <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
             <div *ngIf="f.country.errors.required">{{'COUNTRY_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="role">{{'ROLE' | translate}}</label>
+          <input type="text" placeholder="{{'ROLE' | translate}}" formControlName="role"
+                 name="role" id="role" class="form-control"
+                 [ngClass]="{ 'is-invalid': submitted && f.role.errors }"/>
+          <div *ngIf="submitted && f.role.errors" class="invalid-feedback">
+            <div *ngIf="f.role.errors.required">{{'ROLE_REQUIRED' | translate}}</div>
           </div>
         </div>
         <div class="form-group">
@@ -68,7 +77,8 @@
         </div>
         <div class="form-group">
           <label for="passwordRepeat">{{'PASSWORD_REPEAT' | translate}}</label>
-          <input type="password" placeholder="{{'PASSWORD_REPEAT' | translate}}" formControlName="passwordRepeat" name="passwordRepeat"
+          <input type="password" placeholder="{{'PASSWORD_REPEAT' | translate}}" formControlName="passwordRepeat"
+                 name="passwordRepeat"
                  id="passwordRepeat" class="form-control"
                  [ngClass]="{ 'is-invalid': submitted && f.passwordRepeat.errors }"/>
           <div *ngIf="submitted && f.passwordRepeat.errors" class="invalid-feedback">

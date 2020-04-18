@@ -5,8 +5,9 @@ export class Doctor {
   firstName: string;
   lastName: string;
   cityOrRegion: string;
-  hospitalName: string;
   country: string;
+  hospital: string;
+  refreshToken?: string;
   authData?: string;
-  token?: string;
+  role: string;
 }

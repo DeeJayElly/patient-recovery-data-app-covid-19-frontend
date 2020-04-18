@@ -11,11 +11,11 @@ import {first} from 'rxjs/operators';
   styleUrls: ['./reset-password.component.scss'],
 })
 export class ResetPasswordComponent implements OnInit {
-  resetPasswordForm: FormGroup;
-  loading = false;
-  submitted = false;
-  returnUrl: string;
-  error = '';
+  public resetPasswordForm: FormGroup;
+  public loading = false;
+  public submitted = false;
+  public returnUrl: string;
+  public error = '';
 
   get f() {
     return this.resetPasswordForm.controls;
@@ -41,6 +41,9 @@ export class ResetPasswordComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
+  /**
+   * Submit function
+   */
   public onSubmit() {
     this.submitted = true;
     if (this.resetPasswordForm.invalid) {
@@ -51,6 +54,7 @@ export class ResetPasswordComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
+          this.loading = false;
           this.router.navigate(['/auth/sign-in']);
         },
         error => {

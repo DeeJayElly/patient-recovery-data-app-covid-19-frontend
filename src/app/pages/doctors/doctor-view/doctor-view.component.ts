@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {DoctorService} from '../../../services/doctor/doctor.service';
 import {first} from 'rxjs/operators';
 import {Doctor} from '../../../models/doctor.model';
@@ -13,8 +13,7 @@ export class DoctorViewComponent implements OnInit {
   public doctor: Doctor | undefined;
   public error: any;
 
-  constructor(private router: Router,
-              private route: ActivatedRoute,
+  constructor(private route: ActivatedRoute,
               private doctorService: DoctorService) {
   }
 
@@ -27,6 +26,11 @@ export class DoctorViewComponent implements OnInit {
     }
   }
 
+  /**
+   * Get doctor details function
+   *
+   * @param doctorId
+   */
   public getDoctorDetails(doctorId) {
     this.doctorService.getDoctor(doctorId)
       .pipe(first())
