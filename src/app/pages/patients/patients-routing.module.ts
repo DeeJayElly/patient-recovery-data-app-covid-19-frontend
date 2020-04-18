@@ -5,6 +5,8 @@ import {PatientEditComponent} from './patient-edit/patient-edit.component';
 import {PatientViewComponent} from './patient-view/patient-view.component';
 import {PatientWarningScoreCreateComponent} from './patient-warning-score-create/patient-warning-score-create.component';
 import {PatientCreateComponent} from './patient-create/patient-create.component';
+import {PatientWarningScoreEditComponent} from './patient-warning-score-edit/patient-warning-score-edit.component';
+import {PatientWarningScoreViewComponent} from './patient-warning-score-view/patient-warning-score-view.component';
 
 const routes: Routes = [
   {
@@ -36,7 +38,7 @@ const routes: Routes = [
         path: 'add',
         component: PatientWarningScoreCreateComponent,
       },
-      /*{
+      {
         path: 'edit',
         component: PatientWarningScoreEditComponent,
       },
@@ -44,7 +46,7 @@ const routes: Routes = [
         path: '',
         pathMatch: 'full',
         component: PatientWarningScoreViewComponent,
-      },*/
+      },
     ],
   },
 ];

@@ -19,9 +19,11 @@ import {Ng2SmartTableModule} from 'ng2-smart-table';
 import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {PatientCreateComponent} from './patient-create/patient-create.component';
+import {PatientWarningScoreEditComponent} from './patient-warning-score-edit/patient-warning-score-edit.component';
+import {PatientWarningScoreViewComponent} from './patient-warning-score-view/patient-warning-score-view.component';
 
 @NgModule({
-  declarations: [PatientsListComponent, PatientViewComponent, PatientEditComponent, PatientWarningScoreCreateComponent, PatientCreateComponent],
+  declarations: [PatientsListComponent, PatientViewComponent, PatientEditComponent, PatientWarningScoreCreateComponent, PatientCreateComponent, PatientWarningScoreEditComponent, PatientWarningScoreViewComponent],
   imports: [
     CommonModule,
     PatientsRoutingModule,
