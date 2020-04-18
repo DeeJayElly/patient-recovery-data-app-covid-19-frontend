@@ -5,12 +5,9 @@ import {ActivatedRoute} from '@angular/router';
 import {PatientService} from '../../../services/patient/patient.service';
 import {WarningScore} from '../../../models/warning-score.model';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-
-const COUNTRY_LIST = [
-  {name: 'United States of America', code: 'us'},
-  {name: 'United Kingdoms', code: 'gb'},
-  {name: 'India', code: 'in'},
-];
+import {AuthService} from '../../../services/auth/auth.service';
+import {User} from '../../../models/user.model';
+import {DoctorService} from '../../../services/doctor/doctor.service';
 
 const DATA_STEP_1 = {
   firstName: {type: 'text', validations: {}, errors: {}, placeholder: 'First Name'},
@@ -114,6 +111,7 @@ export class PatientEditComponent implements OnInit {
   public submitted = false;
   public patientEditForm: FormGroup;
   public radioGroupValue: any;
+  public canEditPatient: boolean;
 
   get f() {
     return this.patientEditForm.controls;
@@ -121,7 +119,9 @@ export class PatientEditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private patientService: PatientService,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private auth: AuthService,
+              private doctorService: DoctorService) {
     this.patientEditForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -302,13 +302,30 @@ export class PatientEditComponent implements OnInit {
       .subscribe(
         (data: Patient) => {
           this.patient = data;
-          if (this.patient.warningScores.length) {
-            this.warningScores = this.patient.warningScores;
-          }
-          this.editPatientForm();
+          this.checkPatientToHospitalRelation();
         },
         error => {
           this.error = error;
+        });
+  }
+
+  private checkPatientToHospitalRelation() {
+    const user = this.auth.currentUserValue;
+    const isFromSameHospital = this.doctorService.getDoctor(this.patient.assignedDoctor)
+      .pipe(first())
+      .subscribe(
+        (data: User) => {
+          if ((data.hospital === this.auth.currentUserValue.user.hospital && this.auth.currentUserValue.user.role === 'hospitalAdmin')
+            || data._id === parseInt(this.patient.assignedDoctor, 10)
+            || user.user.role === 'superAdmin') {
+            if (this.patient.warningScores.length) {
+              this.warningScores = this.patient.warningScores;
+            }
+            this.editPatientForm();
+          }
+        },
+        error => {
+          return error;
         });
   }
 

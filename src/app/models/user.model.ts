@@ -6,7 +6,8 @@ export class User {
   lastName: string;
   cityOrRegion: string;
   country: string;
-  hospitalName: string;
+  hospital: string;
+  user: any;
   refreshToken?: string;
   authData?: string;
   role: string;

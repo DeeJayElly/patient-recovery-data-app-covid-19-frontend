@@ -6,6 +6,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {NbDialogService} from '@nebular/theme';
 import {HospitalService} from '../../../services/hospital/hospital.service';
+import {AuthService} from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'ngx-hospital-edit',
@@ -18,6 +19,7 @@ export class HospitalEditComponent implements OnInit {
   public hospitalId: any;
   public hospital: any;
   public error: any;
+  public canEditHospital: boolean;
 
   get f() {
     return this.hospitalEditForm.controls;
@@ -26,7 +28,8 @@ export class HospitalEditComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               public hospitalService: HospitalService,
               public route: ActivatedRoute,
-              public dialogService: NbDialogService) {
+              public dialogService: NbDialogService,
+              private auth: AuthService) {
     this.hospitalEditForm = this.formBuilder.group({
       name: ['', Validators.required],
       address: ['', Validators.required],
@@ -51,11 +54,19 @@ export class HospitalEditComponent implements OnInit {
       .subscribe(
         (data: Hospital) => {
           this.hospital = data;
-          this.editHospitalForm();
+          this.canEditHospital = this.checkHospitalAdminToHospitalRelation();
+          if (this.canEditHospital) {
+            this.editHospitalForm();
+          }
         },
         error => {
           this.error = error;
         });
+  }
+
+  private checkHospitalAdminToHospitalRelation() {
+    const user = this.auth.currentUserValue;
+    return (this.hospital.name === user.user.hospital && user.user.role === 'hospitalAdmin') || user.user.role === 'superAdmin';
   }
 
   /**

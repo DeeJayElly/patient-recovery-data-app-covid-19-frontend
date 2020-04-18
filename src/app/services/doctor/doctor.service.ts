@@ -81,7 +81,7 @@ export class DoctorService {
       hospital: doctorEditForm.hospital,
       country: doctorEditForm.country,
       password: doctorEditForm.password,
-      refreshToken: this.authService.currentUserValue.token.refreshToken,
+      refreshToken: this.authService.currentUserValue.token.token,
       role: 'doctor',
     })
       .pipe(map((response) => {
