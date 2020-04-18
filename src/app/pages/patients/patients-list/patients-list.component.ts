@@ -27,11 +27,9 @@ export class PatientsListComponent implements OnInit {
       add: false,
       edit: false,
       delete: false,
-      custom: this.isAdmin || this.isHospitalAdmin ? [
+      custom: [
         {name: 'viewrecord', title: '<i class="nb-person"></i>'},
         {name: 'editrecord', title: '<i class="nb-edit"></i>'},
-      ] : [
-        {name: 'viewrecord', title: '<i class="nb-person"></i>'},
       ],
     },
     columns: {

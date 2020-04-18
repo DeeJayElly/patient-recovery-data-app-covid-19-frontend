@@ -9,12 +9,6 @@ import {AuthService} from '../../../services/auth/auth.service';
 import {User} from '../../../models/user.model';
 import {DoctorService} from '../../../services/doctor/doctor.service';
 
-const COUNTRY_LIST = [
-  {name: 'United States of America', code: 'us'},
-  {name: 'United Kingdoms', code: 'gb'},
-  {name: 'India', code: 'in'},
-];
-
 const DATA_STEP_1 = {
   firstName: {type: 'text', validations: {}, errors: {}, placeholder: 'First Name'},
   lastName: {type: 'text', validations: {}, errors: {}, placeholder: 'Last Name'},
@@ -306,10 +300,24 @@ export class PatientEditComponent implements OnInit {
     this.patientService.getPatient(patientId)
       .pipe(first())
       .subscribe(
-        async (data: Patient) => {
+        (data: Patient) => {
           this.patient = data;
-          this.canEditPatient = await this.checkPatientToHospitalRelation();
-          if (this.canEditPatient) {
+          this.checkPatientToHospitalRelation();
+        },
+        error => {
+          this.error = error;
+        });
+  }
+
+  private checkPatientToHospitalRelation() {
+    const user = this.auth.currentUserValue;
+    const isFromSameHospital = this.doctorService.getDoctor(this.patient.assignedDoctor)
+      .pipe(first())
+      .subscribe(
+        (data: User) => {
+          if ((data.hospital === this.auth.currentUserValue.user.hospital && this.auth.currentUserValue.user.role === 'hospitalAdmin')
+            || data._id === parseInt(this.patient.assignedDoctor, 10)
+            || user.user.role === 'superAdmin') {
             if (this.patient.warningScores.length) {
               this.warningScores = this.patient.warningScores;
             }
@@ -317,22 +325,8 @@ export class PatientEditComponent implements OnInit {
           }
         },
         error => {
-          this.error = error;
-        });
-  }
-
-  private async checkPatientToHospitalRelation() {
-    const user = this.auth.currentUserValue;
-    const isFromSameHospital = this.doctorService.getDoctor(this.patient.assignedDoctor)
-      .pipe(first())
-      .subscribe(
-        (data: User) => {
-          return data.hospital === this.auth.currentUserValue.user.hospital;
-        },
-        error => {
           return error;
         });
-    return (isFromSameHospital && user.user.role === 'hospitalAdmin') || user.user.role === 'superAdmin';
   }
 
   /**
