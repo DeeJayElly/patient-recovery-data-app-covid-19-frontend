@@ -14,7 +14,8 @@ import {AuthService} from '../../../services/auth/auth.service';
 export class DoctorsListComponent implements OnInit {
   public doctors: any;
   public error: any;
-  public isAdmin = this.auth.currentUserValue.role === 'superAdmin';
+  public isAdmin = this.auth.currentUserValue.user.role === 'superAdmin';
+  public isHospitalAdmin = this.auth.currentUserValue.user.role === 'hospitalAdmin';
 
   constructor(public http: HttpClient,
               private auth: AuthService,
@@ -27,7 +28,7 @@ export class DoctorsListComponent implements OnInit {
       add: false,
       edit: false,
       delete: false,
-      custom: this.isAdmin ? [
+      custom: this.isAdmin || this.isHospitalAdmin ? [
         {name: 'viewrecord', title: '<i class="nb-person"></i>'},
         {name: 'editrecord', title: '<i class="nb-edit"></i>'},
       ] : [
