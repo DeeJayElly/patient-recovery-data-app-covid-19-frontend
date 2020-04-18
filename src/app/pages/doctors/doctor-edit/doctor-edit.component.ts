@@ -35,7 +35,7 @@ export class DoctorEditComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       cityOrRegion: ['', Validators.required],
-      hospital: ['', Validators.required],
+      hospitalName: ['', Validators.required],
       country: ['', Validators.required],
       password: ['', Validators.required],
       passwordRepeat: ['', Validators.required],
@@ -82,7 +82,7 @@ export class DoctorEditComponent implements OnInit {
       firstName: this.doctor.firstName,
       lastName: this.doctor.lastName,
       cityOrRegion: this.doctor.cityOrRegion,
-      hospital: this.doctor.hospital,
+      hospitalName: this.doctor.hospitalName,
       country: this.doctor.country,
     });
   }

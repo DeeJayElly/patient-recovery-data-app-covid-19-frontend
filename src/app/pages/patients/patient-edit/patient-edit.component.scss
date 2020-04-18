@@ -13,3 +13,15 @@ nb-card-header {
     }
   }
 }
+.fields-container {
+  .full-width {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    ::ng-deep input {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}

@@ -24,9 +24,9 @@
                   *ngFor="let field of formFields[i]; trackBy: trackByFn"
                   [ngSwitch]="currentFormContent[i][field].type">
                   <div class="full-width">
-                    <label class="field-label text-bold" [for]="field">{{ field  }}</label>
+                    <!-- <label class="field-label text-bold" [for]="field">{{ field  }}</label> -->
                     <ng-container *ngSwitchCase="'textarea'">
-                <textarea
+                <textarea nbInput
                   [id]="field"
                   [formControlName]="field"
                   [placeholder]="currentFormContent[i][field].placeholder"></textarea>
@@ -35,7 +35,7 @@
                     <ng-container *ngSwitchCase="'select'">
                       <select [formControlName]="field" [id]="field">
                         <option value="">Select your Country</option>
-                        <option
+                        <option nbInput
                           *ngFor="let option of currentFormContent[i][field].options; trackBy: trackByFn"
                           [value]="option.name"
                         >{{ option.name }}</option>
@@ -43,7 +43,7 @@
                     </ng-container>
 
                     <ng-container *ngSwitchDefault>
-                      <input
+                      <input nbInput
                         [type]="currentFormContent[i][field].type"
                         [formControlName]="field"
                         [id]="field"

@@ -57,13 +57,6 @@ const DATA_STEP_1 = {
 
 const DATA_STEP_2 = {
   address: {type: 'textarea', validations: {}, errors: {}, placeholder: 'Full Address'},
-  country: {
-    type: 'select',
-    options: COUNTRY_LIST,
-    validations: {},
-    errors: {},
-    placeholder: 'Country',
-  },
 };
 
 const DATA_STEP_3 = {
