@@ -4,6 +4,7 @@ import {DoctorsListComponent} from './doctors-list/doctors-list.component';
 import {DoctorEditComponent} from './doctor-edit/doctor-edit.component';
 import {DoctorViewComponent} from './doctor-view/doctor-view.component';
 import {DoctorCreateComponent} from './doctor-create/doctor-create.component';
+import {AuthGuard} from '../../guards/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'add',
+    canActivate: [AuthGuard],
     component: DoctorCreateComponent,
   },
   {
@@ -19,6 +21,7 @@ const routes: Routes = [
     children: [
       {
         path: 'edit',
+        canActivate: [AuthGuard],
         component: DoctorEditComponent,
       },
       {

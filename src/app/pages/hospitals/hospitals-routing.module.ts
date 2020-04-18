@@ -4,6 +4,7 @@ import {HospitalListComponent} from './hospital-list/hospital-list.component';
 import {HospitalEditComponent} from './hospital-edit/hospital-edit.component';
 import {HospitalViewComponent} from './hospital-view/hospital-view.component';
 import {HospitalCreateComponent} from './hospital-create/hospital-create.component';
+import {AuthGuard} from '../../guards/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'add',
+    canActivate: [AuthGuard],
     component: HospitalCreateComponent,
   },
   {
@@ -19,6 +21,7 @@ const routes: Routes = [
     children: [
       {
         path: 'edit',
+        canActivate: [AuthGuard],
         component: HospitalEditComponent,
       },
       {

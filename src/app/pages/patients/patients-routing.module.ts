@@ -7,6 +7,7 @@ import {PatientWarningScoreCreateComponent} from './patient-warning-score-create
 import {PatientCreateComponent} from './patient-create/patient-create.component';
 import {PatientWarningScoreEditComponent} from './patient-warning-score-edit/patient-warning-score-edit.component';
 import {PatientWarningScoreViewComponent} from './patient-warning-score-view/patient-warning-score-view.component';
+import {AuthGuard} from '../../guards/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -15,6 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'add',
+    canActivate: [AuthGuard],
     component: PatientCreateComponent,
   },
   {
@@ -22,6 +24,7 @@ const routes: Routes = [
     children: [
       {
         path: 'edit',
+        canActivate: [AuthGuard],
         component: PatientEditComponent,
       },
       {
@@ -36,10 +39,12 @@ const routes: Routes = [
     children: [
       {
         path: 'add',
+        canActivate: [AuthGuard],
         component: PatientWarningScoreCreateComponent,
       },
       {
         path: 'edit',
+        canActivate: [AuthGuard],
         component: PatientWarningScoreEditComponent,
       },
       {
