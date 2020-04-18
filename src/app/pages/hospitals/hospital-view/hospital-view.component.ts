@@ -3,6 +3,8 @@ import {Hospital} from '../../../models/hospital.model';
 import {ActivatedRoute} from '@angular/router';
 import {HospitalService} from '../../../services/hospital/hospital.service';
 import {first} from 'rxjs/operators';
+import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
+import {NbDialogService} from '@nebular/theme';
 
 @Component({
   selector: 'ngx-hospital-view',
@@ -14,7 +16,8 @@ export class HospitalViewComponent implements OnInit {
   public error: any;
 
   constructor(private route: ActivatedRoute,
-              private hospitalService: HospitalService) {
+              private hospitalService: HospitalService,
+              public dialogService: NbDialogService) {
   }
 
   ngOnInit(): void {
@@ -41,6 +44,29 @@ export class HospitalViewComponent implements OnInit {
         error => {
           this.error = error;
         });
+  }
+
+  public deleteHospital() {
+    this.hospitalService.deleteHospital(this.hospital._id)
+      .pipe(first())
+      .subscribe(
+        (data: any) => {
+          this.openDialog();
+        },
+        error => {
+          this.error = error;
+        });
+  }
+
+  /**
+   * Open dialog function
+   */
+  public openDialog() {
+    this.dialogService.open(ShowcaseDialogComponent, {
+      context: {
+        title: 'Hospital data has been successfully deleted',
+      },
+    });
   }
 
 }

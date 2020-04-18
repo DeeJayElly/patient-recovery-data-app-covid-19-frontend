@@ -55,10 +55,6 @@ export class PatientsListComponent implements OnInit {
         title: 'Contact',
         type: 'string',
       },
-      problemsDuration: {
-        title: 'Symptoms duration',
-        type: 'number',
-      },
     },
   };
 

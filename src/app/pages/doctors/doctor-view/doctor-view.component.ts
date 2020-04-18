@@ -3,6 +3,8 @@ import {ActivatedRoute} from '@angular/router';
 import {DoctorService} from '../../../services/doctor/doctor.service';
 import {first} from 'rxjs/operators';
 import {User} from '../../../models/user.model';
+import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
+import {NbDialogService} from '@nebular/theme';
 
 @Component({
   selector: 'ngx-doctor-view',
@@ -14,7 +16,8 @@ export class DoctorViewComponent implements OnInit {
   public error: any;
 
   constructor(private route: ActivatedRoute,
-              private doctorService: DoctorService) {
+              private doctorService: DoctorService,
+              public dialogService: NbDialogService) {
   }
 
   ngOnInit(): void {
@@ -41,5 +44,28 @@ export class DoctorViewComponent implements OnInit {
         error => {
           this.error = error;
         });
+  }
+
+  public deleteDoctor() {
+    this.doctorService.deleteDoctor(this.doctor._id)
+      .pipe(first())
+      .subscribe(
+        (data: any) => {
+          this.openDialog();
+        },
+        error => {
+          this.error = error;
+        });
+  }
+
+  /**
+   * Open dialog function
+   */
+  public openDialog() {
+    this.dialogService.open(ShowcaseDialogComponent, {
+      context: {
+        title: 'Doctor data has been successfully deleted',
+      },
+    });
   }
 }

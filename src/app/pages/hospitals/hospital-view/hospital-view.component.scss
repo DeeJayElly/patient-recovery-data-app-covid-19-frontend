@@ -1,0 +1,11 @@
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .buttons {
+    button {
+      margin-right: 10px;
+    }
+  }
+}

@@ -35,10 +35,20 @@ export class DoctorService {
   /**
    * Set doctor function
    *
-   * @param data
+   * @param doctorCreateForm
    */
-  public setDoctor(data: User) {
-    return this.http.post<User[]>(`${environment.apiUrl}/doctor`, data)
+  public setDoctor(doctorCreateForm: User) {
+    return this.http.post<User>(`${environment.apiUrl}/doctor`, {
+      email: doctorCreateForm.email,
+      firstName: doctorCreateForm.firstName,
+      lastName: doctorCreateForm.lastName,
+      cityOrRegion: doctorCreateForm.cityOrRegion,
+      hospital: doctorCreateForm.hospital,
+      country: doctorCreateForm.country,
+      password: doctorCreateForm.password,
+      refreshToken: this.authService.currentUserValue.token.refreshToken,
+      role: 'doctor',
+    })
       .pipe(map((response) => {
         return response;
       }));
@@ -50,7 +60,7 @@ export class DoctorService {
    * @param doctorId
    */
   public deleteDoctor(doctorId: string) {
-    return this.http.delete<User[]>(`${environment.apiUrl}/doctor/${doctorId}`)
+    return this.http.delete<User>(`${environment.apiUrl}/doctor/${doctorId}`)
       .pipe(map((response) => {
         return response;
       }));

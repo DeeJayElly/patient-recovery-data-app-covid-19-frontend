@@ -1,9 +1,13 @@
 <nb-card>
   <nb-card-header>
     <div class="title-container">
-      {{ 'HOSPITAL_DETAILS' | translate }}
-      <button nbButton routerLink="/pages/hospitals">{{'GO_BACK' | translate}}</button>
-      <button nbButton routerLink="/pages/hospitals/add">{{'ADD_HOSPITAL' | translate}}</button>
+      <div>
+        {{ 'HOSPITAL_DETAILS' | translate }}
+      </div>
+      <div class="buttons">
+        <button nbButton routerLink="/pages/hospitals">{{'GO_BACK' | translate}}</button>
+        <button nbButton status="danger" (click)="deleteHospital()">{{ 'DELETE_HOSPITAL' | translate }}</button>
+      </div>
     </div>
   </nb-card-header>
   <nb-card-body>

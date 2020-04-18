@@ -36,10 +36,14 @@ export class HospitalService {
   /**
    * Set hospital function
    *
-   * @param data
+   * @param hospitalCreateForm
    */
-  public setHospital(data: Hospital) {
-    return this.http.post<Hospital[]>(`${environment.apiUrl}/hospital`, data)
+  public setHospital(hospitalCreateForm: Hospital) {
+    return this.http.post<Hospital>(`${environment.apiUrl}/hospital`, {
+      name: hospitalCreateForm.name,
+      address: hospitalCreateForm.address,
+      numberOfBeds: hospitalCreateForm.numberOfBeds,
+    })
       .pipe(map((response) => {
         return response;
       }));
@@ -51,7 +55,7 @@ export class HospitalService {
    * @param hospitalId
    */
   public deleteHospital(hospitalId: string) {
-    return this.http.delete<Hospital[]>(`${environment.apiUrl}/hospital/${hospitalId}`)
+    return this.http.delete<Hospital>(`${environment.apiUrl}/hospital/${hospitalId}`)
       .pipe(map((response) => {
         return response;
       }));
