@@ -1,5 +1,5 @@
 {
-  "APP_TITLE": "Patient Recovery Data App",
+  "APP_TITLE": "Patientenwiederherstellungsdaten-App",
   "SIGN_IN": "Sign in",
   "SIGN_IN_SUBTITLE": "Log in with your email and password",
   "EMAIL_ADDRESS": "Email address",
@@ -18,7 +18,7 @@
   "HOSPITAL_NAME_REQUIRED": "Hospital name required",
   "HOSPITAL_LIST": "Hospitals list",
   "HOSPITAL_DETAILS": "Hospital details",
-  "ADD_HOSPITAL": "Add hospital",
+  "ADD_HOSPITAL": "Add hospital de",
   "ROLE": "Role",
   "ROLE_REQUIRED": "Role required",
   "COUNTRY": "Country",
@@ -65,6 +65,5 @@
   "REPORT_LINK": "this link",
   "ADD_PATIENT": "Add patient",
   "ADD_DOCTOR": "Add doctor",
-  "EDIT_HOSPITAL_DATA": "Edit hospital data",
-  "ADD_DOCTOR_INFO": "Add doctor"
+  "EDIT_HOSPITAL_DATA": "Edit hospital data"
 }

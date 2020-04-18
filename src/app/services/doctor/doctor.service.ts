@@ -35,10 +35,20 @@ export class DoctorService {
   /**
    * Set doctor function
    *
-   * @param data
+   * @param doctorCreateForm
    */
-  public setDoctor(data: User) {
-    return this.http.post<User[]>(`${environment.apiUrl}/doctor`, data)
+  public setDoctor(doctorCreateForm: User) {
+    return this.http.post<User[]>(`${environment.apiUrl}/doctor`, {
+      email: doctorCreateForm.email,
+      firstName: doctorCreateForm.firstName,
+      lastName: doctorCreateForm.lastName,
+      cityOrRegion: doctorCreateForm.cityOrRegion,
+      hospital: doctorCreateForm.hospitalName,
+      country: doctorCreateForm.country,
+      password: doctorCreateForm.password,
+      refreshToken: this.authService.currentUserValue.token.refreshToken,
+      role: 'doctor',
+    })
       .pipe(map((response) => {
         return response;
       }));

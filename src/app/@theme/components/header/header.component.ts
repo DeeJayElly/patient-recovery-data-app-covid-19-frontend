@@ -1,11 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService} from '@nebular/theme';
+import {NbMediaBreakpointsService, NbMenuItem, NbMenuService, NbSidebarService, NbThemeService} from '@nebular/theme';
 import {UserData} from '../../../@core/data/users';
 import {LayoutService} from '../../../@core/utils';
 import {map, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {AuthService} from '../../../services/auth/auth.service';
 import {Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'ngx-header',
@@ -40,6 +41,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   userMenu = [{title: 'Profile'}, {title: 'Log out'}];
 
+  items: NbMenuItem[] = [
+    {
+      title: 'Change language',
+      expanded: true,
+    },
+    {
+      title: 'English',
+    },
+    {
+      title: 'German',
+    },
+  ];
+
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
               private themeService: NbThemeService,
@@ -47,6 +61,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
               private layoutService: LayoutService,
               private breakpointService: NbMediaBreakpointsService,
               public authService: AuthService,
+              public translateService: TranslateService,
               public router: Router) {
   }
 
@@ -88,6 +103,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   changeTheme(themeName: string) {
     this.themeService.changeTheme(themeName);
+  }
+
+  public changeLanguage(lang: string) {
+      this.translateService.use(lang);
+      this.translateService.setDefaultLang(lang);
   }
 
   toggleSidebar(): boolean {
