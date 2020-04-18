@@ -1,0 +1,15 @@
+nb-card-header {
+
+  .title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .buttons-edit {
+      button {
+        margin-right: 10px;
+      }
+    }
+  }
+}
