@@ -4,6 +4,7 @@ import {first} from 'rxjs/operators';
 import {PatientService} from '../../../services/patient/patient.service';
 import {Router} from '@angular/router';
 import {DatePipe} from '@angular/common';
+import {AuthService} from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'ngx-patients-list',
@@ -13,8 +14,11 @@ import {DatePipe} from '@angular/common';
 export class PatientsListComponent implements OnInit {
   public patients: any;
   public error: any;
+  public isAdmin = this.auth.currentUserValue.user.role === 'superAdmin';
+  public isHospitalAdmin = this.auth.currentUserValue.user.role === 'hospitalAdmin';
 
   constructor(public patientService: PatientService,
+              private auth: AuthService,
               public router: Router) {
   }
 
@@ -51,10 +55,6 @@ export class PatientsListComponent implements OnInit {
         title: 'Contact',
         type: 'string',
       },
-      problemsDuration: {
-        title: 'Symptoms duration',
-        type: 'number',
-      },
     },
   };
 
@@ -73,6 +73,11 @@ export class PatientsListComponent implements OnInit {
         });
   }
 
+  /**
+   * On custom action function
+   *
+   * @param event
+   */
   public onCustomAction(event) {
     switch (event.action) {
       case 'viewrecord':
@@ -83,15 +88,30 @@ export class PatientsListComponent implements OnInit {
     }
   }
 
+  /**
+   * Open patient view page function
+   *
+   * @param item
+   */
   public openPatientViewPage(item) {
     this.router.navigate(['/pages/patients/' + item._id]);
   }
 
+  /**
+   * Open patient edit page function
+   *
+   * @param item
+   */
   public openPatientEditPage(item) {
     this.router.navigate(['/pages/patients/' + item._id + '/edit']);
   }
 
-  onDeleteConfirm(event): void {
+  /**
+   * On delete confirm click function
+   *
+   * @param event
+   */
+  public onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
       event.confirm.resolve();
     } else {

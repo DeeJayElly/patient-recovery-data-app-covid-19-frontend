@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AnalyticsService} from './@core/utils';
 import {SeoService} from './@core/utils';
 import {TranslateService} from '@ngx-translate/core';
-import {Doctor} from './models/doctor.model';
+import {User} from './models/user.model';
 import {AuthService} from './services/auth/auth.service';
 import {Router} from '@angular/router';
 import {NbMenuService} from '@nebular/theme';
@@ -12,7 +12,7 @@ import {NbMenuService} from '@nebular/theme';
   template: '<router-outlet></router-outlet>',
 })
 export class AppComponent implements OnInit {
-  public currentUser: Doctor;
+  public currentUser: User;
 
   constructor(private analytics: AnalyticsService,
               private seoService: SeoService,
@@ -41,6 +41,9 @@ export class AppComponent implements OnInit {
     }
   }
 
+  /**
+   * Logout function
+   */
   public logout() {
     this.authService.logout();
     this.router.navigate(['/auth/sign-in']);

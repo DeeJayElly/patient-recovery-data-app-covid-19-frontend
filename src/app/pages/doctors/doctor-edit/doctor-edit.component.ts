@@ -2,10 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {DoctorService} from '../../../services/doctor/doctor.service';
-import {Doctor} from '../../../models/doctor.model';
+import {User} from '../../../models/user.model';
 import {ActivatedRoute} from '@angular/router';
 import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
 import {NbDialogService} from '@nebular/theme';
+import {AuthService} from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'ngx-doctor-edit',
@@ -17,6 +18,8 @@ export class DoctorEditComponent implements OnInit {
   public submitted = false;
   public doctorId: any;
   public doctor: any;
+  public error: any;
+  public canEditDoctor: boolean;
 
   get f() {
     return this.doctorEditForm.controls;
@@ -25,14 +28,17 @@ export class DoctorEditComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               public doctorService: DoctorService,
               public route: ActivatedRoute,
-              public dialogService: NbDialogService) {
+              public dialogService: NbDialogService,
+              private auth: AuthService) {
     this.doctorEditForm = this.formBuilder.group({
       email: ['', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       cityOrRegion: ['', Validators.required],
-      hospitalName: ['', Validators.required],
+      hospital: ['', Validators.required],
       country: ['', Validators.required],
+      password: ['', Validators.required],
+      passwordRepeat: ['', Validators.required],
     });
   }
 
@@ -41,30 +47,50 @@ export class DoctorEditComponent implements OnInit {
     this.getDoctorDetails(this.doctorId);
   }
 
+  /**
+   * Get doctor details function
+   *
+   * @param doctorId
+   */
   public getDoctorDetails(doctorId) {
     this.doctorService.getDoctor(doctorId)
       .pipe(first())
       .subscribe(
-        (data: Doctor) => {
+        (data: User) => {
           this.doctor = data;
-          this.editDoctorForm();
+          this.canEditDoctor = this.checkDoctorToHospitalRelation();
+          if (this.canEditDoctor) {
+            this.editDoctorForm();
+          }
         },
         error => {
-          // this.error = error;
+          this.error = error;
         });
   }
 
+  private checkDoctorToHospitalRelation() {
+    const user = this.auth.currentUserValue;
+    return (this.doctor.hospital === user.user.hospital && user.user.role === 'hospitalAdmin') || user.user.role === 'superAdmin';
+  }
+
+  /**
+   * Edit doctor form function
+   */
   public editDoctorForm() {
+    debugger;
     this.doctorEditForm.patchValue({
       email: this.doctor.email,
       firstName: this.doctor.firstName,
       lastName: this.doctor.lastName,
       cityOrRegion: this.doctor.cityOrRegion,
-      hospitalName: this.doctor.hospitalName,
+      hospital: this.doctor.hospitalName,
       country: this.doctor.country,
     });
   }
 
+  /**
+   * Open dialog function
+   */
   public openDialog() {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
@@ -73,18 +99,20 @@ export class DoctorEditComponent implements OnInit {
     });
   }
 
+  /**
+   * On submit function
+   */
   public onSubmit() {
     this.doctorService.updateDoctor(this.doctorEditForm.value, this.doctorId)
       .pipe(first())
       .subscribe(
-        (data: Doctor) => {
+        (data: User) => {
           if (data) {
             this.openDialog();
           }
         },
         error => {
-          // this.error = error;
+          this.error = error;
         });
   }
-
 }

@@ -1,0 +1,28 @@
+<nb-card>
+  <nb-card-header>
+    <div class="title-container">
+      <div>
+        {{ 'HOSPITAL_DETAILS' | translate }}
+      </div>
+      <div class="buttons">
+        <button nbButton routerLink="/pages/hospitals">{{'GO_BACK' | translate}}</button>
+        <button nbButton status="danger" (click)="deleteHospital()">{{ 'DELETE_HOSPITAL' | translate }}</button>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div *ngIf="hospital">
+      <nb-list>
+        <nb-list-item>
+          <span>Name:</span> {{ hospital.name }}
+        </nb-list-item>
+        <nb-list-item>
+          <span>Address:</span> {{ hospital.address }}
+        </nb-list-item>
+        <nb-list-item>
+          <span>Number of beds:</span>  {{ hospital.numberOfBeds }}
+        </nb-list-item>
+      </nb-list>
+    </div>
+  </nb-card-body>
+</nb-card>

@@ -9,16 +9,17 @@ import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dial
 import {NbDialogService} from '@nebular/theme';
 
 @Component({
-  selector: 'ngx-patient-warning-score',
-  templateUrl: './patient-warning-score.component.html',
-  styleUrls: ['./patient-warning-score.component.scss'],
+  selector: 'ngx-patient-warning-score-create',
+  templateUrl: './patient-warning-score-create.component.html',
+  styleUrls: ['./patient-warning-score-create.component.scss'],
 })
-export class PatientWarningScoreComponent implements OnInit {
+export class PatientWarningScoreCreateComponent implements OnInit {
   public scoreForm: FormGroup;
   public submitted = false;
   public patientId: any;
   public radioGroupValue: string = 'Value 2';
   public patient: any;
+  public error: any;
 
   get f() {
     return this.scoreForm.controls;
@@ -46,6 +47,11 @@ export class PatientWarningScoreComponent implements OnInit {
     this.getPatientDetails(this.patientId);
   }
 
+  /**
+   * Get patient details function
+   *
+   * @param patientId
+   */
   public getPatientDetails(patientId) {
     this.patientService.getPatient(patientId)
       .pipe(first())
@@ -55,14 +61,20 @@ export class PatientWarningScoreComponent implements OnInit {
           this.createScoreForm();
         },
         error => {
-          // this.error = error;
+          this.error = error;
         });
   }
 
+  /**
+   * Create score form function
+   */
   public createScoreForm() {
     this.scoreForm.patchValue({years: this.patient.warningScores[0].years});
   }
 
+  /**
+   * Open dialog function
+   */
   public openDialog() {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
@@ -71,6 +83,9 @@ export class PatientWarningScoreComponent implements OnInit {
     });
   }
 
+  /**
+   * On submit function
+   */
   public onSubmit() {
     this.patientService.createNewScoreForPatient(this.scoreForm.value, this.patientId)
       .pipe(first())
@@ -81,7 +96,7 @@ export class PatientWarningScoreComponent implements OnInit {
           }
         },
         error => {
-          // this.error = error;
+          this.error = error;
         });
   }
 }

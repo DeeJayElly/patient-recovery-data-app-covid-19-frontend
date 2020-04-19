@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {first} from 'rxjs/operators';
 import {Patient} from '../../../models/patient.model';
 import {PatientService} from '../../../services/patient/patient.service';
@@ -17,10 +17,10 @@ export class PatientViewComponent implements OnInit {
   public error: any;
   public warningScores: WarningScore[];
 
-  constructor(private router: Router,
-              private route: ActivatedRoute,
-              private patientService: PatientService,
-              private dialogService: NbDialogService) {
+  constructor(
+    private route: ActivatedRoute,
+    private patientService: PatientService,
+    private dialogService: NbDialogService) {
   }
 
   ngOnInit(): void {
@@ -32,6 +32,11 @@ export class PatientViewComponent implements OnInit {
     }
   }
 
+  /**
+   * Get patient details function
+   *
+   * @param patientId
+   */
   public getPatientDetails(patientId) {
     this.patientService.getPatient(patientId)
       .pipe(first())
@@ -47,6 +52,9 @@ export class PatientViewComponent implements OnInit {
         });
   }
 
+  /**
+   * Delete patient function
+   */
   public deletePatient() {
     this.patientService.deletePatient(this.patient._id.toString())
       .pipe(first())
@@ -59,6 +67,9 @@ export class PatientViewComponent implements OnInit {
         });
   }
 
+  /**
+   * Open dialog function
+   */
   public openDialog() {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {

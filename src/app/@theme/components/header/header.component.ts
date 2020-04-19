@@ -1,11 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService} from '@nebular/theme';
+import {NbMediaBreakpointsService, NbMenuItem, NbMenuService, NbSidebarService, NbThemeService} from '@nebular/theme';
 import {UserData} from '../../../@core/data/users';
 import {LayoutService} from '../../../@core/utils';
 import {map, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {AuthService} from '../../../services/auth/auth.service';
 import {Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'ngx-header',
@@ -13,7 +14,6 @@ import {Router} from '@angular/router';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-
   private destroy$: Subject<void> = new Subject<void>();
   userPictureOnly: boolean = false;
   user: any;
@@ -41,6 +41,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   userMenu = [{title: 'Profile'}, {title: 'Log out'}];
 
+  items: NbMenuItem[] = [
+    {
+      title: 'Change language',
+      expanded: true,
+    },
+    {
+      title: 'English',
+    },
+    {
+      title: 'German',
+    },
+  ];
+
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
               private themeService: NbThemeService,
@@ -48,6 +61,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
               private layoutService: LayoutService,
               private breakpointService: NbMediaBreakpointsService,
               public authService: AuthService,
+              public translateService: TranslateService,
               public router: Router) {
   }
 
@@ -57,7 +71,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.userService.getUsers()
       .pipe(takeUntil(this.destroy$))
       .subscribe((users: any) => {
-        this.user = users.nick;
+        this.user = {
+          name: '',
+        };
         if (this.authService.currentUserValue) {
           this.user.name = this.authService.currentUserValue.user.firstName + ' '
             + this.authService.currentUserValue.user.lastName;
@@ -85,18 +101,38 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  changeTheme(themeName: string) {
+  /**
+   * Change theme function
+   *
+   * @param themeName
+   */
+  public changeTheme(themeName: string) {
     this.themeService.changeTheme(themeName);
   }
 
-  toggleSidebar(): boolean {
+  /**
+   * Change language function
+   *
+   * @param lang
+   */
+  public changeLanguage(lang: string) {
+    this.translateService.use(lang);
+    this.translateService.setDefaultLang(lang);
+  }
+
+  /**
+   * Toggle sidebar function
+   */
+  public toggleSidebar(): boolean {
     this.sidebarService.toggle(true, 'menu-sidebar');
     this.layoutService.changeLayoutSize();
-
     return false;
   }
 
-  navigateHome() {
+  /**
+   * Navigate home function
+   */
+  public navigateHome() {
     this.menuService.navigateHome();
     return false;
   }

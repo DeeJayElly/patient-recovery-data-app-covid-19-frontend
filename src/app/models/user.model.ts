@@ -1,12 +1,14 @@
-export class Doctor {
-  _id: number;
+export class User {
+  _id: string;
   email: string;
   password: string;
   firstName: string;
   lastName: string;
   cityOrRegion: string;
-  hospitalName: string;
   country: string;
+  hospital: string;
+  user: any;
+  refreshToken?: string;
   authData?: string;
-  token?: string;
+  role: string;
 }

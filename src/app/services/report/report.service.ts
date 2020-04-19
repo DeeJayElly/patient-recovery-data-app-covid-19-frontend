@@ -10,6 +10,9 @@ export class ReportService {
   constructor(public http: HttpClient) {
   }
 
+  /**
+   * Download csv report function
+   */
   public downloadCSVReport() {
     return this.http.get<any>(`${environment.apiUrl}/patient/export/csv`)
       .pipe(map((response) => {

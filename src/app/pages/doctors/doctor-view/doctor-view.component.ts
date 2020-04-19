@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {DoctorService} from '../../../services/doctor/doctor.service';
 import {first} from 'rxjs/operators';
-import {Doctor} from '../../../models/doctor.model';
+import {User} from '../../../models/user.model';
+import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
+import {NbDialogService} from '@nebular/theme';
 
 @Component({
   selector: 'ngx-doctor-view',
@@ -10,12 +12,12 @@ import {Doctor} from '../../../models/doctor.model';
   styleUrls: ['./doctor-view.component.scss'],
 })
 export class DoctorViewComponent implements OnInit {
-  public doctor: Doctor | undefined;
+  public doctor: User | undefined;
   public error: any;
 
-  constructor(private router: Router,
-              private route: ActivatedRoute,
-              private doctorService: DoctorService) {
+  constructor(private route: ActivatedRoute,
+              private doctorService: DoctorService,
+              public dialogService: NbDialogService) {
   }
 
   ngOnInit(): void {
@@ -27,15 +29,43 @@ export class DoctorViewComponent implements OnInit {
     }
   }
 
+  /**
+   * Get doctor details function
+   *
+   * @param doctorId
+   */
   public getDoctorDetails(doctorId) {
     this.doctorService.getDoctor(doctorId)
       .pipe(first())
       .subscribe(
-        (data: Doctor) => {
+        (data: User) => {
           this.doctor = data;
         },
         error => {
           this.error = error;
         });
+  }
+
+  public deleteDoctor() {
+    this.doctorService.deleteDoctor(this.doctor._id)
+      .pipe(first())
+      .subscribe(
+        (data: any) => {
+          this.openDialog();
+        },
+        error => {
+          this.error = error;
+        });
+  }
+
+  /**
+   * Open dialog function
+   */
+  public openDialog() {
+    this.dialogService.open(ShowcaseDialogComponent, {
+      context: {
+        title: 'Doctor data has been successfully deleted',
+      },
+    });
   }
 }

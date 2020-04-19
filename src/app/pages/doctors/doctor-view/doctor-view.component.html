@@ -1,8 +1,11 @@
 <nb-card>
   <nb-card-header>
-    <div class="title-container">
+    <div>
       {{ 'DOCTOR_DETAILS' | translate }}
-      <button nbButton routerLink="/pages/doctors">Go back</button>
+    </div>
+    <div class="title-container">
+      <button nbButton routerLink="/pages/doctors">{{'GO_BACK' | translate}}</button>
+      <button nbButton status="danger" (click)="deleteDoctor()">{{ 'DELETE_DOCTOR' | translate }}</button>
     </div>
   </nb-card-header>
   <nb-card-body>
@@ -24,7 +27,7 @@
           <span>City/Region:</span> {{ doctor.cityOrRegion }}
         </nb-list-item>
         <nb-list-item>
-          <span>Hospital name:</span> {{ doctor.hospitalName }}
+          <span>Hospital name:</span> {{ doctor.hospital }}
         </nb-list-item>
       </nb-list>
     </div>

@@ -6,7 +6,7 @@
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="email">{{'EMAIL_ADDRESS' | translate}}</label>
-          <input type="text" placeholder="{{'EMAIL_ADDRESS' | translate}}" formControlName="email" name="email"
+          <input type="email" placeholder="{{'EMAIL_ADDRESS' | translate}}" formControlName="email" name="email"
                  id="email" class="form-control"
                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
           <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
@@ -30,7 +30,6 @@
         <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{ error }}</div>
       </form>
       <div class="register-info">
-        <p>Don't have an account? <a routerLink="/auth/sign-up">Sign up</a> to get one!</p>
         <p><a routerLink="/auth/forgot-password">Forgot your password?</a></p>
       </div>
     </div>

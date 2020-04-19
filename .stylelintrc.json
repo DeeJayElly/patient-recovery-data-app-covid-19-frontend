@@ -31,7 +31,6 @@
     "declaration-block-no-duplicate-properties": [ true, {
       "ignore": ["consecutive-duplicates-with-different-values"]
     }],
-    "declaration-block-trailing-semicolon": "always",
     "declaration-block-single-line-max-declarations": 1,
     "declaration-block-semicolon-space-before": "never",
     "declaration-block-semicolon-space-after": "always-single-line",
@@ -70,5 +69,8 @@
     "no-missing-end-of-source-newline": true,
 
     "max-line-length": 200
-  }
+  },
+  "ignoreFiles": [
+    "**/*.js"
+  ]
 }

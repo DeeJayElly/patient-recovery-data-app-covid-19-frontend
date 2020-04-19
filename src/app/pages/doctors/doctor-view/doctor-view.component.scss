@@ -2,6 +2,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  button {
+    margin-right: 10px;
+  }
+}
+
+nb-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 nb-list {
@@ -10,7 +20,8 @@ nb-list {
 
   nb-list-item {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   span {

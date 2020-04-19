@@ -9,7 +9,7 @@ import {
   NbCardModule,
   NbIconModule,
   NbInputModule,
-  NbListModule,
+  NbListModule, NbSelectModule,
   NbTreeGridModule,
 } from '@nebular/theme';
 import {ThemeModule} from '../../@theme/theme.module';
@@ -17,9 +17,10 @@ import {TablesRoutingModule} from '../tables/tables-routing.module';
 import {Ng2SmartTableModule} from 'ng2-smart-table';
 import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { DoctorCreateComponent } from './doctor-create/doctor-create.component';
 
 @NgModule({
-  declarations: [DoctorsListComponent, DoctorViewComponent, DoctorEditComponent],
+  declarations: [DoctorsListComponent, DoctorViewComponent, DoctorEditComponent, DoctorCreateComponent],
   imports: [
     CommonModule,
     DoctorsRoutingModule,
@@ -35,6 +36,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     NbButtonModule,
     ReactiveFormsModule,
     FormsModule,
+    NbSelectModule,
   ],
 })
 export class DoctorsModule {

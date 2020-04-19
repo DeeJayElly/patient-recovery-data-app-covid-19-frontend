@@ -11,11 +11,11 @@ import {first} from 'rxjs/operators';
   styleUrls: ['./forgot-password.component.scss'],
 })
 export class ForgotPasswordComponent implements OnInit {
-  forgotPasswordForm: FormGroup;
-  loading = false;
-  submitted = false;
-  returnUrl: string;
-  error = '';
+  public forgotPasswordForm: FormGroup;
+  public loading = false;
+  public submitted = false;
+  public returnUrl: string;
+  public error = '';
 
   get f() {
     return this.forgotPasswordForm.controls;
@@ -39,6 +39,9 @@ export class ForgotPasswordComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
+  /**
+   * Submit function
+   */
   public onSubmit() {
     this.submitted = true;
     if (this.forgotPasswordForm.invalid) {
@@ -49,6 +52,7 @@ export class ForgotPasswordComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
+          this.loading = false;
           this.router.navigate([this.returnUrl]);
         },
         error => {
