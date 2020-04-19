@@ -71,10 +71,7 @@ export class PatientWarningScoreCreateComponent implements OnInit {
     this.scoreForm.patchValue({years: this.patient.warningScores[0].years});
   }
 
-  /**
-   * Open dialog function
-   */
-  public openDialog() {
+  private openDialog() {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
         title: 'Patient daily risk score successfully updated',

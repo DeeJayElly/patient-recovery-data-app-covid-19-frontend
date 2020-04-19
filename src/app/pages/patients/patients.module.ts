@@ -10,7 +10,10 @@ import {
   NbCardModule,
   NbIconModule,
   NbInputModule,
-  NbListModule, NbRadioModule, NbStepperModule,
+  NbListModule,
+  NbRadioModule,
+  NbSelectModule,
+  NbStepperModule,
   NbTreeGridModule,
 } from '@nebular/theme';
 import {ThemeModule} from '../../@theme/theme.module';
@@ -49,6 +52,7 @@ import {PatientWarningScoreViewComponent} from './patient-warning-score-view/pat
     NbListModule,
     NbRadioModule,
     NbStepperModule,
+    NbSelectModule,
   ],
 })
 export class PatientsModule {

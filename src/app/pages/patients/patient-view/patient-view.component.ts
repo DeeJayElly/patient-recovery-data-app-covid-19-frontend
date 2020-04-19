@@ -83,10 +83,7 @@ export class PatientViewComponent implements OnInit {
         });
   }
 
-  /**
-   * Open dialog function
-   */
-  public openDialog() {
+  private openDialog() {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
         title: 'Patient data has been successfully deleted',
