@@ -2,9 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 
-  button {
-    margin-right: 10px;
+  .buttons {
+    button {
+      margin-right: 10px;
+    }
   }
 }
 
@@ -22,6 +25,7 @@ nb-list {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    line-height: 2;
   }
 
   span {

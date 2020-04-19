@@ -38,7 +38,6 @@ export class PatientWarningScoreCreateComponent implements OnInit {
       heartRate: ['', Validators.required],
       stateOfConsciousness: ['', Validators.required],
       bodyTemperature: ['', Validators.required],
-      coughDegree: ['', Validators.required],
     });
   }
 

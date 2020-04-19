@@ -1,12 +1,12 @@
 <nb-card>
   <nb-card-header>
     <div class="title-container">
-      <div>
-        {{ 'HOSPITAL_DETAILS' | translate }}
+      <div class="title">
+        {{'HOSPITAL_DETAILS' | translate}}
       </div>
       <div class="buttons">
         <button nbButton routerLink="/pages/hospitals">{{'GO_BACK' | translate}}</button>
-        <button nbButton status="danger" (click)="deleteHospital()">{{ 'DELETE_HOSPITAL' | translate }}</button>
+        <button nbButton status="danger" (click)="deleteHospital()">{{'DELETE_HOSPITAL' | translate}}</button>
       </div>
     </div>
   </nb-card-header>
@@ -24,5 +24,6 @@
         </nb-list-item>
       </nb-list>
     </div>
+    <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
   </nb-card-body>
 </nb-card>

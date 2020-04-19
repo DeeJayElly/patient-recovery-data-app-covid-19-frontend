@@ -58,7 +58,7 @@ export class AuthService {
                 refreshToken: string,
                 hospital: string,
                 role: string,
-                ) {
+  ) {
     return this.http.post<User>(`${environment.apiUrl}/doctor`, {
       email,
       password,
@@ -101,11 +101,9 @@ export class AuthService {
 
   /**
    * Refresh token function
-   *
-   * @param refreshToken
    */
-  public refreshToken(refreshToken: string) {
-    return this.http.post<{ newPassword: string }>(`${environment.apiUrl}/auth/refresh-token`, {refreshToken})
+  public refreshToken() {
+    return this.http.post<{ newPassword: string }>(`${environment.apiUrl}/auth/refresh-token`, {refreshToken: this.currentUserValue.token.refreshToken})
       .pipe(map((response) => {
         this.currentUserValue.authData = window.btoa(this.currentUserValue.email + ':' + this.currentUserValue.password);
         localStorage.setItem('currentUser', JSON.stringify(this.currentUserValue));

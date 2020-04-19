@@ -52,11 +52,6 @@ export class HomeComponent implements OnInit, OnDestroy {
                   name: patient.firstName + ' ' + patient.lastName,
                   value: patient.warningScores[patient.warningScores.length - 1].bodyTemperature,
                 });
-              this.coughResults.push(
-                {
-                  name: patient.firstName + ' ' + patient.lastName,
-                  value: patient.warningScores[patient.warningScores.length - 1].coughDegree,
-                });
               this.yearsResults.push(
                 {
                   name: patient.firstName + ' ' + patient.lastName,

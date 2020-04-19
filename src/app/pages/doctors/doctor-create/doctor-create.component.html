@@ -39,7 +39,7 @@
         </div>
         <div class="form-group row">
           <label for="hospital" class="label col-sm-3 col-form-label">{{'HOSPITAL_NAME' | translate}}</label>
-            <nb-select value="" id="hospital" formControlName="hospital" class="position-select">
+            <nb-select value="selectedHospital" id="hospital" formControlName="hospital" class="position-select">
               <nb-option *ngFor="let hospital of hospitals" [value]="hospital._id">{{ hospital.name }}</nb-option>
             </nb-select>
           <div *ngIf="submitted && f.hospital.errors" class="invalid-feedback">
