@@ -19,7 +19,6 @@ export class DoctorCreateComponent implements OnInit {
   public doctor: any;
   public error: any;
   public hospitals: Hospital[];
-  public selectedHospital: any;
 
   get f() {
     return this.doctorCreateForm.controls;
@@ -34,7 +33,7 @@ export class DoctorCreateComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       cityOrRegion: ['', Validators.required],
-      hospital: [null, Validators.required],
+      hospital: ['', Validators.required],
       country: ['', Validators.required],
       password: ['', Validators.required],
     });
@@ -44,15 +43,14 @@ export class DoctorCreateComponent implements OnInit {
     this.getAllHospitals();
   }
 
-  public getAllHospitals() {
+  private getAllHospitals() {
     this.hospitalService.getAllHospitals()
       .pipe(first())
       .subscribe(
-        data => {
+        (data: Hospital[]) => {
           this.hospitals = data;
-          this.selectedHospital = this.hospitals[0];
           this.doctorCreateForm.patchValue({
-            hospital: this.selectedHospital,
+            hospital: this.hospitals[0].name,
           });
         },
         error => {

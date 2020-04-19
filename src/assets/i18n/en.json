@@ -32,7 +32,7 @@
   "DOCTOR_DETAILS": "Doctor details",
   "DOCTOR_EDIT": "Edit doctor",
   "PATIENT_DETAILS": "Patient details",
-  "CREATE_WARNING_SCORE": "Add patients warning score",
+  "CREATE_WARNING_SCORE": "Add patient warning score",
   "GO_BACK": "Go back",
   "PATIENTS_LIST": "Patients list",
   "PATIENT_WARNING_SCORE": "Patient warning score",
@@ -69,5 +69,6 @@
   "DELETE_DOCTOR": "Delete doctor",
   "ADD_HOSPITAL_DATA": "Add hospital",
   "ADD_HOSPITAL": "Add hospital",
-  "DELETE_HOSPITAL": "Delete Hospital"
+  "DELETE_HOSPITAL": "Delete Hospital",
+  "CREATE_RELEVANT_DATA": "Add patient relevant data"
 }
