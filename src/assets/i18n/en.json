@@ -66,5 +66,6 @@
   "ADD_PATIENT": "Add patient",
   "ADD_DOCTOR": "Add doctor",
   "EDIT_HOSPITAL_DATA": "Edit hospital data",
-  "ADD_DOCTOR_INFO": "Add doctor"
+  "ADD_DOCTOR_INFO": "Add doctor",
+  "DELETE_DOCTOR": "Delete Doctor"
 }

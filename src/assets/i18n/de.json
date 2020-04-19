@@ -65,5 +65,7 @@
   "REPORT_LINK": "this link",
   "ADD_PATIENT": "Add patient",
   "ADD_DOCTOR": "Add doctor",
-  "EDIT_HOSPITAL_DATA": "Edit hospital data"
+  "EDIT_HOSPITAL_DATA": "Edit hospital data",
+  "ADD_DOCTOR_INFO": "Add doctor",
+  "DELETE_DOCTOR": "Delete Doctor"
 }

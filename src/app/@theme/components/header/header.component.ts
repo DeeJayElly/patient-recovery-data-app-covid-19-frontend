@@ -101,22 +101,38 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  changeTheme(themeName: string) {
+  /**
+   * Change theme function
+   *
+   * @param themeName
+   */
+  public changeTheme(themeName: string) {
     this.themeService.changeTheme(themeName);
   }
 
+  /**
+   * Change language function
+   *
+   * @param lang
+   */
   public changeLanguage(lang: string) {
-      this.translateService.use(lang);
-      this.translateService.setDefaultLang(lang);
+    this.translateService.use(lang);
+    this.translateService.setDefaultLang(lang);
   }
 
-  toggleSidebar(): boolean {
+  /**
+   * Toggle sidebar function
+   */
+  public toggleSidebar(): boolean {
     this.sidebarService.toggle(true, 'menu-sidebar');
     this.layoutService.changeLayoutSize();
     return false;
   }
 
-  navigateHome() {
+  /**
+   * Navigate home function
+   */
+  public navigateHome() {
     this.menuService.navigateHome();
     return false;
   }

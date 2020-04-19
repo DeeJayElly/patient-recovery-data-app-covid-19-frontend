@@ -16,7 +16,6 @@ import {Hospital} from '../../../models/hospital.model';
 export class HospitalCreateComponent implements OnInit {
   public hospitalCreateForm: FormGroup;
   public submitted = false;
-  public hospitalId: any;
   public hospital: any;
   public error: any;
 

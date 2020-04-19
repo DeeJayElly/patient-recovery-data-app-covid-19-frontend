@@ -110,8 +110,6 @@ export class PatientEditComponent implements OnInit {
   public warningScores: WarningScore[];
   public submitted = false;
   public patientEditForm: FormGroup;
-  public radioGroupValue: any;
-  public canEditPatient: boolean;
 
   get f() {
     return this.patientEditForm.controls;
