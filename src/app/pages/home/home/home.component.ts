@@ -12,7 +12,7 @@ import {NbThemeService} from '@nebular/theme';
 export class HomeComponent implements OnInit, OnDestroy {
   public patients: any;
   public temperatureResults: any[];
-  public coughResults: any[];
+  public scoreResults: any[];
   public yearsResults: any[];
   public showLegend = true;
   public showLabels = true;
@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         data => {
           this.patients = data;
           this.temperatureResults = [];
-          this.coughResults = [];
+          this.scoreResults = [];
           this.yearsResults = [];
           this.patients.map((patient: Patient) => {
             if (patient.warningScores.length) {
@@ -51,6 +51,11 @@ export class HomeComponent implements OnInit, OnDestroy {
                 {
                   name: patient.firstName + ' ' + patient.lastName,
                   value: patient.warningScores[patient.warningScores.length - 1].bodyTemperature,
+                });
+              this.scoreResults.push(
+                {
+                  name: patient.firstName + ' ' + patient.lastName,
+                  value: patient.warningScores[patient.warningScores.length - 1].score,
                 });
               this.yearsResults.push(
                 {
