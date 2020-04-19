@@ -1,1 +1,73 @@
-<p>patient-create works!</p>
+<div class="col-md-6">
+  <nb-card>
+    <nb-card-header>
+      {{'ADD_PATIENT' | translate}}
+    </nb-card-header>
+    <nb-card-body>
+      <form [formGroup]="patientCreateForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+          <label for="firstName" class="label col-sm-3 col-form-label">{{'FIRST_NAME' | translate}}</label>
+          <input type="text" nbInput fullWidth id="firstName" formControlName="firstName"
+                 placeholder="{{'FIRST_NAME' | translate}}">
+          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="f.firstName.errors.required">{{'FIRST_NAME_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="lastName" class="label col-sm-3 col-form-label">{{'LAST_NAME' | translate}}</label>
+          <input type="text" nbInput fullWidth id="lastName" formControlName="lastName"
+                 placeholder="{{'LAST_NAME' | translate}}">
+          <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">{{'LAST_NAME_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="dateOfBirth" class="label col-sm-3 col-form-label">{{'DATE_BIRTH' | translate}}</label>
+          <input type="date" nbInput fullWidth id="dateOfBirth" formControlName="dateOfBirth"
+                 placeholder="{{'DATE_BIRTH' | translate}}">
+          <div *ngIf="submitted && f.dateOfBirth.errors" class="invalid-feedback">
+            <div *ngIf="f.dateOfBirth.errors.required">{{'DATE_BIRTH_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="sex" class="label col-sm-3 col-form-label">{{'GENDER' | translate}}</label>
+          <input type="text" nbInput fullWidth id="sex" formControlName="sex"
+                 placeholder="{{'GENDER' | translate}}">
+          <div *ngIf="submitted && f.sex.errors" class="invalid-feedback">
+            <div *ngIf="f.sex.errors.required">{{'GENDER_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="address" class="label col-sm-3 col-form-label">{{'ADDRESS' | translate}}</label>
+          <input type="text" nbInput fullWidth id="address" formControlName="address"
+                 placeholder="{{'LAST_NAME' | translate}}">
+          <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+            <div *ngIf="f.address.errors.required">{{'ADDRESS_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="contact" class="label col-sm-3 col-form-label">{{'CONTACT' | translate}}</label>
+          <input type="text" nbInput fullWidth id="contact" formControlName="contact"
+                 placeholder="{{'LAST_NAME' | translate}}">
+          <div *ngIf="submitted && f.contact.errors" class="invalid-feedback">
+            <div *ngIf="f.contact.errors.required">{{'CONTACT_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="assignedDoctor" class="label col-sm-3 col-form-label">{{'DOCTOR_NAME' | translate}}</label>
+          <nb-select id="assignedDoctor" formControlName="assignedDoctor" class="position-select">
+            <nb-option *ngFor="let doctor of doctors" [value]="doctor">{{ doctor.firstName + ' ' + doctor.lastName }}</nb-option>
+          </nb-select>
+          <div *ngIf="submitted && f.assignedDoctor.errors" class="invalid-feedback">
+            <div *ngIf="f.assignedDoctor.errors.required">{{'DOCTOR_NAME_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="offset-sm-3 col-sm-9">
+            <button type="submit" nbButton status="primary">{{'ADD_PATIENT' | translate}}</button>
+          </div>
+        </div>
+      </form>
+    </nb-card-body>
+  </nb-card>
+</div>

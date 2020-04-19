@@ -24,6 +24,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {PatientCreateComponent} from './patient-create/patient-create.component';
 import {PatientWarningScoreEditComponent} from './patient-warning-score-edit/patient-warning-score-edit.component';
 import {PatientWarningScoreViewComponent} from './patient-warning-score-view/patient-warning-score-view.component';
+import {PatientRelevantDataCreateComponent} from './patient-relevant-data-create/patient-relevant-data-create.component';
+import {PatientRelevantDataViewComponent} from './patient-relevant-data-view/patient-relevant-data-view.component';
+import {PatientRelevantDataEditComponent} from './patient-relevant-data-edit/patient-relevant-data-edit.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import {PatientWarningScoreViewComponent} from './patient-warning-score-view/pat
     PatientCreateComponent,
     PatientWarningScoreEditComponent,
     PatientWarningScoreViewComponent,
+    PatientRelevantDataCreateComponent,
+    PatientRelevantDataViewComponent,
+    PatientRelevantDataEditComponent,
   ],
   imports: [
     CommonModule,

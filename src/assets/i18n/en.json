@@ -72,5 +72,13 @@
   "DELETE_HOSPITAL": "Delete hospital",
   "CREATE_RELEVANT_DATA": "Add patient relevant data",
   "DOCTOR_NAME": "Assigned doctor",
-  "DOCTOR_NAME_REQUIRED": "Assigned doctor required"
+  "DOCTOR_NAME_REQUIRED": "Assigned doctor required",
+  "DATE_BIRTH": "Date of birth",
+  "DATE_BIRTH_REQUIRED": "Date of birth required",
+  "GENDER": "Gender",
+  "GENDER_REQUIRED": "Gender required",
+  "ADDRESS": "Address",
+  "ADDRESS_REQUIRED": "Address required",
+  "CONTACT": "Contact phone",
+  "CONTACT_REQUIRED": "Contact phone required"
 }
