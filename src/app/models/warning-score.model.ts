@@ -1,13 +1,14 @@
 export class WarningScore {
-  _id: number;
+  _id: string;
   years: number;
   numberOfRespirations: number;
   oxygenSaturation: number;
   anyAdditionalO2: boolean;
+  onRespirator: boolean;
   systolicPressure: number;
   heartRate: number;
   stateOfConsciousness: string;
   bodyTemperature: number;
-  coughDegree?: number;
+  timestamp: Date;
   score: number;
 }

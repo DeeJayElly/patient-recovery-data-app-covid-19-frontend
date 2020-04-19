@@ -1,11 +1,35 @@
 .title-container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
 
   .buttons {
     button {
       margin-right: 10px;
     }
+  }
+}
+
+nb-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nb-list {
+  display: flex;
+  flex-direction: column;
+
+  nb-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 2;
+  }
+
+  span {
+    font-weight: bold;
+    padding-right: 20px;
   }
 }

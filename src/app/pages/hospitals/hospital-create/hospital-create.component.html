@@ -1,6 +1,6 @@
 <div class="col-md-6">
   <nb-card>
-    <nb-card-header>{{'EDIT_HOSPITAL_DATA' | translate}}</nb-card-header>
+    <nb-card-header>{{'ADD_HOSPITAL_DATA' | translate}}</nb-card-header>
     <nb-card-body>
       <form  [formGroup]="hospitalCreateForm" (ngSubmit)="onSubmit()">
         <div class="form-group row">
@@ -29,7 +29,7 @@
         </div>
         <div class="form-group row">
           <div class="offset-sm-3 col-sm-9">
-            <button type="submit" nbButton status="primary">Save hospital info</button>
+            <button type="submit" nbButton status="primary">{{'ADD_HOSPITAL' | translate}}</button>
           </div>
         </div>
       </form>

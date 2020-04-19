@@ -30,7 +30,7 @@ export class PatientService {
    * @param patientId
    */
   public getAllPatientsWarningScores(patientId: string) {
-    return this.http.get<WarningScore[]>(`${environment.apiUrl}/warning-score/patient/${patientId}`)
+    return this.http.get<WarningScore>(`${environment.apiUrl}/warning-score/patient/${patientId}`)
       .pipe(map((response) => {
         return response;
       }));

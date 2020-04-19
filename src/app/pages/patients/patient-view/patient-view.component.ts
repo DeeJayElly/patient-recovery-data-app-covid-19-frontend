@@ -15,7 +15,7 @@ import {NbDialogService} from '@nebular/theme';
 export class PatientViewComponent implements OnInit {
   public patient: Patient | undefined;
   public error: any;
-  public warningScores: WarningScore[];
+  public warningScores: WarningScore;
 
   constructor(
     private route: ActivatedRoute,
@@ -43,9 +43,6 @@ export class PatientViewComponent implements OnInit {
       .subscribe(
         (data: Patient) => {
           this.patient = data;
-          if (this.patient.warningScores.length) {
-            this.warningScores = this.patient.warningScores;
-          }
         },
         error => {
           this.error = error;

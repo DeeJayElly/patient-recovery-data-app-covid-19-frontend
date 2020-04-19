@@ -75,7 +75,6 @@ export class DoctorCreateComponent implements OnInit {
    * On submit function
    */
   public onSubmit() {
-    debugger;
     this.doctorService.setDoctor(this.doctorCreateForm.value)
       .pipe(first())
       .subscribe(

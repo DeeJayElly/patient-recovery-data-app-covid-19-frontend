@@ -1,11 +1,13 @@
 <nb-card>
   <nb-card-header>
-    <div>
-      {{ 'DOCTOR_DETAILS' | translate }}
-    </div>
     <div class="title-container">
-      <button nbButton routerLink="/pages/doctors">{{'GO_BACK' | translate}}</button>
-      <button nbButton status="danger" (click)="deleteDoctor()">{{ 'DELETE_DOCTOR' | translate }}</button>
+      <div class="title">
+        {{'DOCTOR_DETAILS' | translate}}
+      </div>
+      <div class="buttons">
+        <button nbButton routerLink="/pages/doctors">{{'GO_BACK' | translate}}</button>
+        <button nbButton status="danger" (click)="deleteDoctor()">{{'DELETE_DOCTOR' | translate}}</button>
+      </div>
     </div>
   </nb-card-header>
   <nb-card-body>
