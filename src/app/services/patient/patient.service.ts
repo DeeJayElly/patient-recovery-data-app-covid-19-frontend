@@ -90,7 +90,6 @@ export class PatientService {
       heartRate: scoreForm.heartRate,
       stateOfConsciousness: scoreForm.stateOfConsciousness,
       bodyTemperature: scoreForm.bodyTemperature,
-      coughDegree: scoreForm.coughDegree,
     })
       .pipe(map((response) => {
         return response;
