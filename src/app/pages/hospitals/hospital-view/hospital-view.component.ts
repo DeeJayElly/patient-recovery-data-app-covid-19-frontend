@@ -46,6 +46,9 @@ export class HospitalViewComponent implements OnInit {
         });
   }
 
+  /**
+   * Delete hospital function
+   */
   public deleteHospital() {
     this.hospitalService.deleteHospital(this.hospital._id)
       .pipe(first())
@@ -68,5 +71,4 @@ export class HospitalViewComponent implements OnInit {
       },
     });
   }
-
 }
