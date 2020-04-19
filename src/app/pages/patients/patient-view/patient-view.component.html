@@ -33,6 +33,9 @@
         <nb-list-item>
           <span>Contact:</span>  {{ patient.contact }}
         </nb-list-item>
+        <nb-list-item *ngIf="doctor">
+          <span>Assigned doctor:</span>  {{ doctor.firstName + ' ' + doctor.lastName }}
+        </nb-list-item>
         <nb-list-item>
           <span>Coronary heart disease:</span>  {{ patient.coronaryHeartDisease }}
         </nb-list-item>
@@ -110,7 +113,13 @@
                 <span>Been to examination:</span>  {{ relevantData.didYouGoForAExaminationSomewhere }}
               </div>
               <div>
-                <span>Duration of problems:</span>  {{ relevantData.symptomsDuration }}
+                <span>Duration of symptoms:</span>  {{ relevantData.symptomsDuration }}
+              </div>
+              <div *ngIf="relevantData.symptoms.length">
+                <span>Symptoms:</span>
+                <div class="warning-scores-container" *ngFor="let symptom of patient.patientRelevantData">
+                  <span>{{symptom}}</span>
+                </div>
               </div>
               <div>
                 <span>High temperature:</span>  {{ relevantData.highTemperature }}

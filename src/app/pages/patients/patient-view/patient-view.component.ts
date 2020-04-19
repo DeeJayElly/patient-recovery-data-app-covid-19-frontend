@@ -6,6 +6,8 @@ import {PatientService} from '../../../services/patient/patient.service';
 import {WarningScore} from '../../../models/warning-score.model';
 import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
 import {NbDialogService} from '@nebular/theme';
+import {User} from '../../../models/user.model';
+import {DoctorService} from '../../../services/doctor/doctor.service';
 
 @Component({
   selector: 'ngx-patient-view',
@@ -16,11 +18,13 @@ export class PatientViewComponent implements OnInit {
   public patient: Patient | undefined;
   public error: any;
   public warningScores: WarningScore;
+  public doctor: User;
 
   constructor(
     private route: ActivatedRoute,
     private patientService: PatientService,
-    private dialogService: NbDialogService) {
+    private dialogService: NbDialogService,
+    private doctorService: DoctorService) {
   }
 
   ngOnInit(): void {
@@ -43,6 +47,21 @@ export class PatientViewComponent implements OnInit {
       .subscribe(
         (data: Patient) => {
           this.patient = data;
+          if (this.patient.assignedDoctor) {
+            this.getAssignedDoctor();
+          }
+        },
+        error => {
+          this.error = error;
+        });
+  }
+
+  private getAssignedDoctor() {
+    this.doctorService.getDoctor(this.patient.assignedDoctor)
+      .pipe(first())
+      .subscribe(
+        (data: User) => {
+          this.doctor = data;
         },
         error => {
           this.error = error;
