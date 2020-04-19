@@ -16,7 +16,6 @@ import {Hospital} from '../../../models/hospital.model';
 export class DoctorCreateComponent implements OnInit {
   public doctorCreateForm: FormGroup;
   public submitted = false;
-  public doctor: any;
   public error: any;
   public hospitals: Hospital[];
 
@@ -58,13 +57,10 @@ export class DoctorCreateComponent implements OnInit {
         });
   }
 
-  /**
-   * Open dialog function
-   */
-  public openDialog() {
+  private openDialog() {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
-        title: 'New doctor information have been successfully added',
+        title: 'New doctor has been successfully added',
       },
     });
   }

@@ -102,10 +102,7 @@ export class DoctorEditComponent implements OnInit {
     });
   }
 
-  /**
-   * Open dialog function
-   */
-  public openDialog() {
+  private openDialog() {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
         title: 'Doctor data has been successfully updated',

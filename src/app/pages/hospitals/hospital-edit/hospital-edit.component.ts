@@ -80,10 +80,7 @@ export class HospitalEditComponent implements OnInit {
     });
   }
 
-  /**
-   * Open hospital function
-   */
-  public openDialog() {
+  private openDialog() {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
         title: 'Hospital data has been successfully updated',

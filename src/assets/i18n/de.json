@@ -66,9 +66,11 @@
   "ADD_DOCTOR": "Add doctor",
   "EDIT_HOSPITAL_DATA": "Edit hospital data",
   "ADD_DOCTOR_INFO": "Add doctor",
-  "DELETE_DOCTOR": "Delete Doctor",
+  "DELETE_DOCTOR": "Delete doctor",
   "ADD_HOSPITAL_DATA": "Add hospital",
   "ADD_HOSPITAL": "Add hospital",
-  "DELETE_HOSPITAL": "Delete Hospital",
-  "CREATE_RELEVANT_DATA": "Add patient relevant data"
+  "DELETE_HOSPITAL": "Delete hospital",
+  "CREATE_RELEVANT_DATA": "Add patient relevant data",
+  "DOCTOR_NAME": "Assigned doctor",
+  "DOCTOR_NAME_REQUIRED": "Assigned doctor required"
 }

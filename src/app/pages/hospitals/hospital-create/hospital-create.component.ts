@@ -38,13 +38,10 @@ export class HospitalCreateComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  /**
-   * Open hospital function
-   */
-  public openDialog() {
+  private openDialog() {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
-        title: 'Hospital has been successfully added',
+        title: 'New hospital has been successfully added',
       },
     });
   }
