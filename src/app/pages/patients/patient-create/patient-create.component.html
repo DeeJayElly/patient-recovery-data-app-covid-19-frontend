@@ -56,11 +56,233 @@
         <div class="form-group row doctor-row">
           <label for="assignedDoctor" class="label col-sm-3 col-form-label">{{'DOCTOR_NAME' | translate}}</label>
           <nb-select id="assignedDoctor" formControlName="assignedDoctor" class="position-select">
-            <nb-option *ngFor="let doctor of doctors" [value]="doctor">{{ doctor.firstName + ' ' + doctor.lastName }}</nb-option>
+            <nb-option *ngFor="let doctor of doctors"
+                       [value]="doctor">{{ doctor.firstName + ' ' + doctor.lastName }}</nb-option>
           </nb-select>
           <div *ngIf="submitted && f.assignedDoctor.errors" class="invalid-feedback">
             <div *ngIf="f.assignedDoctor.errors.required">{{'DOCTOR_NAME_REQUIRED' | translate}}</div>
           </div>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="assignedDoctor" class="label col-sm-3 col-form-label">{{'DRUG_ALLERGY' | translate}}</label>
+          <nb-radio-group formControlName="drugAllergy" id="drugAllergy">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="smoking" class="label col-sm-3 col-form-label">{{'SMOKING' | translate}}</label>
+          <nb-radio-group formControlName="smoking" id="smoking">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="coronaryHeartDisease" class="label col-sm-3 col-form-label">{{'CORONARY_HEART_DISEASE' | translate}}</label>
+          <nb-radio-group formControlName="coronaryHeartDisease" id="coronaryHeartDisease">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="heartArrhythmia" class="label col-sm-3 col-form-label">{{'HEART_ARRHYTHMIA' | translate}}</label>
+          <nb-radio-group formControlName="heartArrhythmia" id="heartArrhythmia">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="heartFailure" class="label col-sm-3 col-form-label">{{'HEART_FAILURE' | translate}}</label>
+          <nb-radio-group formControlName="heartFailure" id="heartFailure">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="lungDisease" class="label col-sm-3 col-form-label">{{'LUNG_DISEASE' | translate}}</label>
+          <nb-radio-group formControlName="lungDisease" id="lungDisease">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="asthma" class="label col-sm-3 col-form-label">{{'ASTHMA' | translate}}</label>
+          <nb-radio-group formControlName="asthma" id="asthma">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="chronicKidneyDisease" class="label col-sm-3 col-form-label">{{'CHRONIC_KIDNEY_DISEASE' | translate}}</label>
+          <nb-radio-group formControlName="chronicKidneyDisease" id="chronicKidneyDisease">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="diabetes" class="label col-sm-3 col-form-label">{{'DIABETES' | translate}}</label>
+          <nb-radio-group formControlName="diabetes" id="diabetes">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="heartStroke" class="label col-sm-3 col-form-label">{{'HEART_STROKE' | translate}}</label>
+          <nb-radio-group formControlName="heartStroke" id="heartStroke">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="malignantDisease" class="label col-sm-3 col-form-label">{{'MALIGNANT_DISEASE' | translate}}</label>
+          <nb-radio-group formControlName="malignantDisease" id="malignantDisease">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="chronicLiverDisease" class="label col-sm-3 col-form-label">{{'CHRONIC_DISEASE' | translate}}</label>
+          <nb-radio-group formControlName="chronicLiverDisease" id="chronicLiverDisease">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="inflamatoryBowelDisease" class="label col-sm-3 col-form-label">{{'INFLAMMATORY_BOWEL_DISEASE' | translate}}</label>
+          <nb-radio-group formControlName="inflamatoryBowelDisease" id="inflamatoryBowelDisease">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="reuma" class="label col-sm-3 col-form-label">{{'REUMA' | translate}}</label>
+          <nb-radio-group formControlName="reuma" id="reuma">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="hiv" class="label col-sm-3 col-form-label">{{'HIV' | translate}}</label>
+          <nb-radio-group formControlName="hiv" id="hiv">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="medications" class="label col-sm-3 col-form-label">{{'MEDICATIONS' | translate}}</label>
+          <nb-radio-group formControlName="medications" id="medications">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="operations" class="label col-sm-3 col-form-label">{{'OPERATIONS' | translate}}</label>
+          <nb-radio-group formControlName="operations" id="operations">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
         </div>
         <div class="form-group row">
           <div class="offset-sm-3 col-sm-9">

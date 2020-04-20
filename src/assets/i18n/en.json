@@ -80,5 +80,22 @@
   "ADDRESS": "Address",
   "ADDRESS_REQUIRED": "Address required",
   "CONTACT": "Contact phone",
-  "CONTACT_REQUIRED": "Contact phone required"
+  "CONTACT_REQUIRED": "Contact phone required",
+  "DRUG_ALLERGY": "Drug allergy",
+  "SMOKING": "Smoking",
+  "CORONARY_HEART_DISEASE": "Coronary heart disease",
+  "HEART_ARRHYTHMIA": "Heart arrhythmia",
+  "HEART_FAILURE": "Heart failure",
+  "LUNG_DISEASE": "Lung disease",
+  "ASTHMA": "Asthma",
+  "CHRONIC_KIDNEY_DISEASE": "Chronic kidney disease",
+  "DIABETES": "Diabetes",
+  "HEART_STROKE": "Heart stroke",
+  "MALIGNANT_DISEASE": "Malignant disease",
+  "CHRONIC_DISEASE": "Chronic disease",
+  "INFLAMMATORY_BOWEL_DISEASE": "Inflammatory bowel disease",
+  "REUMA": "Reuma",
+  "HIV": "HIV",
+  "MEDICATIONS": "Medication (please separate them by comma)",
+  "OPERATIONS": "Operations (please separate them by comma)"
 }
