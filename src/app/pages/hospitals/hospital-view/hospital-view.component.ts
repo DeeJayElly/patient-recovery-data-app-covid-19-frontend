@@ -61,10 +61,7 @@ export class HospitalViewComponent implements OnInit {
         });
   }
 
-  /**
-   * Open dialog function
-   */
-  public openDialog() {
+  private openDialog() {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
         title: 'Hospital data has been successfully deleted',

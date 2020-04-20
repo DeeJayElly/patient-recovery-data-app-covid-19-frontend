@@ -16,10 +16,8 @@ import {Hospital} from '../../../models/hospital.model';
 export class DoctorCreateComponent implements OnInit {
   public doctorCreateForm: FormGroup;
   public submitted = false;
-  public doctor: any;
   public error: any;
   public hospitals: Hospital[];
-  public selectedHospital: any;
 
   get f() {
     return this.doctorCreateForm.controls;
@@ -34,7 +32,7 @@ export class DoctorCreateComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       cityOrRegion: ['', Validators.required],
-      hospital: [null, Validators.required],
+      hospital: ['', Validators.required],
       country: ['', Validators.required],
       password: ['', Validators.required],
     });
@@ -44,15 +42,14 @@ export class DoctorCreateComponent implements OnInit {
     this.getAllHospitals();
   }
 
-  public getAllHospitals() {
+  private getAllHospitals() {
     this.hospitalService.getAllHospitals()
       .pipe(first())
       .subscribe(
-        data => {
+        (data: Hospital[]) => {
           this.hospitals = data;
-          this.selectedHospital = this.hospitals[0];
           this.doctorCreateForm.patchValue({
-            hospital: this.selectedHospital,
+            hospital: this.hospitals[0].name,
           });
         },
         error => {
@@ -60,13 +57,10 @@ export class DoctorCreateComponent implements OnInit {
         });
   }
 
-  /**
-   * Open dialog function
-   */
-  public openDialog() {
+  private openDialog() {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
-        title: 'New doctor information have been successfully added',
+        title: 'New doctor has been successfully added',
       },
     });
   }

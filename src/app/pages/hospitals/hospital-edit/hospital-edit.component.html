@@ -1,6 +1,15 @@
-<div class="col-md-6">
+<div class="col-md-12">
   <nb-card>
-    <nb-card-header>{{'EDIT_HOSPITAL_DATA' | translate}}</nb-card-header>
+    <nb-card-header>
+      <div class="title-container">
+        <div class="title">
+          {{'EDIT_HOSPITAL_DATA' | translate}}
+        </div>
+        <div class="buttons">
+          <button nbButton routerLink="/pages/hospitals">{{'GO_BACK' | translate}}</button>
+        </div>
+      </div>
+    </nb-card-header>
     <nb-card-body>
       <form *ngIf="canEditHospital" [formGroup]="hospitalEditForm" (ngSubmit)="onSubmit()">
         <div class="form-group row">
@@ -28,8 +37,8 @@
           </div>
         </div>
         <div class="form-group row">
-          <div class="offset-sm-3 col-sm-9">
-            <button type="submit" nbButton status="primary">Save hospital info</button>
+          <div class="col-sm-9">
+            <button type="submit" nbButton status="primary">{{'UPDATE_HOSPITAL' | translate}}</button>
           </div>
         </div>
       </form>

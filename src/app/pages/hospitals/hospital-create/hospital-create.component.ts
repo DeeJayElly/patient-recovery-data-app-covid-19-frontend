@@ -3,7 +3,6 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HospitalService} from '../../../services/hospital/hospital.service';
 import {ActivatedRoute} from '@angular/router';
 import {NbDialogService} from '@nebular/theme';
-import {AuthService} from '../../../services/auth/auth.service';
 import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
 import {first} from 'rxjs/operators';
 import {Hospital} from '../../../models/hospital.model';
@@ -26,8 +25,7 @@ export class HospitalCreateComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               public hospitalService: HospitalService,
               public route: ActivatedRoute,
-              public dialogService: NbDialogService,
-              private auth: AuthService) {
+              public dialogService: NbDialogService) {
     this.hospitalCreateForm = this.formBuilder.group({
       name: ['', Validators.required],
       address: ['', Validators.required],
@@ -38,13 +36,10 @@ export class HospitalCreateComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  /**
-   * Open hospital function
-   */
-  public openDialog() {
+  private openDialog() {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
-        title: 'Hospital has been successfully added',
+        title: 'New hospital has been successfully added',
       },
     });
   }

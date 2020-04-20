@@ -3,7 +3,6 @@ import {ActivatedRoute} from '@angular/router';
 import {first} from 'rxjs/operators';
 import {Patient} from '../../../models/patient.model';
 import {PatientService} from '../../../services/patient/patient.service';
-import {WarningScore} from '../../../models/warning-score.model';
 import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
 import {NbDialogService} from '@nebular/theme';
 import {User} from '../../../models/user.model';
@@ -17,7 +16,6 @@ import {DoctorService} from '../../../services/doctor/doctor.service';
 export class PatientViewComponent implements OnInit {
   public patient: Patient | undefined;
   public error: any;
-  public warningScores: WarningScore;
   public doctor: User;
 
   constructor(
@@ -83,10 +81,7 @@ export class PatientViewComponent implements OnInit {
         });
   }
 
-  /**
-   * Open dialog function
-   */
-  public openDialog() {
+  private openDialog() {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
         title: 'Patient data has been successfully deleted',

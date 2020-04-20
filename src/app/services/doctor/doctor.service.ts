@@ -43,7 +43,7 @@ export class DoctorService {
       firstName: doctorCreateForm.firstName,
       lastName: doctorCreateForm.lastName,
       cityOrRegion: doctorCreateForm.cityOrRegion,
-      hospital: doctorCreateForm.hospital,
+      hospital: doctorCreateForm.hospital._id,
       country: doctorCreateForm.country,
       password: doctorCreateForm.password,
       refreshToken: this.authService.currentUserValue.token.refreshToken,
@@ -78,10 +78,10 @@ export class DoctorService {
       firstName: doctorEditForm.firstName,
       lastName: doctorEditForm.lastName,
       cityOrRegion: doctorEditForm.cityOrRegion,
-      hospital: doctorEditForm.hospital,
+      hospital: doctorEditForm.hospital._id,
       country: doctorEditForm.country,
       password: doctorEditForm.password,
-      refreshToken: this.authService.currentUserValue.token.token,
+      refreshToken: this.authService.currentUserValue.token.refreshToken,
       role: 'doctor',
     })
       .pipe(map((response) => {

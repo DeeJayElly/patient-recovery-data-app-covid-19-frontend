@@ -4,15 +4,16 @@ import {User} from '../../../models/user.model';
 import {ActivatedRoute} from '@angular/router';
 import {PatientService} from '../../../services/patient/patient.service';
 import {NbDialogService} from '@nebular/theme';
+import {DoctorService} from '../../../services/doctor/doctor.service';
 import {first} from 'rxjs/operators';
 import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
 
 @Component({
-  selector: 'ngx-patient-warning-score-view',
-  templateUrl: './patient-warning-score-view.component.html',
-  styleUrls: ['./patient-warning-score-view.component.scss'],
+  selector: 'ngx-patient-relevant-data-view',
+  templateUrl: './patient-relevant-data-view.component.html',
+  styleUrls: ['./patient-relevant-data-view.component.scss'],
 })
-export class PatientWarningScoreViewComponent implements OnInit {
+export class PatientRelevantDataViewComponent implements OnInit {
   public patient: Patient | undefined;
   public error: any;
   public doctor: User;
@@ -20,7 +21,8 @@ export class PatientWarningScoreViewComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private patientService: PatientService,
-    private dialogService: NbDialogService) {
+    private dialogService: NbDialogService,
+    private doctorService: DoctorService) {
   }
 
   ngOnInit(): void {
@@ -43,6 +45,21 @@ export class PatientWarningScoreViewComponent implements OnInit {
       .subscribe(
         (data: Patient) => {
           this.patient = data;
+          if (this.patient.assignedDoctor) {
+            this.getAssignedDoctor();
+          }
+        },
+        error => {
+          this.error = error;
+        });
+  }
+
+  private getAssignedDoctor() {
+    this.doctorService.getDoctor(this.patient.assignedDoctor)
+      .pipe(first())
+      .subscribe(
+        (data: User) => {
+          this.doctor = data;
         },
         error => {
           this.error = error;
@@ -50,10 +67,10 @@ export class PatientWarningScoreViewComponent implements OnInit {
   }
 
   /**
-   * Delete patient warning score function
+   * Delete patient function
    */
-  public deletePatientWarningScore() {
-    this.patientService.deleteSinglePatientWarningScores(this.patient.warningScores[this.patient.warningScores.length - 1]._id)
+  public deletePatient() {
+    this.patientService.deletePatient(this.patient._id.toString())
       .pipe(first())
       .subscribe(
         (data: any) => {
@@ -67,7 +84,7 @@ export class PatientWarningScoreViewComponent implements OnInit {
   private openDialog() {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
-        title: 'Patient warning score data has been successfully deleted',
+        title: 'Patient data has been successfully deleted',
       },
     });
   }

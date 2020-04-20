@@ -25,56 +25,6 @@ export class PatientService {
   }
 
   /**
-   * Get all patients warning scores function
-   *
-   * @param patientId
-   */
-  public getAllPatientsWarningScores(patientId: string) {
-    return this.http.get<WarningScore>(`${environment.apiUrl}/warning-score/patient/${patientId}`)
-      .pipe(map((response) => {
-        return response;
-      }));
-  }
-
-  /**
-   * Get single patient warning scores function
-   *
-   * @param warningScoreId
-   */
-  public getSinglePatientWarningScores(warningScoreId: string) {
-    return this.http.get<string | number | boolean>(`${environment.apiUrl}/warning-score/${warningScoreId}`)
-      .pipe(map((response) => {
-        return response;
-      }));
-  }
-
-  /**
-   * Delete single patient warning scores function
-   *
-   * @param warningScoreId
-   */
-  public deleteSinglePatientWarningScores(warningScoreId: string) {
-    return this.http.delete<string | number | boolean>(`${environment.apiUrl}/warning-score/${warningScoreId}`)
-      .pipe(map((response) => {
-        return response;
-      }));
-  }
-
-
-  /**
-   * Update single patient warning scores function
-   *
-   * @param data
-   * @param warningScoreId
-   */
-  public updateSinglePatientWarningScores(data: WarningScore, warningScoreId: string) {
-    return this.http.put<WarningScore>(`${environment.apiUrl}/warning-score/${warningScoreId}`, data)
-      .pipe(map((response) => {
-        return response;
-      }));
-  }
-
-  /**
    * Create new score for patient function
    *
    * @param scoreForm
@@ -113,8 +63,34 @@ export class PatientService {
    *
    * @param data
    */
-  public setPatient(data: Patient) {
-    return this.http.post<Patient>(`${environment.apiUrl}/patient`, data)
+  public setPatient(data: any) {
+    const patientData = {
+      assignedDoctor: data.assignedDoctor._id,
+      firstName: data.firstName,
+      lastName: data.lastName,
+      dateOfBirth: data.dateOfBirth,
+      sex: data.sextoLowerCase(),
+      address: data.address,
+      contact: data.contact,
+      drugAllergy: data.drugAllergy,
+      smoking: data.smoking,
+      coronaryHeartDisease: data.coronaryHeartDisease,
+      heartArrhythmia: data.heartArrhythmia,
+      heartFailure: data.heartFailure,
+      lungDisease: data.lungDisease,
+      asthma: data.asthma,
+      chronicKidneyDisease: data.chronicKidneyDisease,
+      diabetes: data.diabetes,
+      heartStroke: data.heartStroke,
+      malignantDisease: data.malignantDisease,
+      chronicLiverDisease: data.chronicLiverDisease,
+      inflamatoryBowelDisease: data.inflamatoryBowelDisease,
+      reuma: data.reuma,
+      hiv: data.hiv,
+      medications: data.medications.length ? data.medications.split(',').map(item => item.trim()) : [],
+      operations: data.operations.length ? data.operations.split(',').map(item => item.trim()) : [],
+    };
+    return this.http.post<Patient>(`${environment.apiUrl}/patient`, patientData)
       .pipe(map((response) => {
         return response;
       }));
@@ -138,8 +114,34 @@ export class PatientService {
    * @param data
    * @param patientId
    */
-  public updatePatient(data: Patient, patientId: string) {
-    return this.http.put<Patient>(`${environment.apiUrl}/patient/${patientId}`, data)
+  public updatePatient(data: any, patientId: string) {
+    const patientData = {
+      assignedDoctor: data.assignedDoctor._id,
+      firstName: data.firstName,
+      lastName: data.lastName,
+      dateOfBirth: data.dateOfBirth,
+      sex: data.sex.toLowerCase(),
+      address: data.address,
+      contact: data.contact,
+      drugAllergy: data.drugAllergy,
+      smoking: data.smoking,
+      coronaryHeartDisease: data.coronaryHeartDisease,
+      heartArrhythmia: data.heartArrhythmia,
+      heartFailure: data.heartFailure,
+      lungDisease: data.lungDisease,
+      asthma: data.asthma,
+      chronicKidneyDisease: data.chronicKidneyDisease,
+      diabetes: data.diabetes,
+      heartStroke: data.heartStroke,
+      malignantDisease: data.malignantDisease,
+      chronicLiverDisease: data.chronicLiverDisease,
+      inflamatoryBowelDisease: data.inflamatoryBowelDisease,
+      reuma: data.reuma,
+      hiv: data.hiv,
+      medications: data.medications.length ? data.medications.split(',').map(item => item.trim()) : [],
+      operations: data.operations.length ? data.operations.split(',').map(item => item.trim()) : [],
+    };
+    return this.http.put<Patient>(`${environment.apiUrl}/patient/${patientId}`, patientData)
       .pipe(map((response) => {
         return response;
       }));
@@ -202,6 +204,68 @@ export class PatientService {
    */
   public deletePatientRelevantData(patientRelevantDataId: string) {
     return this.http.delete<PatientRelevantData>(`${environment.apiUrl}/patient-relevant-data/${patientRelevantDataId}`)
+      .pipe(map((response) => {
+        return response;
+      }));
+  }
+
+  /**
+   * Get all patients warning scores function
+   *
+   * @param patientId
+   */
+  public getAllPatientsWarningScores(patientId: string) {
+    return this.http.get<WarningScore>(`${environment.apiUrl}/warning-score/patient/${patientId}`)
+      .pipe(map((response) => {
+        return response;
+      }));
+  }
+
+  /**
+   * Get single patient warning scores function
+   *
+   * @param warningScoreId
+   */
+  public getSinglePatientWarningScores(warningScoreId: string) {
+    return this.http.get<string | number | boolean>(`${environment.apiUrl}/warning-score/${warningScoreId}`)
+      .pipe(map((response) => {
+        return response;
+      }));
+  }
+
+  /**
+   * Set patient relevant data function
+   *
+   * @param data
+   * @param patientId
+   */
+  public setPatientWarningScores(data: PatientRelevantData, patientId: string) {
+    return this.http.post<PatientRelevantData>(`${environment.apiUrl}/warning-score/patient/${patientId}`, data)
+      .pipe(map((response) => {
+        return response;
+      }));
+  }
+
+  /**
+   * Delete single patient warning scores function
+   *
+   * @param warningScoreId
+   */
+  public deleteSinglePatientWarningScores(warningScoreId: string) {
+    return this.http.delete<string | number | boolean>(`${environment.apiUrl}/warning-score/${warningScoreId}`)
+      .pipe(map((response) => {
+        return response;
+      }));
+  }
+
+  /**
+   * Update single patient warning scores function
+   *
+   * @param data
+   * @param warningScoreId
+   */
+  public updateSinglePatientWarningScores(data: WarningScore, warningScoreId: string) {
+    return this.http.put<WarningScore>(`${environment.apiUrl}/warning-score/${warningScoreId}`, data)
       .pipe(map((response) => {
         return response;
       }));

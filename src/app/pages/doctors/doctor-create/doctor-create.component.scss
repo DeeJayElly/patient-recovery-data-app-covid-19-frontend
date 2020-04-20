@@ -1,0 +1,17 @@
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  .buttons {
+    button {
+      margin-right: 10px;
+    }
+  }
+}
+
+.hospital-row {
+  display: flex;
+  flex-direction: column;
+}

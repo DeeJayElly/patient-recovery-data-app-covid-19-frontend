@@ -7,6 +7,8 @@ import {ActivatedRoute} from '@angular/router';
 import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
 import {NbDialogService} from '@nebular/theme';
 import {AuthService} from '../../../services/auth/auth.service';
+import {Hospital} from '../../../models/hospital.model';
+import {HospitalService} from '../../../services/hospital/hospital.service';
 
 @Component({
   selector: 'ngx-doctor-edit',
@@ -17,9 +19,10 @@ export class DoctorEditComponent implements OnInit {
   public doctorEditForm: FormGroup;
   public submitted = false;
   public doctorId: any;
-  public doctor: any;
+  public doctor: User;
   public error: any;
   public canEditDoctor: boolean;
+  public hospitals: Hospital[];
 
   get f() {
     return this.doctorEditForm.controls;
@@ -29,7 +32,8 @@ export class DoctorEditComponent implements OnInit {
               public doctorService: DoctorService,
               public route: ActivatedRoute,
               public dialogService: NbDialogService,
-              private auth: AuthService) {
+              private auth: AuthService,
+              private hospitalService: HospitalService) {
     this.doctorEditForm = this.formBuilder.group({
       email: ['', Validators.required],
       firstName: ['', Validators.required],
@@ -45,14 +49,10 @@ export class DoctorEditComponent implements OnInit {
   ngOnInit(): void {
     this.doctorId = this.route.snapshot.params['id'];
     this.getDoctorDetails(this.doctorId);
+    this.getAllHospitals();
   }
 
-  /**
-   * Get doctor details function
-   *
-   * @param doctorId
-   */
-  public getDoctorDetails(doctorId) {
+  private getDoctorDetails(doctorId) {
     this.doctorService.getDoctor(doctorId)
       .pipe(first())
       .subscribe(
@@ -62,6 +62,21 @@ export class DoctorEditComponent implements OnInit {
           if (this.canEditDoctor) {
             this.editDoctorForm();
           }
+        },
+        error => {
+          this.error = error;
+        });
+  }
+
+  private getAllHospitals() {
+    this.hospitalService.getAllHospitals()
+      .pipe(first())
+      .subscribe(
+        (data: Hospital[]) => {
+          this.hospitals = data;
+          this.doctorEditForm.patchValue({
+            hospital: this.hospitals[0],
+          });
         },
         error => {
           this.error = error;
@@ -82,15 +97,12 @@ export class DoctorEditComponent implements OnInit {
       firstName: this.doctor.firstName,
       lastName: this.doctor.lastName,
       cityOrRegion: this.doctor.cityOrRegion,
-      hospital: this.doctor.hospitalName,
+      hospital: this.doctor.hospital.name,
       country: this.doctor.country,
     });
   }
 
-  /**
-   * Open dialog function
-   */
-  public openDialog() {
+  private openDialog() {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
         title: 'Doctor data has been successfully updated',

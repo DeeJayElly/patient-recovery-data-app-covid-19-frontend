@@ -17,7 +17,6 @@ export class PatientWarningScoreCreateComponent implements OnInit {
   public scoreForm: FormGroup;
   public submitted = false;
   public patientId: any;
-  public radioGroupValue: string = 'Value 2';
   public patient: any;
   public error: any;
 
@@ -33,7 +32,7 @@ export class PatientWarningScoreCreateComponent implements OnInit {
       years: ['', Validators.required],
       numberOfRespirations: ['', Validators.required],
       oxygenSaturation: ['', Validators.required],
-      anyAdditionalO2: ['', Validators.required],
+      anyAdditionalO2: [false, Validators.required],
       systolicPressure: ['', Validators.required],
       heartRate: ['', Validators.required],
       stateOfConsciousness: ['', Validators.required],
@@ -68,13 +67,12 @@ export class PatientWarningScoreCreateComponent implements OnInit {
    * Create score form function
    */
   public createScoreForm() {
-    this.scoreForm.patchValue({years: this.patient.warningScores[0].years});
+    this.scoreForm.patchValue({
+      years: this.patient.warningScores[0].years,
+    });
   }
 
-  /**
-   * Open dialog function
-   */
-  public openDialog() {
+  private openDialog() {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
         title: 'Patient daily risk score successfully updated',

@@ -1,1 +1,292 @@
-<p>patient-create works!</p>
+<div class="col-md-12">
+  <nb-card>
+    <nb-card-header>
+      <div class="title-container">
+        <div class="title">
+          {{'ADD_PATIENT' | translate}}
+        </div>
+        <div class="buttons">
+          <button nbButton routerLink="/pages/patients">{{'GO_BACK' | translate}}</button>
+        </div>
+      </div>
+    </nb-card-header>
+    <nb-card-body>
+      <form [formGroup]="patientCreateForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+          <label for="firstName" class="label col-sm-6 col-form-label">{{'FIRST_NAME' | translate}}</label>
+          <input type="text" nbInput fullWidth id="firstName" formControlName="firstName"
+                 placeholder="{{'FIRST_NAME' | translate}}">
+          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="f.firstName.errors.required">{{'FIRST_NAME_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="lastName" class="label col-sm-6 col-form-label">{{'LAST_NAME' | translate}}</label>
+          <input type="text" nbInput fullWidth id="lastName" formControlName="lastName"
+                 placeholder="{{'LAST_NAME' | translate}}">
+          <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">{{'LAST_NAME_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="dateOfBirth" class="label col-sm-6 col-form-label">{{'DATE_BIRTH' | translate}}</label>
+          <input type="date" nbInput fullWidth id="dateOfBirth" formControlName="dateOfBirth"
+                 placeholder="{{'DATE_BIRTH' | translate}}">
+          <div *ngIf="submitted && f.dateOfBirth.errors" class="invalid-feedback">
+            <div *ngIf="f.dateOfBirth.errors.required">{{'DATE_BIRTH_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="sex" class="label col-sm-6 col-form-label">{{'GENDER' | translate}}</label>
+          <input type="text" nbInput fullWidth id="sex" formControlName="sex"
+                 placeholder="{{'GENDER' | translate}}">
+          <div *ngIf="submitted && f.sex.errors" class="invalid-feedback">
+            <div *ngIf="f.sex.errors.required">{{'GENDER_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="address" class="label col-sm-6 col-form-label">{{'ADDRESS' | translate}}</label>
+          <input type="text" nbInput fullWidth id="address" formControlName="address"
+                 placeholder="{{'LAST_NAME' | translate}}">
+          <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+            <div *ngIf="f.address.errors.required">{{'ADDRESS_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="contact" class="label col-sm-6 col-form-label">{{'CONTACT' | translate}}</label>
+          <input type="text" nbInput fullWidth id="contact" formControlName="contact"
+                 placeholder="{{'LAST_NAME' | translate}}">
+          <div *ngIf="submitted && f.contact.errors" class="invalid-feedback">
+            <div *ngIf="f.contact.errors.required">{{'CONTACT_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="assignedDoctor" class="label col-sm-6 col-form-label">{{'DOCTOR_NAME' | translate}}</label>
+          <nb-select id="assignedDoctor" formControlName="assignedDoctor" class="position-select">
+            <nb-option *ngFor="let doctor of doctors"
+                       [value]="doctor">{{ doctor.firstName + ' ' + doctor.lastName }}</nb-option>
+          </nb-select>
+          <div *ngIf="submitted && f.assignedDoctor.errors" class="invalid-feedback">
+            <div *ngIf="f.assignedDoctor.errors.required">{{'DOCTOR_NAME_REQUIRED' | translate}}</div>
+          </div>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="drugAllergy" class="label col-sm-6 col-form-label">{{'DRUG_ALLERGY' | translate}}</label>
+          <nb-radio-group name="drugAllergy" formControlName="drugAllergy" id="drugAllergy">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="smoking" class="label col-sm-6 col-form-label">{{'SMOKING' | translate}}</label>
+          <nb-radio-group name="smoking" formControlName="smoking" id="smoking">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="coronaryHeartDisease"
+                 class="label col-sm-6 col-form-label">{{'CORONARY_HEART_DISEASE' | translate}}</label>
+          <nb-radio-group name="coronaryHeartDisease" formControlName="coronaryHeartDisease" id="coronaryHeartDisease">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="heartArrhythmia" class="label col-sm-6 col-form-label">{{'HEART_ARRHYTHMIA' | translate}}</label>
+          <nb-radio-group name="heartArrhythmia" formControlName="heartArrhythmia" id="heartArrhythmia">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="heartFailure" class="label col-sm-6 col-form-label">{{'HEART_FAILURE' | translate}}</label>
+          <nb-radio-group name="heartFailure" formControlName="heartFailure" id="heartFailure">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="lungDisease" class="label col-sm-6 col-form-label">{{'LUNG_DISEASE' | translate}}</label>
+          <nb-radio-group name="lungDisease" formControlName="lungDisease" id="lungDisease">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="asthma" class="label col-sm-6 col-form-label">{{'ASTHMA' | translate}}</label>
+          <nb-radio-group name="asthma" formControlName="asthma" id="asthma">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="chronicKidneyDisease"
+                 class="label col-sm-6 col-form-label">{{'CHRONIC_KIDNEY_DISEASE' | translate}}</label>
+          <nb-radio-group name="chronicKidneyDisease" formControlName="chronicKidneyDisease" id="chronicKidneyDisease">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="diabetes" class="label col-sm-6 col-form-label">{{'DIABETES' | translate}}</label>
+          <nb-radio-group name="diabetes" formControlName="diabetes" id="diabetes">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="heartStroke" class="label col-sm-6 col-form-label">{{'HEART_STROKE' | translate}}</label>
+          <nb-radio-group name="heartStroke" formControlName="heartStroke" id="heartStroke">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="malignantDisease"
+                 class="label col-sm-6 col-form-label">{{'MALIGNANT_DISEASE' | translate}}</label>
+          <nb-radio-group name="malignantDisease" formControlName="malignantDisease" id="malignantDisease">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="chronicLiverDisease"
+                 class="label col-sm-6 col-form-label">{{'CHRONIC_DISEASE' | translate}}</label>
+          <nb-radio-group name="chronicLiverDisease" formControlName="chronicLiverDisease" id="chronicLiverDisease">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="inflamatoryBowelDisease"
+                 class="label col-sm-6 col-form-label">{{'INFLAMMATORY_BOWEL_DISEASE' | translate}}</label>
+          <nb-radio-group name="inflamatoryBowelDisease" formControlName="inflamatoryBowelDisease"
+                          id="inflamatoryBowelDisease">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="reuma" class="label col-sm-6 col-form-label">{{'REUMA' | translate}}</label>
+          <nb-radio-group name="reuma" formControlName="reuma" id="reuma">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="hiv" class="label col-sm-6 col-form-label">{{'HIV' | translate}}</label>
+          <nb-radio-group name="hiv" formControlName="hiv" id="hiv">
+            <nb-radio
+              [value]="true">
+              Yes
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              No
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="medications" class="label col-sm-6 col-form-label">{{'MEDICATIONS' | translate}}</label>
+          <input type="text" nbInput fullWidth id="medications" formControlName="medications"
+                 placeholder="{{'MEDICATIONS' | translate}}">
+        </div>
+        <div class="form-group row doctor-row">
+          <label for="operations" class="label col-sm-6 col-form-label">{{'OPERATIONS' | translate}}</label>
+          <input type="text" nbInput fullWidth id="operations" formControlName="operations"
+                 placeholder="{{'OPERATIONS' | translate}}">
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-9">
+            <button type="submit" nbButton status="primary">{{'ADD_PATIENT' | translate}}</button>
+          </div>
+        </div>
+      </form>
+    </nb-card-body>
+  </nb-card>
+</div>
