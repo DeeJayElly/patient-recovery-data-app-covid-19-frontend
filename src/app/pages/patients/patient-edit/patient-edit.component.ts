@@ -118,7 +118,7 @@ export class PatientEditComponent implements OnInit {
       sex: this.patient.sex,
       address: this.patient.address,
       contact: this.patient.contact,
-      assignedDoctor: this.patient.assignedDoctor,
+      assignedDoctor: this.doctors.filter(doctor => doctor._id === this.patient.assignedDoctor)[0],
       drugAllergy: this.patient.drugAllergy,
       smoking: this.patient.smoking,
       coronaryHeartDisease: this.patient.coronaryHeartDisease,
