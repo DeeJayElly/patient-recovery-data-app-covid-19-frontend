@@ -102,5 +102,9 @@
   "EDIT_PATIENT": "Edit patient",
   "EDIT_RELEVANT_DATA": "Edit patient relevant data",
   "EDIT_WARNING_SCORE": "Edit patient warning score",
-  "UPDATE_HOSPITAL": "Update hospital"
+  "UPDATE_HOSPITAL": "Update hospital",
+  "DELETE_PATIENT_WARNING_SCORE": "Delete patient warning score",
+  "PATIENT_RELEVANT_DATA": "Patient relevant data",
+  "DELETE_PATIENT_RELEVANT_DATA": "Delete patient relevant data",
+  "CREATE_PATIENT_RELEVANT_DATA": "Create patient relevant data"
 }

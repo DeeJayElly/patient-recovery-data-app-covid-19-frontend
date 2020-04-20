@@ -1,1 +1,155 @@
-<p>patient-relevant-data-view works!</p>
+<nb-card>
+  <nb-card-header>
+    <div class="title-container">
+      <div class="title">
+        {{'PATIENT_RELEVANT_DATA' | translate}}
+      </div>
+      <div class="buttons">
+        <button nbButton routerLink="/pages/patients">{{'GO_BACK' | translate}}</button>
+        <button nbButton status="danger" (click)="deletePatient()">{{'DELETE_PATIENT_RELEVANT_DATA' | translate}}</button>
+        <button *ngIf="patient && patient.patientRelevantData.length" nbButton
+                [routerLink]="'/pages/patients/' + patient._id + '/relevant-data/add'">{{'CREATE_PATIENT_RELEVANT_DATA' | translate}}</button>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div *ngIf="patient">
+      <nb-list>
+        <nb-list-item class="row-alignment">
+          <span>Patient relevant data:</span>
+          <ng-container *ngIf="patient.patientRelevantData.length">
+            <div class="warning-scores-container" *ngFor="let relevantData of patient.patientRelevantData">
+              <div>
+                <span>Positive on Coronavirus:</span>  {{ relevantData.positiveToCoronavirus }}
+              </div>
+              <div>
+                <span>Cured from Coronavirus:</span>  {{ relevantData.curedOfCoronavirus }}
+              </div>
+              <div>
+                <span>Traveled to risk countries in the last 14 days:</span>  {{ relevantData.travelToRiskCountriesInTheLast14Days }}
+              </div>
+              <div>
+                <span>Been in contact with person who has symptoms:</span>  {{ relevantData.contactInTheLast14DaysWithAPersonWhoHasSymptoms }}
+              </div>
+              <div>
+                <span>Been in contact with person who has Corona Virus:</span>  {{ relevantData.haveYouBeenInContactWithPeopleWhoHaveTheCoronaVirusInTheLast14Days }}
+              </div>
+              <div>
+                <span>Ever been to a health care facility where the disease has been diagnosed:</span>  {{ relevantData.haveYouEverBeenToAHealthCareFacilityWhereTheDiseaseHasBeenDiagnosedWithANewCoronavirus }}
+              </div>
+              <div>
+                <span>Been to examination:</span>  {{ relevantData.didYouGoForAExaminationSomewhere }}
+              </div>
+              <div>
+                <span>Duration of symptoms:</span>  {{ relevantData.symptomsDuration }}
+              </div>
+              <div *ngIf="relevantData.symptoms.length">
+                <span>Symptoms:</span>
+                <div class="warning-scores-container" *ngFor="let symptom of patient.patientRelevantData">
+                  <span>{{symptom}}</span>
+                </div>
+              </div>
+              <div>
+                <span>High temperature:</span>  {{ relevantData.highTemperature }}
+              </div>
+              <div>
+                <span>Shaking:</span>  {{ relevantData.shaking }}
+              </div>
+              <div>
+                <span>Loss of appetite:</span>  {{ relevantData.lossOfAppetite }}
+              </div>
+              <div>
+                <span>Exhaustion:</span>  {{ relevantData.exhaustion }}
+              </div>
+              <div>
+                <span>Muscle pains:</span>  {{ relevantData.muscleAchesAndPains }}
+              </div>
+              <div>
+                <span>Bone/Joint pain:</span>  {{ relevantData.boneOrJointPain }}
+              </div>
+              <div>
+                <span>Cough:</span>  {{ relevantData.cough }}
+              </div>
+              <div>
+                <span>Expectoration:</span>  {{ relevantData.expectoration }}
+              </div>
+              <div>
+                <span>Shortness of breath:</span>  {{ relevantData.shortnessOfBreath }}
+              </div>
+              <div>
+                <span>Choking:</span>  {{ relevantData.choking }}
+              </div>
+              <div>
+                <span>Fatigue:</span>  {{ relevantData.fatigue }}
+              </div>
+              <div>
+                <span>Chest pressure:</span>  {{ relevantData.chestPressure }}
+              </div>
+              <div>
+                <span>Chest pain:</span>  {{ relevantData.chestPain }}
+              </div>
+              <div>
+                <span>Sneezing:</span>  {{ relevantData.sneezing }}
+              </div>
+              <div>
+                <span>Nasal congestion:</span>  {{ relevantData.nasalCongestion }}
+              </div>
+              <div>
+                <span>Secretion from the nose:</span>  {{ relevantData.secretionFromTheNose }}
+              </div>
+              <div>
+                <span>Bleeding from the nose:</span>  {{ relevantData.bleedingFromTheNose }}
+              </div>
+              <div>
+                <span>Eyes pain:</span>  {{ relevantData.eyesPain }}
+              </div>
+              <div>
+                <span>Red eyes:</span>  {{ relevantData.redEyes }}
+              </div>
+              <div>
+                <span>Throat problems:</span>  {{ relevantData.throatProblems }}
+              </div>
+              <div>
+                <span>Throat secretion:</span>  {{ relevantData.throatSecretion }}
+              </div>
+              <div>
+                <span>Headache:</span>  {{ relevantData.headache }}
+              </div>
+              <div>
+                <span>Abdominal pain:</span>  {{ relevantData.abdominalPain }}
+              </div>
+              <div>
+                <span>Nausea:</span>  {{ relevantData.nausea }}
+              </div>
+              <div>
+                <span>Vomit:</span>  {{ relevantData.vomit }}
+              </div>
+              <div>
+                <span>Diarrhea:</span>  {{ relevantData.diarrhea }}
+              </div>
+              <div>
+                <span>Back pain:</span>  {{ relevantData.backPain }}
+              </div>
+              <div>
+                <span>Urinary problems:</span>  {{ relevantData.urinaryProblems }}
+              </div>
+              <div>
+                <span>Rash:</span>  {{ relevantData.rash }}
+              </div>
+              <div>
+                <span>Enlarged lymph nodes:</span>  {{ relevantData.enlargedLymphNodes }}
+              </div>
+              <div>
+                <span>Neuro interferences:</span>  {{ relevantData.neuroInterferences }}
+              </div>
+              <div>
+                <span>Increased blood pressure:</span>  {{ relevantData.increasedBloodPressure }}
+              </div>
+            </div>
+          </ng-container>
+        </nb-list-item>
+      </nb-list>
+    </div>
+    <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+  </nb-card-body>
+</nb-card>
