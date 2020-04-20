@@ -18,8 +18,6 @@ export class PatientCreateComponent implements OnInit {
   public submitted = false;
   public error: any;
   public doctors: User[];
-  public hivRadioGroupValue = false;
-  public reumaRadioGroupValue = false;
 
   get f() {
     return this.patientCreateForm.controls;
