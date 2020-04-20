@@ -57,6 +57,7 @@
   "SCORE": "Score",
   "SCORE_REQUIRED": "Score required",
   "CREATE_NEW_SCORE_RATING": "Create daily score rating for patient",
+  "EDIT_SCORE_RATING": "Edit daily score rating for patient",
   "SAVE_DOCTOR_INFO": "Update doctor",
   "DELETE_PATIENT": "Delete patient",
   "REPORT_TITLE": "Download latest Patient CSV Report",
