@@ -97,5 +97,8 @@
   "REUMA": "Reuma",
   "HIV": "HIV",
   "MEDICATIONS": "Medication (please separate them by comma)",
-  "OPERATIONS": "Operations (please separate them by comma)"
+  "OPERATIONS": "Operations (please separate them by comma)",
+  "EDIT_PATIENT": "Edit patient",
+  "EDIT_RELEVANT_DATA": "Edit patient relevant data",
+  "EDIT_WARNING_SCORE": "Edit patient warning score"
 }

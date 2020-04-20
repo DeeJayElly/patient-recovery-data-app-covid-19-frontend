@@ -1,8 +1,17 @@
-<div class="col-md-6">
+<div class="col-md-12">
   <nb-card>
-    <nb-card-header>{{'ADD_HOSPITAL_DATA' | translate}}</nb-card-header>
+    <nb-card-header>
+      <div class="title-container">
+        <div class="title">
+          {{'ADD_HOSPITAL_DATA' | translate}}
+        </div>
+        <div class="buttons">
+          <button nbButton routerLink="/pages/hospitals">{{'GO_BACK' | translate}}</button>
+        </div>
+      </div>
+    </nb-card-header>
     <nb-card-body>
-      <form  [formGroup]="hospitalCreateForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="hospitalCreateForm" (ngSubmit)="onSubmit()">
         <div class="form-group row">
           <label for="name" class="label col-sm-3 col-form-label">Hospital name</label>
           <input type="text" nbInput fullWidth id="name" formControlName="name"

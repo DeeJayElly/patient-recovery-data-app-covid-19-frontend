@@ -1,7 +1,14 @@
-<div class="col-md-6">
+<div class="col-md-12">
   <nb-card>
     <nb-card-header>
-      {{'DOCTOR_EDIT' | translate}}
+      <div class="title-container">
+        <div class="title">
+          {{'DOCTOR_EDIT' | translate}}
+        </div>
+        <div class="buttons">
+          <button nbButton routerLink="/pages/doctors">{{'GO_BACK' | translate}}</button>
+        </div>
+      </div>
     </nb-card-header>
     <nb-card-body>
       <form *ngIf="canEditDoctor" [formGroup]="doctorEditForm" (ngSubmit)="onSubmit()">
@@ -39,9 +46,9 @@
         </div>
         <div class="form-group row hospital-row">
           <label for="hospital" class="label col-sm-3 col-form-label">{{'HOSPITAL_NAME' | translate}}</label>
-            <nb-select id="hospital" formControlName="hospital" class="position-select">
-              <nb-option *ngFor="let hospital of hospitals" [value]="hospital">{{ hospital.name }}</nb-option>
-            </nb-select>
+          <nb-select id="hospital" formControlName="hospital" class="position-select">
+            <nb-option *ngFor="let hospital of hospitals" [value]="hospital">{{ hospital.name }}</nb-option>
+          </nb-select>
           <div *ngIf="submitted && f.hospital.errors" class="invalid-feedback">
             <div *ngIf="f.hospital.errors.required">{{'HOSPITAL_NAME_REQUIRED' | translate}}</div>
           </div>
