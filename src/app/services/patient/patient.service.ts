@@ -87,8 +87,8 @@ export class PatientService {
       inflamatoryBowelDisease: data.inflamatoryBowelDisease,
       reuma: data.reuma,
       hiv: data.hiv,
-      medications: data.medications.split(',').map(item => item.trim()),
-      operations: data.operations.split(',').map(item => item.trim()),
+      medications: data.medications.length ? data.medications.split(',').map(item => item.trim()) : [],
+      operations: data.operations.length ? data.operations.split(',').map(item => item.trim()) : [],
     };
     return this.http.post<Patient>(`${environment.apiUrl}/patient`, patientData)
       .pipe(map((response) => {
@@ -138,8 +138,8 @@ export class PatientService {
       inflamatoryBowelDisease: data.inflamatoryBowelDisease,
       reuma: data.reuma,
       hiv: data.hiv,
-      medications: data.medications.split(',').map(item => item.trim()),
-      operations: data.operations.split(',').map(item => item.trim()),
+      medications: data.medications.length ? data.medications.split(',').map(item => item.trim()) : [],
+      operations: data.operations.length ? data.operations.split(',').map(item => item.trim()) : [],
     };
     return this.http.put<Patient>(`${environment.apiUrl}/patient/${patientId}`, patientData)
       .pipe(map((response) => {
