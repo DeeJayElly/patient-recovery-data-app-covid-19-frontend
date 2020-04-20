@@ -44,7 +44,7 @@
   "OXYGEN_SATURATION_REQUIRED": "Oxygen saturation required",
   "ADDITIONAL_O2": "Any additional O2",
   "ADDITIONAL_O2_REQUIRED": "Additional O2 level required",
-  "SYSTOLIC_PRESSURE": "Systolic [ressure",
+  "SYSTOLIC_PRESSURE": "Systolic pressure",
   "SYSTOLIC_PRESSURE_REQUIRED": "Systolic pressure required",
   "HEART_RATE": "Heart rate",
   "HEART_RATE_REQUIRED": "Heart rate required",
@@ -57,7 +57,8 @@
   "SCORE": "Score",
   "SCORE_REQUIRED": "Score required",
   "CREATE_NEW_SCORE_RATING": "Create daily score rating for patient",
-  "SAVE_DOCTOR_INFO": "Update doctor information",
+  "EDIT_SCORE_RATING": "Edit daily score rating for patient",
+  "SAVE_DOCTOR_INFO": "Update doctor",
   "DELETE_PATIENT": "Delete patient",
   "REPORT_TITLE": "Download latest Patient CSV Report",
   "REPORT_DESCRIPTION": "In order to download csv of all patients with all the relevant data, please click on",
@@ -97,5 +98,13 @@
   "REUMA": "Reuma",
   "HIV": "HIV",
   "MEDICATIONS": "Medication (please separate them by comma)",
-  "OPERATIONS": "Operations (please separate them by comma)"
+  "OPERATIONS": "Operations (please separate them by comma)",
+  "EDIT_PATIENT": "Edit patient",
+  "EDIT_RELEVANT_DATA": "Edit patient relevant data",
+  "EDIT_WARNING_SCORE": "Edit patient warning score",
+  "UPDATE_HOSPITAL": "Update hospital",
+  "DELETE_PATIENT_WARNING_SCORE": "Delete patient warning score",
+  "PATIENT_RELEVANT_DATA": "Patient relevant data",
+  "DELETE_PATIENT_RELEVANT_DATA": "Delete patient relevant data",
+  "CREATE_PATIENT_RELEVANT_DATA": "Create patient relevant data"
 }
