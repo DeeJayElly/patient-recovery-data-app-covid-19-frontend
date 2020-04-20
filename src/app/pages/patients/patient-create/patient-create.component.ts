@@ -18,6 +18,8 @@ export class PatientCreateComponent implements OnInit {
   public submitted = false;
   public error: any;
   public doctors: User[];
+  public hivRadioGroupValue = false;
+  public reumaRadioGroupValue = false;
 
   get f() {
     return this.patientCreateForm.controls;
@@ -35,21 +37,21 @@ export class PatientCreateComponent implements OnInit {
       address: ['', Validators.required],
       contact: ['', Validators.required],
       assignedDoctor: ['', Validators.required],
-      drugAllergy: [''],
-      smoking: [''],
-      coronaryHeartDisease: [''],
-      heartArrhythmia: [''],
-      heartFailure: [''],
-      lungDisease: [''],
-      asthma: [''],
-      chronicKidneyDisease: [''],
-      diabetes: [''],
-      heartStroke: [''],
-      malignantDisease: [''],
-      chronicLiverDisease: [''],
-      inflamatoryBowelDisease: [''],
-      reuma: [''],
-      hiv: [''],
+      drugAllergy: [false],
+      smoking: [false],
+      coronaryHeartDisease: [false],
+      heartArrhythmia: [false],
+      heartFailure: [false],
+      lungDisease: [false],
+      asthma: [false],
+      chronicKidneyDisease: [false],
+      diabetes: [false],
+      heartStroke: [false],
+      malignantDisease: [false],
+      chronicLiverDisease: [false],
+      inflamatoryBowelDisease: [false],
+      reuma: [false],
+      hiv: [false],
       medications: [''],
       operations: [''],
     });

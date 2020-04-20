@@ -113,8 +113,34 @@ export class PatientService {
    *
    * @param data
    */
-  public setPatient(data: Patient) {
-    return this.http.post<Patient>(`${environment.apiUrl}/patient`, data)
+  public setPatient(data: any) {
+    const patientData = {
+      assignedDoctor: data.assignedDoctor._id,
+      firstName: data.firstName,
+      lastName: data.lastName,
+      dateOfBirth: data.dateOfBirth,
+      sex: data.sex,
+      address: data.address,
+      contact: data.contact,
+      drugAllergy: data.drugAllergy,
+      smoking: data.smoking,
+      coronaryHeartDisease: data.coronaryHeartDisease,
+      heartArrhythmia: data.heartArrhythmia,
+      heartFailure: data.heartFailure,
+      lungDisease: data.lungDisease,
+      asthma: data.asthma,
+      chronicKidneyDisease: data.chronicKidneyDisease,
+      diabetes: data.diabetes,
+      heartStroke: data.heartStroke,
+      malignantDisease: data.malignantDisease,
+      chronicLiverDisease: data.chronicLiverDisease,
+      inflamatoryBowelDisease: data.inflamatoryBowelDisease,
+      reuma: data.reuma,
+      hiv: data.hiv,
+      medications: data.medications.split(',').map(item => item.trim()),
+      operations: data.operations.split(',').map(item => item.trim()),
+    };
+    return this.http.post<Patient>(`${environment.apiUrl}/patient`, patientData)
       .pipe(map((response) => {
         return response;
       }));
