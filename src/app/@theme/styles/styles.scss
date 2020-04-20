@@ -31,3 +31,15 @@
 
   @include nb-overrides();
 };
+
+.ng2-smart-row.row-class-yellow {
+  background: yellow !important;
+}
+
+.ng2-smart-row.row-class-orange {
+  background: orange !important;
+}
+
+.ng2-smart-row.row-class-red {
+  background: red !important;
+}

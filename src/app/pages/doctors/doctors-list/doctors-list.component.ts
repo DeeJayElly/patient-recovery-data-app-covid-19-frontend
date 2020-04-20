@@ -39,26 +39,32 @@ export class DoctorsListComponent implements OnInit {
       firstName: {
         title: 'First Name',
         type: 'string',
+        editable: false,
       },
       lastName: {
         title: 'Last Name',
         type: 'string',
+        editable: false,
       },
       cityOrRegion: {
         title: 'City / Region',
         type: 'string',
+        editable: false,
       },
       email: {
         title: 'E-mail',
         type: 'string',
+        editable: false,
       },
       country: {
         title: 'Country',
         type: 'string',
+        editable: false,
       },
       hospital: {
         title: 'Hospital Name',
         type: 'string',
+        editable: false,
       },
     },
   };
