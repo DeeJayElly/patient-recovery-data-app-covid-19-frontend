@@ -57,7 +57,7 @@
   "SCORE": "Score",
   "SCORE_REQUIRED": "Score required",
   "CREATE_NEW_SCORE_RATING": "Create daily score rating for patient",
-  "SAVE_DOCTOR_INFO": "Update doctor information",
+  "SAVE_DOCTOR_INFO": "Update doctor",
   "DELETE_PATIENT": "Delete patient",
   "REPORT_TITLE": "Download latest Patient CSV Report",
   "REPORT_DESCRIPTION": "In order to download csv of all patients with all the relevant data, please click on",
@@ -100,5 +100,6 @@
   "OPERATIONS": "Operations (please separate them by comma)",
   "EDIT_PATIENT": "Edit patient",
   "EDIT_RELEVANT_DATA": "Edit patient relevant data",
-  "EDIT_WARNING_SCORE": "Edit patient warning score"
+  "EDIT_WARNING_SCORE": "Edit patient warning score",
+  "UPDATE_HOSPITAL": "Update hospital"
 }
