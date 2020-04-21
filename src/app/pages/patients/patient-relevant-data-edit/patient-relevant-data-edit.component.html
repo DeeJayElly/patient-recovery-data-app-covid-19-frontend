@@ -1,1 +1,565 @@
-<p>patient-relevant-data-edit works!</p>
+<div class="col-md-12">
+  <nb-card>
+    <nb-card-header>
+      <div class="title-container">
+        <div class="title">
+          {{'EDIT_PATIENT_RELEVANT_DATA' | translate}}
+        </div>
+        <div class="buttons">
+          <button nbButton routerLink="/pages/patients">{{'GO_BACK' | translate}}</button>
+        </div>
+      </div>
+    </nb-card-header>
+    <nb-card-body>
+      <form [formGroup]="patientRelevantDataEditForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row additional-row">
+          <label for="travelToRiskCountriesInTheLast14Days"
+                 class="label col-sm-3 col-form-label">Travel to risk countries in the last 14 days</label>
+          <nb-radio-group formControlName="travelToRiskCountriesInTheLast14Days"
+                          name="travelToRiskCountriesInTheLast14Days" id="travelToRiskCountriesInTheLast14Days">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="contactInTheLast14DaysWithAPersonWhoHasSymptoms"
+                 class="label col-sm-3 col-form-label">Contact in the last 14 days with a person who has
+            symptoms</label>
+          <nb-radio-group formControlName="contactInTheLast14DaysWithAPersonWhoHasSymptoms"
+                          name="contactInTheLast14DaysWithAPersonWhoHasSymptoms"
+                          id="contactInTheLast14DaysWithAPersonWhoHasSymptoms">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="haveYouBeenInContactWithPeopleWhoHaveTheCoronaVirusInTheLast14Days"
+                 class="label col-sm-3 col-form-label">Contact with people who have the Corona virus in the last 14
+            days</label>
+          <nb-radio-group formControlName="haveYouBeenInContactWithPeopleWhoHaveTheCoronaVirusInTheLast14Days"
+                          name="haveYouBeenInContactWithPeopleWhoHaveTheCoronaVirusInTheLast14Days"
+                          id="haveYouBeenInContactWithPeopleWhoHaveTheCoronaVirusInTheLast14Days">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="haveYouEverBeenToAHealthCareFacilityWhereTheDiseaseHasBeenDiagnosedWithANewCoronavirus"
+                 class="label col-sm-3 col-form-label">Have you ever been to a health care facility where the disease
+            has been diagnosed with a new Corona virus</label>
+          <nb-radio-group
+            formControlName="haveYouEverBeenToAHealthCareFacilityWhereTheDiseaseHasBeenDiagnosedWithANewCoronavirus"
+            name="haveYouEverBeenToAHealthCareFacilityWhereTheDiseaseHasBeenDiagnosedWithANewCoronavirus"
+            id="haveYouEverBeenToAHealthCareFacilityWhereTheDiseaseHasBeenDiagnosedWithANewCoronavirus">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="didYouGoForAExaminationSomewhere"
+                 class="label col-sm-3 col-form-label">Did you go for a examination somewhere</label>
+          <nb-radio-group formControlName="didYouGoForAExaminationSomewhere" name="didYouGoForAExaminationSomewhere"
+                          id="didYouGoForAExaminationSomewhere">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row">
+          <label for="symptoms"
+                 class="label col-sm-3 col-form-label">Symptoms</label>
+          <input type="text" nbInput fullWidth name="symptoms" id="symptoms" formControlName="symptoms"
+                 placeholder="{{'STATE_OF_CONSCIOUSNESS' | translate}}">
+        </div>
+        <div class="form-group row">
+          <label for="symptomsDuration"
+                 class="label col-sm-3 col-form-label">Symptoms duration</label>
+          <input type="number" nbInput fullWidth name="symptomsDuration" id="symptomsDuration"
+                 formControlName="symptomsDuration"
+                 placeholder="{{'OXYGEN_SATURATION' | translate}}">
+        </div>
+        <div class="form-group row additional-row">
+          <label for="highTemperature" class="label col-sm-3 col-form-label">High temperature</label>
+          <nb-radio-group formControlName="highTemperature" name="highTemperature" id="highTemperature">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="shaking" class="label col-sm-3 col-form-label">Shaking</label>
+          <nb-radio-group formControlName="shaking" name="shaking" id="shaking">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="lossOfAppetite" class="label col-sm-3 col-form-label">Loss of appetite</label>
+          <nb-radio-group formControlName="lossOfAppetite" name="lossOfAppetite" id="lossOfAppetite">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="exhaustion" class="label col-sm-3 col-form-label">Exhaustion</label>
+          <nb-radio-group formControlName="exhaustion" name="exhaustion" id="exhaustion">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="muscleAchesAndPains" class="label col-sm-3 col-form-label">Muscle aches and pains</label>
+          <nb-radio-group formControlName="muscleAchesAndPains" name="muscleAchesAndPains" id="muscleAchesAndPains">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="boneOrJointPain" class="label col-sm-3 col-form-label">Bone or joint pain</label>
+          <nb-radio-group formControlName="boneOrJointPain" name="boneOrJointPain" id="boneOrJointPain">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="cough" class="label col-sm-3 col-form-label">Cough</label>
+          <nb-radio-group formControlName="cough" name="cough" id="cough">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="expectoration" class="label col-sm-3 col-form-label">Expectoration</label>
+          <nb-radio-group formControlName="expectoration" name="expectoration" id="expectoration">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="shortnessOfBreath" class="label col-sm-3 col-form-label">Shortness of breath</label>
+          <nb-radio-group formControlName="shortnessOfBreath" name="shortnessOfBreath" id="shortnessOfBreath">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="choking" class="label col-sm-3 col-form-label">Choking</label>
+          <nb-radio-group formControlName="choking" name="choking" id="choking">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="fatigue" class="label col-sm-3 col-form-label">Fatigue</label>
+          <nb-radio-group formControlName="fatigue" name="fatigue" id="fatigue">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="chestPressure" class="label col-sm-3 col-form-label">Chest pressure</label>
+          <nb-radio-group formControlName="chestPressure" name="chestPressure" id="chestPressure">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="chestPain" class="label col-sm-3 col-form-label">Chest pain</label>
+          <nb-radio-group formControlName="chestPain" name="chestPain" id="chestPain">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="sneezing" class="label col-sm-3 col-form-label">Sneezing</label>
+          <nb-radio-group formControlName="sneezing" name="sneezing" id="sneezing">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="nasalCongestion" class="label col-sm-3 col-form-label">Nasal congestion</label>
+          <nb-radio-group formControlName="nasalCongestion" name="nasalCongestion" id="nasalCongestion">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="secretionFromTheNose"
+                 class="label col-sm-3 col-form-label">Secretion from the nose</label>
+          <nb-radio-group formControlName="secretionFromTheNose" name="secretionFromTheNose" id="secretionFromTheNose">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="bleedingFromTheNose" class="label col-sm-3 col-form-label">Bleeding from the nose</label>
+          <nb-radio-group formControlName="bleedingFromTheNose" name="bleedingFromTheNose" id="bleedingFromTheNose">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="eyesPain" class="label col-sm-3 col-form-label">Eyes pain</label>
+          <nb-radio-group formControlName="eyesPain" name="eyesPain" id="eyesPain">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="redEyes" class="label col-sm-3 col-form-label">Red eyes</label>
+          <nb-radio-group formControlName="redEyes" name="redEyes" id="redEyes">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="throatProblems" class="label col-sm-3 col-form-label">Throat problems</label>
+          <nb-radio-group formControlName="throatProblems" name="throatProblems" id="throatProblems">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="throatSecretion" class="label col-sm-3 col-form-label">Throat secretion</label>
+          <nb-radio-group formControlName="throatSecretion" name="throatSecretion" id="throatSecretion">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="headache" class="label col-sm-3 col-form-label">Headache</label>
+          <nb-radio-group formControlName="headache" name="headache" id="headache">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="abdominalPain" class="label col-sm-3 col-form-label">Abdominal pain</label>
+          <nb-radio-group formControlName="abdominalPain" name="abdominalPain" id="abdominalPain">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="nausea" class="label col-sm-3 col-form-label">Nausea</label>
+          <nb-radio-group formControlName="nausea" name="nausea" id="nausea">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="vomit" class="label col-sm-3 col-form-label">Vomit</label>
+          <nb-radio-group formControlName="vomit" name="vomit" id="vomit">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="diarrhea" class="label col-sm-3 col-form-label">Diarrhea</label>
+          <nb-radio-group formControlName="diarrhea" name="diarrhea" id="diarrhea">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="backPain" class="label col-sm-3 col-form-label">Back pain</label>
+          <nb-radio-group formControlName="backPain" name="backPain" id="backPain">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="urinaryProblems" class="label col-sm-3 col-form-label">Urinary problems</label>
+          <nb-radio-group formControlName="urinaryProblems" name="urinaryProblems" id="urinaryProblems">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="rash" class="label col-sm-3 col-form-label">Rash</label>
+          <nb-radio-group formControlName="rash" name="rash" id="rash">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="enlargedLymphNodes" class="label col-sm-3 col-form-label">Enlarged lymph nodes</label>
+          <nb-radio-group formControlName="enlargedLymphNodes" name="enlargedLymphNodes" id="enlargedLymphNodes">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="neuroInterferences" class="label col-sm-3 col-form-label">Neuro interferences</label>
+          <nb-radio-group formControlName="neuroInterferences" name="neuroInterferences" id="neuroInterferences">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="increasedBloodPressure"
+                 class="label col-sm-3 col-form-label">Increased blood pressure</label>
+          <nb-radio-group formControlName="increasedBloodPressure" name="increasedBloodPressure"
+                          id="increasedBloodPressure">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="positiveToCoronavirus"
+                 class="label col-sm-3 col-form-label">Positive to Corona virus</label>
+          <nb-radio-group formControlName="positiveToCoronavirus" name="positiveToCoronavirus"
+                          id="positiveToCoronavirus">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row additional-row">
+          <label for="curedOfCoronavirus" class="label col-sm-3 col-form-label">Cured of Corona virus</label>
+          <nb-radio-group formControlName="curedOfCoronavirus" name="curedOfCoronavirus" id="curedOfCoronavirus">
+            <nb-radio
+              [value]="true">
+              YES
+            </nb-radio>
+            <nb-radio
+              [value]="false">
+              NO
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-9">
+            <button type="submit" nbButton status="primary">{{'EDIT_PATIENT_RELEVANT_DATA' | translate}}</button>
+          </div>
+        </div>
+      </form>
+    </nb-card-body>
+  </nb-card>
+</div>

@@ -67,10 +67,10 @@ export class PatientRelevantDataViewComponent implements OnInit {
   }
 
   /**
-   * Delete patient function
+   * Delete patient relevant data function
    */
-  public deletePatient() {
-    this.patientService.deletePatient(this.patient._id.toString())
+  public deletePatientRelevantData() {
+    this.patientService.deletePatientRelevantData(this.patient._id)
       .pipe(first())
       .subscribe(
         (data: any) => {
@@ -84,7 +84,7 @@ export class PatientRelevantDataViewComponent implements OnInit {
   private openDialog() {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
-        title: 'Patient data has been successfully deleted',
+        title: 'Patient relevant data has been successfully deleted',
       },
     });
   }

@@ -36,25 +36,45 @@ export class PatientsListComponent implements OnInit {
       firstName: {
         title: 'First Name',
         type: 'string',
+        editable: false,
       },
       lastName: {
         title: 'Last Name',
         type: 'string',
+        editable: false,
       },
       dateOfBirth: {
         title: 'Date of birth',
         valuePrepareFunction: (dateOfBirth: any) => {
           return new DatePipe('en-US').transform(dateOfBirth, 'M/d/yyyy');
         },
+        editable: false,
       },
       sex: {
         title: 'Gender',
         type: 'string',
+        editable: false,
       },
       contact: {
         title: 'Contact',
         type: 'string',
+        editable: false,
       },
+    },
+    rowClassFunction: (item: any) => {
+      let rowClass = '';
+      const warningScores = item.data.warningScores;
+      if (warningScores && warningScores.length) {
+        const currentScore = warningScores[warningScores.length - 1].score;
+        if (currentScore <= 3) {
+          rowClass = 'row-class-yellow';
+        } else if (currentScore > 3 && currentScore <= 5) {
+          rowClass = 'row-class-orange';
+        } else if (currentScore >= 6) {
+          rowClass = 'row-class-red';
+        }
+      }
+      return rowClass;
     },
   };
 

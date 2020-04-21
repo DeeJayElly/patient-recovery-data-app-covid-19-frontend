@@ -70,7 +70,7 @@ export class PatientViewComponent implements OnInit {
    * Delete patient function
    */
   public deletePatient() {
-    this.patientService.deletePatient(this.patient._id.toString())
+    this.patientService.deletePatient(this.patient._id)
       .pipe(first())
       .subscribe(
         (data: any) => {

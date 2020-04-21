@@ -29,26 +29,32 @@ export class SmartTableComponent {
       id: {
         title: 'ID',
         type: 'number',
+        editable: false,
       },
       firstName: {
         title: 'First Name',
         type: 'string',
+        editable: false,
       },
       lastName: {
         title: 'Last Name',
         type: 'string',
+        editable: false,
       },
       username: {
         title: 'Username',
         type: 'string',
+        editable: false,
       },
       email: {
         title: 'E-mail',
         type: 'string',
+        editable: false,
       },
       age: {
         title: 'Age',
         type: 'number',
+        editable: false,
       },
     },
   };

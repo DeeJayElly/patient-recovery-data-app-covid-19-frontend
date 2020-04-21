@@ -36,21 +36,20 @@ export class HospitalListComponent implements OnInit {
       ],
     },
     columns: {
-      /* _id: {
-        title: 'ID',
-        type: 'number',
-      }, */
       name: {
         title: 'Hospital Name',
         type: 'string',
+        editable: false,
       },
       address: {
         title: 'Address',
         type: 'string',
+        editable: false,
       },
       numberOfBeds: {
         title: 'Number of beds',
         type: 'string',
+        editable: false,
       },
     },
   };
