@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
-  private currentUserSubject: BehaviorSubject<User>;
+  public currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
   constructor(private http: HttpClient, public router: Router) {
@@ -123,9 +123,6 @@ export class AuthService {
     return this.http.post<{ token: string, refreshToken: string }>(`${environment.apiUrl}/auth/logout`,
       {token: this.currentUserValue.token.token, refreshToken: this.currentUserValue.token.refreshToken})
       .pipe(map(() => {
-        localStorage.removeItem('currentUser');
-        this.currentUserSubject.next(null);
-        this.router.navigate(['/auth/sign-in']);
       }));
   }
 }
