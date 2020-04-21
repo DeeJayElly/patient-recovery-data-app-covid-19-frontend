@@ -91,9 +91,13 @@ export class AuthService {
    * Reset password function
    *
    * @param newPassword
+   * @param resetPasswordToken
    */
-  public resetPassword(newPassword: string) {
-    return this.http.post<{ newPassword: string }>(`${environment.apiUrl}/auth/reset-password`, {newPassword})
+  public resetPassword(newPassword: string, resetPasswordToken: string) {
+    return this.http.post<{ resetPasswordToken: string, newPassword: string }>(`${environment.apiUrl}/auth/reset-password`, {
+      resetPasswordToken,
+      newPassword,
+    })
       .pipe(map((response) => {
         return response;
       }));
@@ -104,7 +108,7 @@ export class AuthService {
    */
   public refreshToken() {
     return this.http.post<{ newPassword: string }>(`${environment.apiUrl}/auth/refresh-token`, {refreshToken: this.currentUserValue.token.refreshToken})
-      .pipe(map((response) => {
+      .pipe(map(() => {
         this.currentUserValue.authData = window.btoa(this.currentUserValue.email + ':' + this.currentUserValue.password);
         localStorage.setItem('currentUser', JSON.stringify(this.currentUserValue));
         this.currentUserSubject.next(this.currentUserValue);
@@ -116,8 +120,12 @@ export class AuthService {
    * Logout function
    */
   public logout() {
-    localStorage.removeItem('currentUser');
-    this.currentUserSubject.next(null);
-    this.router.navigate(['/auth/sign-in']);
+    return this.http.post<{ token: string, refreshToken: string }>(`${environment.apiUrl}/auth/logout`,
+      {token: this.currentUserValue.token.token, refreshToken: this.currentUserValue.token.refreshToken})
+      .pipe(map(() => {
+        localStorage.removeItem('currentUser');
+        this.currentUserSubject.next(null);
+        this.router.navigate(['/auth/sign-in']);
+      }));
   }
 }

@@ -14,8 +14,8 @@ export class ResetPasswordComponent implements OnInit {
   public resetPasswordForm: FormGroup;
   public loading = false;
   public submitted = false;
-  public returnUrl: string;
   public error = '';
+  public resetPasswordToken: string;
 
   get f() {
     return this.resetPasswordForm.controls;
@@ -26,19 +26,18 @@ export class ResetPasswordComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router,
               private authService: AuthService) {
-    if (this.authService.currentUserValue) {
-      this.router.navigate(['/pages/home']);
-    }
   }
 
   ngOnInit(): void {
     this.spinnerService.load();
+    this.resetPasswordToken = this.route.snapshot.params['resetPasswordToken'];
+    if (!this.resetPasswordToken) {
+      this.router.navigate(['/pages/home']);
+    }
     this.resetPasswordForm = this.formBuilder.group({
-      currentPassword: ['', Validators.required],
       newPassword: ['', Validators.required],
       newPasswordRepeat: ['', Validators.required],
     });
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   /**
@@ -50,7 +49,7 @@ export class ResetPasswordComponent implements OnInit {
       return;
     }
     this.loading = true;
-    this.authService.resetPassword(this.f.newPassword.value)
+    this.authService.resetPassword(this.f.newPassword.value, this.resetPasswordToken)
       .pipe(first())
       .subscribe(
         data => {
