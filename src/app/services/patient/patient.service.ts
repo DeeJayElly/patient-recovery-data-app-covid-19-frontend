@@ -25,28 +25,6 @@ export class PatientService {
   }
 
   /**
-   * Create new score for patient function
-   *
-   * @param scoreForm
-   * @param patientId
-   */
-  public createNewScoreForPatient(scoreForm, patientId) {
-    return this.http.post<WarningScore>(`${environment.apiUrl}/warning-score/patient/${patientId}`, {
-      years: scoreForm.years,
-      numberOfRespirations: scoreForm.numberOfRespirations,
-      oxygenSaturation: scoreForm.oxygenSaturation,
-      anyAdditionalO2: scoreForm.anyAdditionalO2,
-      systolicPressure: scoreForm.systolicPressure,
-      heartRate: scoreForm.heartRate,
-      stateOfConsciousness: scoreForm.stateOfConsciousness,
-      bodyTemperature: scoreForm.bodyTemperature,
-    })
-      .pipe(map((response) => {
-        return response;
-      }));
-  }
-
-  /**
    * Get single patient function
    *
    * @param patientId
@@ -69,7 +47,7 @@ export class PatientService {
       firstName: data.firstName,
       lastName: data.lastName,
       dateOfBirth: data.dateOfBirth,
-      sex: data.sextoLowerCase(),
+      sex: data.sex.toLowerCase(),
       address: data.address,
       contact: data.contact,
       drugAllergy: data.drugAllergy,
@@ -177,8 +155,51 @@ export class PatientService {
    * @param data
    * @param patientId
    */
-  public setPatientRelevantData(data: PatientRelevantData, patientId: string) {
-    return this.http.post<PatientRelevantData>(`${environment.apiUrl}/patient-relevant-data/patient/${patientId}`, data)
+  public setPatientRelevantData(data: any, patientId: string) {
+    const patientRelevantData = {
+      travelToRiskCountriesInTheLast14Days: data.travelToRiskCountriesInTheLast14Days,
+      contactInTheLast14DaysWithAPersonWhoHasSymptoms: data.contactInTheLast14DaysWithAPersonWhoHasSymptoms,
+      haveYouBeenInContactWithPeopleWhoHaveTheCoronaVirusInTheLast14Days: data.haveYouBeenInContactWithPeopleWhoHaveTheCoronaVirusInTheLast14Days,
+      haveYouEverBeenToAHealthCareFacilityWhereTheDiseaseHasBeenDiagnosedWithANewCoronavirus: data.haveYouEverBeenToAHealthCareFacilityWhereTheDiseaseHasBeenDiagnosedWithANewCoronavirus,
+      didYouGoForAExaminationSomewhere: data.didYouGoForAExaminationSomewhere,
+      symptoms: data.symptoms.length ? data.symptoms.split(',').map(item => item.trim()) : [],
+      symptomsDuration: data.symptomsDuration,
+      highTemperature: data.highTemperature,
+      shaking: data.shaking,
+      lossOfAppetite: data.lossOfAppetite,
+      exhaustion: data.exhaustion,
+      muscleAchesAndPains: data.muscleAchesAndPains,
+      boneOrJointPain: data.boneOrJointPain,
+      cough: data.cough,
+      expectoration: data.expectoration,
+      shortnessOfBreath: data.shortnessOfBreath,
+      choking: data.choking,
+      fatigue: data.fatigue,
+      chestPressure: data.chestPressure,
+      chestPain: data.chestPain,
+      sneezing: data.sneezing,
+      nasalCongestion: data.nasalCongestion,
+      secretionFromTheNose: data.secretionFromTheNose,
+      bleedingFromTheNose: data.bleedingFromTheNose,
+      eyesPain: data.eyesPain,
+      redEyes: data.redEyes,
+      throatProblems: data.throatProblems,
+      throatSecretion: data.throatSecretion,
+      headache: data.headache,
+      abdominalPain: data.abdominalPain,
+      nausea: data.nausea,
+      vomit: data.vomit,
+      diarrhea: data.diarrhea,
+      backPain: data.backPain,
+      urinaryProblems: data.urinaryProblems,
+      rash: data.rash,
+      enlargedLymphNodes: data.enlargedLymphNodes,
+      neuroInterferences: data.neuroInterferences,
+      increasedBloodPressure: data.increasedBloodPressure,
+      positiveToCoronavirus: data.positiveToCoronavirus,
+      curedOfCoronavirus: data.curedOfCoronavirus,
+    };
+    return this.http.post<PatientRelevantData>(`${environment.apiUrl}/patient-relevant-data/patient/${patientId}`, patientRelevantData)
       .pipe(map((response) => {
         return response;
       }));
@@ -190,8 +211,51 @@ export class PatientService {
    * @param data
    * @param patientRelevantDataId
    */
-  public updatePatientRelevantData(data: PatientRelevantData, patientRelevantDataId: string) {
-    return this.http.put<PatientRelevantData>(`${environment.apiUrl}/patient-relevant-data/${patientRelevantDataId}`, data)
+  public updatePatientRelevantData(data: any, patientRelevantDataId: string) {
+    const patientRelevantData = {
+      travelToRiskCountriesInTheLast14Days: data.travelToRiskCountriesInTheLast14Days,
+      contactInTheLast14DaysWithAPersonWhoHasSymptoms: data.contactInTheLast14DaysWithAPersonWhoHasSymptoms,
+      haveYouBeenInContactWithPeopleWhoHaveTheCoronaVirusInTheLast14Days: data.haveYouBeenInContactWithPeopleWhoHaveTheCoronaVirusInTheLast14Days,
+      haveYouEverBeenToAHealthCareFacilityWhereTheDiseaseHasBeenDiagnosedWithANewCoronavirus: data.haveYouEverBeenToAHealthCareFacilityWhereTheDiseaseHasBeenDiagnosedWithANewCoronavirus,
+      didYouGoForAExaminationSomewhere: data.didYouGoForAExaminationSomewhere,
+      symptoms: data.symptoms.length ? data.symptoms.split(',').map(item => item.trim()) : [],
+      symptomsDuration: data.symptomsDuration,
+      highTemperature: data.highTemperature,
+      shaking: data.shaking,
+      lossOfAppetite: data.lossOfAppetite,
+      exhaustion: data.exhaustion,
+      muscleAchesAndPains: data.muscleAchesAndPains,
+      boneOrJointPain: data.boneOrJointPain,
+      cough: data.cough,
+      expectoration: data.expectoration,
+      shortnessOfBreath: data.shortnessOfBreath,
+      choking: data.choking,
+      fatigue: data.fatigue,
+      chestPressure: data.chestPressure,
+      chestPain: data.chestPain,
+      sneezing: data.sneezing,
+      nasalCongestion: data.nasalCongestion,
+      secretionFromTheNose: data.secretionFromTheNose,
+      bleedingFromTheNose: data.bleedingFromTheNose,
+      eyesPain: data.eyesPain,
+      redEyes: data.redEyes,
+      throatProblems: data.throatProblems,
+      throatSecretion: data.throatSecretion,
+      headache: data.headache,
+      abdominalPain: data.abdominalPain,
+      nausea: data.nausea,
+      vomit: data.vomit,
+      diarrhea: data.diarrhea,
+      backPain: data.backPain,
+      urinaryProblems: data.urinaryProblems,
+      rash: data.rash,
+      enlargedLymphNodes: data.enlargedLymphNodes,
+      neuroInterferences: data.neuroInterferences,
+      increasedBloodPressure: data.increasedBloodPressure,
+      positiveToCoronavirus: data.positiveToCoronavirus,
+      curedOfCoronavirus: data.curedOfCoronavirus,
+    };
+    return this.http.put<PatientRelevantData>(`${environment.apiUrl}/patient-relevant-data/${patientRelevantDataId}`, patientRelevantData)
       .pipe(map((response) => {
         return response;
       }));
@@ -234,13 +298,22 @@ export class PatientService {
   }
 
   /**
-   * Set patient relevant data function
+   * Set new score for patient function
    *
-   * @param data
+   * @param scoreForm
    * @param patientId
    */
-  public setPatientWarningScores(data: PatientRelevantData, patientId: string) {
-    return this.http.post<PatientRelevantData>(`${environment.apiUrl}/warning-score/patient/${patientId}`, data)
+  public setPatientWarningScores(scoreForm: any, patientId: string) {
+    return this.http.post<WarningScore>(`${environment.apiUrl}/warning-score/patient/${patientId}`, {
+      years: scoreForm.years,
+      numberOfRespirations: scoreForm.numberOfRespirations,
+      oxygenSaturation: scoreForm.oxygenSaturation,
+      anyAdditionalO2: scoreForm.anyAdditionalO2,
+      systolicPressure: scoreForm.systolicPressure,
+      heartRate: scoreForm.heartRate,
+      stateOfConsciousness: scoreForm.stateOfConsciousness,
+      bodyTemperature: scoreForm.bodyTemperature,
+    })
       .pipe(map((response) => {
         return response;
       }));

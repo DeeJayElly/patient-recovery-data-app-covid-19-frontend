@@ -84,7 +84,7 @@ export class PatientWarningScoreCreateComponent implements OnInit {
    * On submit function
    */
   public onSubmit() {
-    this.patientService.createNewScoreForPatient(this.scoreForm.value, this.patientId)
+    this.patientService.setPatientWarningScores(this.scoreForm.value, this.patientId)
       .pipe(first())
       .subscribe(
         (data: WarningScore) => {
