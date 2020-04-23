@@ -5,9 +5,10 @@ import {HomeComponent} from './home/home.component';
 import {NbCardModule} from '@nebular/theme';
 import {ChartsModule} from '../charts/charts.module';
 import {BarChartModule, NgxChartsModule} from '@swimlane/ngx-charts';
+import {ImportDataComponent} from './import-data/import-data.component';
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, ImportDataComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
