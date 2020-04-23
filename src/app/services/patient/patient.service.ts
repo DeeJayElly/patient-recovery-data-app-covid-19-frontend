@@ -343,4 +343,14 @@ export class PatientService {
         return response;
       }));
   }
+
+  /**
+   * Import csv data function
+   */
+  public importCSVData(data: any) {
+    return this.http.post<any>(`${environment.apiUrl}/patient/import/csv`, data)
+      .pipe(map((response) => {
+        return response;
+      }));
+  }
 }

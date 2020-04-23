@@ -6,6 +6,7 @@ import {NbCardModule} from '@nebular/theme';
 import {ChartsModule} from '../charts/charts.module';
 import {BarChartModule, NgxChartsModule} from '@swimlane/ngx-charts';
 import {ImportDataComponent} from './import-data/import-data.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [HomeComponent, ImportDataComponent],
@@ -16,6 +17,7 @@ import {ImportDataComponent} from './import-data/import-data.component';
     ChartsModule,
     BarChartModule,
     NgxChartsModule,
+    DragDropModule,
   ],
 })
 export class HomeModule {
