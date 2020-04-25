@@ -8,7 +8,7 @@ const routes: Routes = [{
   component: PagesComponent,
   children: [
     {
-      path: 'home',
+      path: 'app',
       loadChildren: () => import('./home/home.module')
         .then(m => m.HomeModule),
     },
@@ -34,7 +34,7 @@ const routes: Routes = [{
     },
     {
       path: '',
-      redirectTo: 'home',
+      redirectTo: 'app',
       pathMatch: 'full',
     },
     {

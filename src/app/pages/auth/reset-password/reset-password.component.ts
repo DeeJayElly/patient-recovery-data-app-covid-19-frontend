@@ -32,7 +32,7 @@ export class ResetPasswordComponent implements OnInit {
     this.spinnerService.load();
     this.resetPasswordToken = this.route.snapshot.params['resetPasswordToken'];
     if (!this.resetPasswordToken) {
-      this.router.navigate(['/pages/home']);
+      this.router.navigate(['/pages/app']);
     }
     this.resetPasswordForm = this.formBuilder.group({
       newPassword: ['', Validators.required],

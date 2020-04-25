@@ -1,5 +1,5 @@
 export class WarningScore {
-  _id: string;
+  _id?: string;
   years: number;
   numberOfRespirations: number;
   oxygenSaturation: number;

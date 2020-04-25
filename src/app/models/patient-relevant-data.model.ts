@@ -1,4 +1,5 @@
 export class PatientRelevantData {
+  _id?: string;
   travelToRiskCountriesInTheLast14Days: boolean;
   contactInTheLast14DaysWithAPersonWhoHasSymptoms: boolean;
   haveYouBeenInContactWithPeopleWhoHaveTheCoronaVirusInTheLast14Days: boolean;

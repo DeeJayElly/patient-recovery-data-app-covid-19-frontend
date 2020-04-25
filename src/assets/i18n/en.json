@@ -107,5 +107,7 @@
   "PATIENT_RELEVANT_DATA": "Patient relevant data",
   "DELETE_PATIENT_RELEVANT_DATA": "Delete patient relevant data",
   "CREATE_PATIENT_RELEVANT_DATA": "Create patient relevant data",
-  "EDIT_PATIENT_RELEVANT_DATA": "Edit patient relevant data"
+  "EDIT_PATIENT_RELEVANT_DATA": "Edit patient relevant data",
+  "IMPORT_PATIENTS": "Import Patients",
+  "SAVE_IMPORTED_DATA": "Save imported data"
 }

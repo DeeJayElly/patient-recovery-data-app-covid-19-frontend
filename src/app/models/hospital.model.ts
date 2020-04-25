@@ -1,5 +1,5 @@
 export class Hospital {
-  _id: string;
+  _id?: string;
   name: string;
   address: string;
   numberOfBeds: number;

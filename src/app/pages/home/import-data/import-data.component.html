@@ -1,19 +1,50 @@
-<input type="file" #fileReader name="Upload CSV" id="fileUpload" (change)="uploadDataListener($event)" accept=".csv"/>
-
-<div class="board">
-  <div class="card-list mat-elevation-z1" *ngFor="let item of importedColumns; let i=index">
-    <h2 cdkDragHandle class="mat-h2">{{item.title}}</h2>
-    <div class="card-list-content" cdkDropList [id]="item.id" [cdkDropListData]="item.tasks"
-         [cdkDropListConnectedTo]="columnIds"
-         (cdkDropListDropped)="onItemDrop($event)">
-      <nb-card style="margin: 2%;" *ngFor="let task of item.tasks" cdkDrag>
-        <nb-card-body>
-          <h2>
-            {{task.title}}
-          </h2>
-          {{task.description}}
-        </nb-card-body>
-      </nb-card>
-    </div>
-  </div>
+<div class="col-md-12">
+  <nb-card>
+    <nb-card-header>
+      <div class="title-container">
+        <div class="title">
+          {{'IMPORT_PATIENTS' | translate}}
+        </div>
+        <div class="buttons">
+          <button nbButton (click)="saveImportedData()">{{'SAVE_IMPORTED_DATA' | translate}}</button>
+        </div>
+      </div>
+    </nb-card-header>
+    <nb-card-body>
+      <div class="root">
+        <div class="board">
+          <div class="board-bar">
+            <input type="file" #fileReader name="Upload CSV" id="fileUpload" (change)="uploadDataListener($event)"
+                   accept=".csv"/>
+          </div>
+          <div class="board-wrapper">
+            <div class="board-columns" cdkDropListGroup>
+              <div class="board-column" *ngFor="let column of mainData.columns">
+                <div class="column-title">
+                  {{ column.name }}
+                </div>
+                <div class="tasks-container"
+                     cdkDropList
+                     [cdkDropListData]="column.items"
+                     (cdkDropListDropped)="onItemDrop($event)">
+                  <div class="task" *ngFor="let item of column.items; let i = index" cdkDrag>
+                    <div class="task-inner"
+                                  [ngClass]="{'done': (checkmarks[i] && checkmarks[i].checked === true)}">
+                      <div class="task-checkmark">
+                        <span>{{ i + 1 }}</span>
+                        <nb-checkbox (click)="checkMarkItem(i, item.name)"></nb-checkbox>
+                      </div>
+                      <div class="task-info">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
 </div>

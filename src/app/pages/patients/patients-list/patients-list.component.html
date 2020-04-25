@@ -5,6 +5,7 @@
         {{'PATIENTS_LIST' | translate}}
       </div>
       <div class="buttons">
+        <button nbButton routerLink="/pages/app/import">{{'IMPORT_PATIENTS' | translate}}</button>
         <button *ngIf="isAdmin || isHospitalAdmin" nbButton
                 routerLink="/pages/patients/add">{{'ADD_PATIENT' | translate}}</button>
       </div>

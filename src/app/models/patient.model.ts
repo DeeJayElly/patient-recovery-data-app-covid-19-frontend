@@ -2,14 +2,14 @@ import {WarningScore} from './warning-score.model';
 import {PatientRelevantData} from './patient-relevant-data.model';
 
 export class Patient {
-  _id: string;
-  firstName: string;
-  lastName: string;
+  _id?: string;
+  firstName?: string;
+  lastName?: string;
   dateOfBirth: string;
   sex: string;
-  address: string;
-  contact: string;
-  assignedDoctor: string;
+  address?: string;
+  contact?: string;
+  assignedDoctor?: string;
   drugAllergy?: boolean;
   smoking?: boolean;
   coronaryHeartDisease?: boolean;
