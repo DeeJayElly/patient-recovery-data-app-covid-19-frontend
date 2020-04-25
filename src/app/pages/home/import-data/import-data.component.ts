@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Patient} from '../../../models/patient.model';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
-import {first} from "rxjs/operators";
+import {first} from 'rxjs/operators';
 import {PatientService} from '../../../services/patient/patient.service';
 import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
 import {NbDialogService} from '@nebular/theme';
@@ -9,7 +9,7 @@ import {NbDialogService} from '@nebular/theme';
 @Component({
   selector: 'ngx-import-data',
   templateUrl: './import-data.component.html',
-  styleUrls: ['./import-data.component.scss']
+  styleUrls: ['./import-data.component.scss'],
 })
 export class ImportDataComponent implements OnInit {
   @ViewChild('fileReader') fileReader: any;
@@ -21,100 +21,100 @@ export class ImportDataComponent implements OnInit {
     columns: [
       {
         name: 'Source (Imported) columns',
-        items: []
+        items: [],
       }, {
         name: 'Target columns',
         items: [
           {
             name: 'dateOfBirth',
-            value: null
+            value: null,
           },
           {
             name: 'sex',
-            value: null
+            value: null,
           },
           {
             name: 'address',
-            value: null
+            value: null,
           },
           {
             name: 'contact',
-            value: null
+            value: null,
           },
           {
             name: 'assignedDoctor',
-            value: null
+            value: null,
           },
           {
             name: 'drugAllergy',
-            value: null
+            value: null,
           },
           {
             name: 'smoking',
-            value: null
+            value: null,
           },
           {
             name: 'coronaryHeartDisease',
-            value: null
+            value: null,
           },
           {
             name: 'heartArrhythmia',
-            value: null
+            value: null,
           },
           {
             name: 'heartFailure',
-            value: null
+            value: null,
           },
           {
             name: 'lungDisease',
-            value: null
+            value: null,
           },
           {
             name: 'asthma',
-            value: null
+            value: null,
           },
           {
             name: 'chronicKidneyDisease',
-            value: null
+            value: null,
           },
           {
             name: 'diabetes',
-            value: null
+            value: null,
           },
           {
             name: 'heartStroke',
-            value: null
+            value: null,
           },
           {
             name: 'malignantDisease',
-            value: null
+            value: null,
           },
           {
             name: 'chronicLiverDisease',
-            value: null
+            value: null,
           },
           {
             name: 'inflamatoryBowelDisease',
-            value: null
+            value: null,
           },
           {
             name: 'reuma',
-            value: null
+            value: null,
           },
           {
             name: 'hiv',
-            value: null
+            value: null,
           },
           {
             name: 'medications',
-            value: null
+            value: null,
           },
           {
             name: 'operations',
-            value: null
-          }
-        ]
-      }
+            value: null,
+          },
+        ],
+      },
     ],
   };
   public importedColumns: any[] = [];
@@ -151,14 +151,14 @@ export class ImportDataComponent implements OnInit {
           this.importedColumns.map(item => {
             this.checkmarks.push({
               columnName: item.name,
-              checked: false
+              checked: false,
             });
           });
         }
         this.importedColumns.map((item, index) => {
           let newItem = {
             name: item,
-            value: []
+            value: [],
           };
           this.records.map((record) => {
             const innerItem = record[index];
@@ -181,7 +181,7 @@ export class ImportDataComponent implements OnInit {
     let csvArr = [];
     for (let i = 1; i < csvRecordsArray.length; i++) {
       let currentRecord = (<string>csvRecordsArray[i]).split(',');
-      if (currentRecord.length == headerLength) {
+      if (currentRecord.length === headerLength) {
         csvArr.push(currentRecord);
       }
     }
@@ -227,17 +227,19 @@ export class ImportDataComponent implements OnInit {
    */
   public saveImportedData() {
     let data = [];
-    this.records.map((record, index) => {
-      const checkedColumns = this.mainData.columns[0].items.filter((item, index) => this.mainData.columns[1].items[index] && this.checkmarks[index] && this.checkmarks[index].checked === true);
+    this.records.map((record, i) => {
+      const checkedColumns =
+        this.mainData.columns[0].items.filter((item, index) => this.mainData.columns[1].items[index]
+          && this.checkmarks[index] && this.checkmarks[index].checked === true);
       let patientItem = {};
-      checkedColumns.map(column => patientItem[column.name] = column.value[index]);
+      checkedColumns.map(column => patientItem[column.name] = column.value[i]);
       data.push(patientItem);
     });
     this.patientService.importCSVData(data)
       .pipe(first())
       .subscribe(
-        (data: Patient) => {
-          if (data) {
+        (result: Patient) => {
+          if (result) {
             this.openDialog();
           }
         },
@@ -263,7 +265,7 @@ export class ImportDataComponent implements OnInit {
   public checkMarkItem(index, title) {
     this.checkmarks[index] = {
       columnName: title,
-      checked: !this.checkmarks[index].checked
+      checked: !this.checkmarks[index].checked,
     };
   }
 }
