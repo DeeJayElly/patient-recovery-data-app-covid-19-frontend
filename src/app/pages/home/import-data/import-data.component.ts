@@ -136,14 +136,14 @@ export class ImportDataComponent implements OnInit {
    * @param event
    */
   public uploadDataListener(event: any) {
-    let files = event.srcElement.files;
+    const files = event.srcElement.files;
     if (this.isValidCSVFile(files[0])) {
-      let input = event.target;
-      let reader = new FileReader();
+      const input = event.target;
+      const reader = new FileReader();
       reader.readAsText(input.files[0]);
 
       reader.onload = () => {
-        let csvData = reader.result;
+        const csvData = reader.result;
         this.csvRecordsArray = (<string>csvData).split(/\r\n|\n/);
         this.importedColumns = this.getHeaderArray(this.csvRecordsArray);
         this.records = this.getDataRecordsArrayFromCSVFile(this.csvRecordsArray, this.importedColumns.length);
@@ -156,7 +156,7 @@ export class ImportDataComponent implements OnInit {
           });
         }
         this.importedColumns.map((item, index) => {
-          let newItem = {
+          const newItem = {
             name: item,
             value: [],
           };
@@ -178,9 +178,9 @@ export class ImportDataComponent implements OnInit {
   }
 
   private getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
-    let csvArr = [];
+    const csvArr = [];
     for (let i = 1; i < csvRecordsArray.length; i++) {
-      let currentRecord = (<string>csvRecordsArray[i]).split(',');
+      const currentRecord = (<string>csvRecordsArray[i]).split(',');
       if (currentRecord.length === headerLength) {
         csvArr.push(currentRecord);
       }
@@ -193,8 +193,8 @@ export class ImportDataComponent implements OnInit {
   }
 
   private getHeaderArray(csvRecordsArr: any) {
-    let headers = (<string>csvRecordsArr[0]).split(',');
-    let headerArray = [];
+    const headers = (<string>csvRecordsArr[0]).split(',');
+    const headerArray = [];
     for (let j = 0; j < headers.length; j++) {
       headerArray.push(headers[j]);
     }
@@ -226,12 +226,12 @@ export class ImportDataComponent implements OnInit {
    * Save imported data function
    */
   public saveImportedData() {
-    let data = [];
+    const data = [];
     this.records.map((record, i) => {
       const checkedColumns =
         this.mainData.columns[0].items.filter((item, index) => this.mainData.columns[1].items[index]
           && this.checkmarks[index] && this.checkmarks[index].checked === true);
-      let patientItem = {};
+      const patientItem = {};
       checkedColumns.map(column => patientItem[column.name] = column.value[i]);
       data.push(patientItem);
     });
