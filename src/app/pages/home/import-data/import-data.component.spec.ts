@@ -7,7 +7,7 @@ describe('ImportDataComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ImportDataComponent]
+      declarations: [ImportDataComponent],
     })
       .compileComponents();
   }));
